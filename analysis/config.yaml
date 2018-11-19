@@ -1,0 +1,5 @@
+multiplexed: false
+sample_name: "SAMPLE_NAME"
+barcodes: "BC01 BC02 BC03 BC04 BC05"
+reference: "data/reference/NC_000962.3.fa.gz"
+container: "containers/tb.simg"
