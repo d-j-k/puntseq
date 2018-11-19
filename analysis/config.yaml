@@ -1,5 +1,6 @@
-multiplexed: false
-sample_name: "SAMPLE_NAME"
-barcodes: "BC01 BC02 BC03 BC04 BC05"
-reference: "data/reference/NC_000962.3.fa.gz"
-container: "containers/tb.simg"
+barcodes: "BC01 BC02 BC03 BC04 BC05 BC06 BC07 BC08 BC09 BC10 BC11 BC12"
+min_read_length: 1000
+keep_percent: 95
+mean_q_weight: 10
+check_reads: 100000
+container: "shub://"

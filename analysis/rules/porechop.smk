@@ -1,8 +1,3 @@
-if MULTIPLEXED:
-    INPUT = "data/basecalled/"
-else:
-    INPUT = expand("data/basecalled/{sample}.fastq.gz", sample=SAMPLES)
-
 
 def determine_output_format(wildcards, output):
     if MULTIPLEXED:
@@ -14,7 +9,7 @@ def determine_output_format(wildcards, output):
 
 rule porechop:
     input:
-        INPUT
+        expand("data/basecalled/{sample}.fastq.gz", sample=SAMPLES)
     output:
         expand("data/porechopped/{sample}.fastq.gz", sample=SAMPLES)
     threads:
@@ -22,13 +17,13 @@ rule porechop:
     resources:
         mem_mb=cluster_config["porechop"]["memory"]
     params:
-        output_type=determine_output_format,
-        unassigned=("--discard_unassigned" if MULTIPLEXED else "")
+        barcode_dir = "data/{wildcars.run}/porechopped",
+        check_reads = config["check_reads"]
     log:
         "logs/porechop.log"
     singularity:
         config["container"]
     shell:
-        "porechop --input {input}  {params.output_type} --threads {threads} "
-        "--check_reads 25000 --extra_end_trim 10 --discard_middle "
-        "{params.unassigned} --format fastq.gz > {log}"
+        "porechop --input {input}  {params.barcode_dir} --threads {threads} "
+        "--check_reads {params.check_reads} --extra_end_trim 10 --discard_middle "
+        "--discard_unassigned --format fastq.gz > {log}"
