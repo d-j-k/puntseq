@@ -1,7 +1,7 @@
-import os
 import re
 import yaml
 from typing import List
+from pathlib import Path
 from snakemake.utils import min_version
 
 
@@ -14,7 +14,7 @@ min_version("4.2.0")
 #======================================================
 configfile: "config.yaml"
 
-with open('cluster.yaml', 'r') as fh:
+with open("cluster.yaml", "r") as fh:
     cluster_config = yaml.load(fh)
 
 
@@ -28,24 +28,19 @@ class InvalidBarcode(Exception):
 def barcode_parser(barcodes_string: str) -> List[str]:
     """Parses the barcodes string and ensures they follow correct format"""
     msg = "Barcode must be of the form BC01. That is, BC followed by 2 digits."
-    regex = r'\bBC\d{2}\b'
+    regex = r"\bBC\d{2}\b"
     barcodes = barcodes_string.split()
     for barcode in barcodes:
         if not (len(barcode) == 4 and re.match(regex, barcode)):
-            raise InvalidBarcode(barcode + '\n' + msg)
+            raise InvalidBarcode(barcode + "\n" + msg)
     return barcodes
 
 
 #======================================================
 # Global variables
 #======================================================
-RULES_DIR = 'rules'
-MULTIPLEXED = config["multiplexed"]
-if MULTIPLEXED:
-    SAMPLES = barcode_parser(config["barcodes"])
-else:
-    SAMPLES = [config["sample_name"]]
-
+RULES_DIR = Path("rules")
+SAMPLES = barcode_parser(config["barcodes"])
 
 #======================================================
 # Rules
@@ -56,7 +51,5 @@ rule all:
 
 
 # the snakemake files that run the different parts of the pipeline
-include: os.path.join(RULES_DIR, 'porechop.smk')
-include: os.path.join(RULES_DIR, 'align.smk')
-include: os.path.join(RULES_DIR, 'mykrobe.smk')
-include: os.path.join(RULES_DIR, 'reports.smk')
+include: RULES_DIR.joinpath("porechop.smk")
+include: RULES_DIR.joinpath("reports.smk")
