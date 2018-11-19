@@ -9,6 +9,8 @@ name = "pypi"
 
 snakemake = "*"
 docutils = "*"
+pistis = "*"
+nanostat = "*"
 
 
 [dev-packages]
