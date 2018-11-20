@@ -2,7 +2,7 @@ rule porechop:
     input:
         "data/{run}/basecalled/{run}_all_passed.fastq.gz"
     output:
-        expand("data/{run}/porechopped/{sample}.fastq.gz", sample=SAMPLES, run=RUNS)
+        expand("data/{{run}}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
     threads:
         cluster_config["porechop"]["nCPUs"]
     resources:

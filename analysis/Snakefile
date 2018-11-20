@@ -50,9 +50,9 @@ print(RUNS)
 #======================================================
 rule all:
     input:
-        expand("data/{run}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
+        expand("data/{run}/porechopped/{sample}.fastq.gz", sample=SAMPLES, run=RUNS)
 
 
 # the snakemake files that run the different parts of the pipeline
-include: RULES_DIR.joinpath("porechop.smk")
+include: str(RULES_DIR.joinpath("porechop.smk"))
 # include: RULES_DIR.joinpath("reports.smk")

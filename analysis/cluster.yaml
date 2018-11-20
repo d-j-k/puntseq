@@ -7,16 +7,6 @@ __default__:
     error     : "logs/cluster_{rule}.{wildcards}.e"
 
 
-map_minimap2:
-    nCPUs     : 16
-    memory    : 16000
-    resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
-
-samtools_sort:
-    nCPUs     : 16
-    memory    : 10000
-    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
-
 porechop:
     nCPUs     : 16
     memory    : 16000
