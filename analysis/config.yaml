@@ -3,4 +3,4 @@ min_read_length: 1000
 keep_percent: 95
 mean_q_weight: 10
 check_reads: 100000
-container: "shub://"
+container: "shub://mbhall88/Singularity_recipes:puntseq"
