@@ -41,15 +41,18 @@ def barcode_parser(barcodes_string: str) -> List[str]:
 #======================================================
 RULES_DIR = Path("rules")
 SAMPLES = barcode_parser(config["barcodes"])
+RUNS = config["runs"].split()
+
+print(RUNS)
 
 #======================================================
 # Rules
 #======================================================
 rule all:
     input:
-        expand("docs/report_{sample}.html", sample=SAMPLES)
+        expand("data/{run}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
 
 
 # the snakemake files that run the different parts of the pipeline
 include: RULES_DIR.joinpath("porechop.smk")
-include: RULES_DIR.joinpath("reports.smk")
+# include: RULES_DIR.joinpath("reports.smk")
