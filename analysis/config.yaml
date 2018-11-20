@@ -3,4 +3,6 @@ min_read_length: 1000
 keep_percent: 95
 mean_q_weight: 10
 check_reads: 100000
+extra_end_trim: 10
+porechop_out_format: "fastq.gz"
 container: "shub://mbhall88/Singularity_recipes:puntseq"

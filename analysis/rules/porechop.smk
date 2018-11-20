@@ -1,29 +1,27 @@
-
-def determine_output_format(wildcards, output):
-    if MULTIPLEXED:
-        result = "--barcode_dir data/porechopped"
-    else:
-        result = "--output {output}".format(output=output[0])
-    return result
-
-
 rule porechop:
     input:
-        expand("data/basecalled/{sample}.fastq.gz", sample=SAMPLES)
+        "data/{run}/basecalled/{run}_all_passed.fastq.gz"
     output:
-        expand("data/porechopped/{sample}.fastq.gz", sample=SAMPLES)
+        expand("data/{run}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
     threads:
         cluster_config["porechop"]["nCPUs"]
     resources:
         mem_mb=cluster_config["porechop"]["memory"]
     params:
-        barcode_dir = "data/{wildcars.run}/porechopped",
-        check_reads = config["check_reads"]
+        barcode_dir = "data/{wildcards.run}/porechopped",
+        check_reads = config["check_reads"],
+        extra_end_trim = config["extra_end_trim"],
+        out_format = config["porechop_out_format"]
     log:
-        "logs/porechop.log"
+        "logs/porechop_{run}.log"
     singularity:
         config["container"]
     shell:
-        "porechop --input {input}  {params.barcode_dir} --threads {threads} "
-        "--check_reads {params.check_reads} --extra_end_trim 10 --discard_middle "
-        "--discard_unassigned --format fastq.gz > {log}"
+        """porechop --input {input} \
+          --barcode_dir {params.barcode_dir} \
+          --threads {threads} \
+          --check_reads {params.check_reads} \
+          --extra_end_trim {params.extra_end_trim} \
+          --discard_middle \
+          --discard_unassigned \
+          --format {params.out_format} > {log}"""
