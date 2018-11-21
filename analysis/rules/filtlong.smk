@@ -4,7 +4,7 @@ rule filtlong:
     output:
         "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     resources:
-        mem_mb = lambda wildcards, attempt: attempt * 8000
+        mem_mb = cluster_config["filtlong"]["memory"]
     params:
         min_read_length = config["min_read_length"],
         keep_percent = config["keep_percent"],
