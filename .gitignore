@@ -1,2 +1,4 @@
 *.fastq
+*.fastq.gz
 Pipfile.lock
+.snakemake/

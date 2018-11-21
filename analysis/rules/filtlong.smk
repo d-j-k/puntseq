@@ -2,9 +2,7 @@ rule filtlong:
     input:
         "data/{run}/porechopped/{sample}.fastq.gz"
     output:
-        "data/{run}/filtlong/{sample}_filtlong.fastq.gz"
-    threads:
-        cluster_config["filtlong"]["nCPUs"]
+        "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     resources:
         mem_mb=cluster_config["filtlong"]["memory"]
     params:
@@ -16,4 +14,7 @@ rule filtlong:
     singularity:
         config["container"]
     shell:
-        "filtlong  "
+        """filtlong --min_length {params.min_read_length} \
+            --keep_percent {params.keep_percent} \
+            --mean_q_weight {params.mean_q_weight} \
+            --verbose {input} 2> {log} | gzip > {output}"""
