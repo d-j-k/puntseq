@@ -24,3 +24,6 @@ stats_post_filtering:
 plot_post_filtering:
     memory    : 4000
     resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
+
+centrifuge:
+    nCPUs     : 16
