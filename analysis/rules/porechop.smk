@@ -3,10 +3,9 @@ rule porechop:
         "data/{run}/basecalled/{run}_all_passed.fastq.gz"
     output:
         expand("data/{{run}}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
-    threads:
-        cluster_config["porechop"]["nCPUs"]
+    threads: 16
     resources:
-        mem_mb=cluster_config["porechop"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * 16000
     params:
         barcode_dir = "data/{wildcards.run}/porechopped",
         check_reads = config["check_reads"],
@@ -25,5 +24,5 @@ rule porechop:
           --extra_end_trim {params.extra_end_trim} \
           --discard_middle \
           --discard_unassigned \
-          --format {params.out_format} > {log}
+          --format {params.out_format} &> {log}
         """

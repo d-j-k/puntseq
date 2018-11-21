@@ -6,7 +6,7 @@ rule plot_post_filtering:
     log:
         "logs/pistis_{run}_{sample}.log"
     resources:
-        mem_mb = cluster_config["plot_post_filtering"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * 3000
     params:
         downsample = config["plot_downsample"]
     shell:
@@ -23,10 +23,9 @@ rule stats_post_filtering:
         "data/{run}/stats/{sample}_stats.txt"
     log:
         "logs/nanostat_{run}_{sample}.log"
-    threads:
-        cluster_config["stats_post_filtering"]["nCPUs"]
+    threads: 4
     resources:
-        mem_mb=cluster_config["stats_post_filtering"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * 4000
     shell:
         """
         NanoStat --fastq {input} --name {output} --threads {threads} \ 
