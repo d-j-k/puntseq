@@ -2,7 +2,25 @@ __default__:
     nCPUs     : 1
     memory    : 1000
     resources : "\"select[mem>1000] rusage[mem=1000] span[hosts=1]\""
-    name      : "puntseq.{rule}.{wildcards}"
+    name      : "JOBNAME.{rule}.{wildcards}"
     output    : "logs/cluster_{rule}.{wildcards}.o"
     error     : "logs/cluster_{rule}.{wildcards}.e"
 
+
+porechop:
+    nCPUs     : 16
+    memory    : 32000
+    resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
+
+filtlong:
+    memory    : 8000
+    resources : "\"select[mem>8000] rusage[mem=8000] span[hosts=1]\""
+
+stats_post_filtering:
+    nCPUs     : 8
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
+
+plot_post_filtering:
+    memory    : 4000
+    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
