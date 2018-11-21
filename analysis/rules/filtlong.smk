@@ -1,6 +1,6 @@
 rule filtlong:
     input:
-        "data/{run}/porechopped/{sample}.fastq.gz"
+        rules.porechop.output
     output:
         "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     resources:
@@ -14,7 +14,9 @@ rule filtlong:
     singularity:
         config["container"]
     shell:
-        """filtlong --min_length {params.min_read_length} \
+        """
+        filtlong --min_length {params.min_read_length} \
             --keep_percent {params.keep_percent} \
             --mean_q_weight {params.mean_q_weight} \
-            --verbose {input} 2> {log} | gzip > {output}"""
+            --verbose {input} 2> {log} | gzip > {output}
+        """

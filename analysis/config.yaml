@@ -6,4 +6,5 @@ mean_q_weight: 10
 check_reads: 100000
 extra_end_trim: 10
 porechop_out_format: "fastq.gz"
+plot_downsample: 50000
 container: "shub://mbhall88/Singularity_recipes:puntseq"
