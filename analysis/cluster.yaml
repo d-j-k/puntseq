@@ -12,6 +12,10 @@ porechop:
     memory    : 16000
     resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
 
+filtlong:
+    memory    : 8000
+    resources : "\"select[mem>8000] rusage[mem=8000] span[hosts=1]\""
+
 stats_pre_filtering:
     nCPUs     : 8
     memory    : 10000
