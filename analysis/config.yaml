@@ -1,5 +1,5 @@
 barcodes: "BC01 BC02 BC03 BC04 BC05 BC06 BC07 BC08 BC09 BC10 BC11 BC12"
-runs: "april"
+runs: "april june"
 min_read_length: 1000
 keep_percent: 95
 mean_q_weight: 10
@@ -7,4 +7,6 @@ check_reads: 100000
 extra_end_trim: 10
 porechop_out_format: "fastq.gz"
 plot_downsample: 50000
+centrifuge_db_url: "ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p_compressed_2018_4_15.tar.gz"
+db_md5: "cd383338ef67ebf0bed098f694d5a5bb"
 container: "shub://mbhall88/Singularity_recipes:puntseq"
