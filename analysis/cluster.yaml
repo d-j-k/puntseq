@@ -16,20 +16,11 @@ filtlong:
     memory    : 8000
     resources : "\"select[mem>8000] rusage[mem=8000] span[hosts=1]\""
 
-stats_pre_filtering:
-    nCPUs     : 8
-    memory    : 10000
-    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
-
-plot_pre_filtering:
-    memory    : 10000
-    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
-
 stats_post_filtering:
     nCPUs     : 8
     memory    : 10000
     resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 plot_post_filtering:
-    memory    : 10000
-    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
+    memory    : 4000
+    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""

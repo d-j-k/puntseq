@@ -17,11 +17,13 @@ rule porechop:
     singularity:
         config["container"]
     shell:
-        """porechop --input {input} \
+        """
+        porechop --input {input} \
           --barcode_dir {params.barcode_dir} \
           --threads {threads} \
           --check_reads {params.check_reads} \
           --extra_end_trim {params.extra_end_trim} \
           --discard_middle \
           --discard_unassigned \
-          --format {params.out_format} > {log}"""
+          --format {params.out_format} > {log}
+        """
