@@ -8,7 +8,7 @@ rule porechop:
     resources:
         mem_mb = cluster_config["porechop"]["memory"]
     params:
-        barcode_dir = "data/{wildcards.run}/porechopped",
+        barcode_dir = lambda wildcards: f"data/{wildcards.run}/porechopped",
         check_reads = config["check_reads"],
         extra_end_trim = config["extra_end_trim"],
         out_format = config["porechop_out_format"]
