@@ -41,3 +41,17 @@ rule centrifuge:
           -S {output.classification} \
           --met-stderr 2> {log}
         """
+
+rule centrifuge_krakenstyle_report:
+    input:
+        rules.centrifuge.output.classification
+    output:
+        "data/{run}/centrifuge/centrifuge_classification_kreport_{run}_{sample}.tab"
+    params:
+        index_prefix = "data/centrifuge_db/p_compressed"
+    log:
+        "logs/centrifuge_kreport_{run}_{sample}.log"
+    shell:
+        """
+        centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
+        """
