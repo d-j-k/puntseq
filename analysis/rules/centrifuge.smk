@@ -20,17 +20,24 @@ rule centrifuge:
         rules.download_centrifuge_db.output,
         fastq = rules.filtlong.output
     output:
-
+        report = "data/{run}/centrifuge/centrifuge_report_{run}_{sample}.tsv",
+        classification = "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
     threads:
         cluster_config["centrifuge"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["centrifuge"]["memory"]
     params:
         index_prefix = "data/centrifuge_db/p_compressed"
     singularity:
         config["container"]
+    log:
+        "logs/centrifuge_{run}_{sample}.log"
     shell:
         """
         centrifuge -x {params.index_prefix} \
           -U {input.fastq} \
           --threads {threads} \
-          --report-file Reports/${PREFIX}_centrifuge_report.tsv "$THREADS" -S Reports/${PREFIX}_centrifuge.classification 
+          --report-file {output.report} \
+          -S {output.classification} \
+          --met-stderr 2> {log}
         """

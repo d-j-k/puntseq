@@ -8,8 +8,8 @@ __default__:
 
 
 porechop:
-    nCPUs     : 16
-    memory    : 32000
+    nCPUs     : 32
+    memory    : 64000
     resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
 
 filtlong:
@@ -27,3 +27,5 @@ plot_post_filtering:
 
 centrifuge:
     nCPUs     : 16
+    memory    : 20000
+    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
