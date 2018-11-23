@@ -5,7 +5,7 @@ rule download_krakenuniq_db:
     threads:
         cluster_config["download_krakenuniq_db"]["nCPUs"]
     resources:
-        cluster_config["download_krakenuniq_db"]["memory"]
+        mem_mb = cluster_config["download_krakenuniq_db"]["memory"]
     params:
         taxa = "archaea,bacteria,viral,fungi,protozoa",
         db_dir = "data/krakenuniq_db",
@@ -34,7 +34,7 @@ rule krakenuniq:
     threads:
         cluster_config["krakenuniq"]["nCPUs"]
     resources:
-        cluster_config["krakenuniq"]["memory"]
+        mem_mb = cluster_config["krakenuniq"]["memory"]
     params:
         db_dir = "data/krakenuniq_db"
     shell:
