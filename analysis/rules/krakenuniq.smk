@@ -4,6 +4,8 @@ rule download_krakenuniq_db:
         "data/krakenuniq_db/taxonomy/nodes.dmp"
     threads:
         cluster_config["download_krakenuniq_db"]["nCPUs"]
+    resources:
+        cluster_config["download_krakenuniq_db"]["memory"]
     params:
         taxa = "archaea,bacteria,viral,fungi,protozoa",
         db_dir = "data/krakenuniq_db",
@@ -19,5 +21,26 @@ rule download_krakenuniq_db:
           --threads {threads} \
           --dust \
           {params.database} 2> {log}
-          
+
+        """
+
+rule krakenuniq:
+    input:
+        rules.download_krakenuniq_db.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/krakenuniq/krakenuniq_classification_{run}_{sample}.kreport",
+        outfile = "data/{run}/krakenuniq/krakenuniq_classification_{run}_{sample}.out"
+    threads:
+        cluster_config["krakenuniq"]["nCPUs"]
+    resources:
+        cluster_config["krakenuniq"]["memory"]
+    params:
+        db_dir = "data/krakenuniq_db"
+    shell:
+        """
+        krakenuniq --db {params.db_dir} \
+          --report-file {output.report} \
+          --output {output.outfile} \
+          --threads {threads}
         """

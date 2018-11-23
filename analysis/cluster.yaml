@@ -32,3 +32,10 @@ centrifuge:
 
 download_krakenuniq_db:
     nCPUs     : 16
+    memory    : 20000
+    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+
+krakenuniq:
+    nCPUs     : 32
+    memory    : 20000
+    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
