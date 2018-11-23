@@ -50,10 +50,13 @@ rule all:
     input:
         expand("data/{run}/stats/{sample}_stats.txt", sample=SAMPLES, run=RUNS),
         expand("data/{run}/plots/{sample}_filtered.pdf", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/centrifuge/centrifuge_classification_kreport_{run}_{sample}.tab", sample=SAMPLES, run=RUNS)
+        expand("data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS),
+        "data/krakenuniq_db/taxonomy/names.dmp",
+        "data/krakenuniq_db/taxonomy/nodes.dmp"
 
 # the snakemake files that run the different parts of the pipeline
 include: str(RULES_DIR.joinpath("porechop.smk"))
 include: str(RULES_DIR.joinpath("filtlong.smk"))
 include: str(RULES_DIR.joinpath("reports.smk"))
 include: str(RULES_DIR.joinpath("centrifuge.smk"))
+include: str(RULES_DIR.joinpath("krakenuniq.smk"))
