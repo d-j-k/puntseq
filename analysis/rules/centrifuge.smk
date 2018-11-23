@@ -46,7 +46,7 @@ rule centrifuge_krakenstyle_report:
     input:
         "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
     output:
-        "data/{run}/centrifuge/centrifuge_classification_kreport_{run}_{sample}.tab"
+        "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport"
     params:
         index_prefix = "data/centrifuge_db/p_compressed"
     log:
