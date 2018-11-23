@@ -9,8 +9,8 @@ __default__:
 
 porechop:
     nCPUs     : 32
-    memory    : 64000
-    resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
+    memory    : 40000
+    resources : "\"select[mem>40000] rusage[mem=40000] span[hosts=1]\""
 
 filtlong:
     memory    : 8000
