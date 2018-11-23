@@ -18,7 +18,7 @@ rule download_centrifuge_db:
 rule centrifuge:
     input:
         rules.download_centrifuge_db.output,
-        fastq = rules.filtlong.output
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     output:
         report = "data/{run}/centrifuge/centrifuge_report_{run}_{sample}.tsv",
         classification = "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
@@ -44,13 +44,15 @@ rule centrifuge:
 
 rule centrifuge_krakenstyle_report:
     input:
-        rules.centrifuge.output.classification
+        "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
     output:
         "data/{run}/centrifuge/centrifuge_classification_kreport_{run}_{sample}.tab"
     params:
         index_prefix = "data/centrifuge_db/p_compressed"
     log:
         "logs/centrifuge_kreport_{run}_{sample}.log"
+    singularity:
+        config["container"]
     shell:
         """
         centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}

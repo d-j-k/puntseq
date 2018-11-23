@@ -1,6 +1,6 @@
 rule filtlong:
     input:
-        rules.porechop.output
+        "data/{run}/porechopped/{sample}.fastq.gz"
     output:
         "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     resources:

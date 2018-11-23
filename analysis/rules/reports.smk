@@ -1,6 +1,6 @@
 rule plot_post_filtering:
     input:
-        rules.filtlong.output
+        "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     output:
         "data/{run}/plots/{sample}_filtered.pdf"
     log:
@@ -18,7 +18,7 @@ rule plot_post_filtering:
 
 rule stats_post_filtering:
     input:
-        rules.filtlong.output
+        "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     output:
         "data/{run}/stats/{sample}_stats.txt"
     log:
@@ -29,7 +29,6 @@ rule stats_post_filtering:
         mem_mb = cluster_config["stats_post_filtering"]["memory"]
     shell:
         """
-        NanoStat --fastq {input} --name {output} --threads {threads} \ 
-          --readtype 1D 2> {log}
+        NanoStat --fastq {input} --name {output} --threads {threads} 2> {log}
         """
 
