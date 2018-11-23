@@ -41,6 +41,17 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     cd ~
 
     # ================================
+    # INSTALL blast tools (dustmasker req. for kraken)
+    # ================================
+    apt install -y libidn11-dev
+    VERSION="2.7.1+"
+    URL=ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-"$VERSION"-x64-linux.tar.gz
+    wget -O - "$URL" | tar xzf -
+    cp ncbi*/bin/dustmasker /usr/local/bin/
+    rm -rf ncbi-blast*
+    cd ~
+
+    # ================================
     # INSTALL centrifuge
     # ================================
     VERSION="1.0.4-beta"
