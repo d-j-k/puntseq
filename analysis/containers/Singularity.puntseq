@@ -50,6 +50,11 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     make
     make install prefix=/usr/local
     cd ~
+    # need python2 for kreport
+    add-apt-repository ppa:deadsnakes/ppa
+    apt update
+    apt install -y python2.7
+    ln -s /usr/bin/python2.7 /usr/bin/python
 
     # ================================
     # INSTALL kraken2
