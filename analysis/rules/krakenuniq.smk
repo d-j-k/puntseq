@@ -1,7 +1,7 @@
 rule download_krakenuniq_db:
     output:
-        "data/krakenuniq_db/taxonomy/names.dmp",
-        "data/krakenuniq_db/taxonomy/nodes.dmp"
+        "data/krakenuniq_db/nt-bacteria.fna",
+        "data/krakenuniq_db/nt-archaea.fna"
     threads:
         cluster_config["download_krakenuniq_db"]["nCPUs"]
     resources:
@@ -21,12 +21,31 @@ rule download_krakenuniq_db:
           --threads {threads} \
           --dust \
           {params.database} 2> {log}
+        """
 
+rule build_krakenuniq_db:
+    input:
+        rules.download_krakenuniq_db.output
+    output:
+        "data/krakenuniq/database.kdb"
+    threads:
+        cluster_config["build_krakenuniq_db"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["build_krakenuniq_db"]["memory"]
+    singularity:
+        config["container"]
+    log:
+        "logs/build_krakenuniq_db.log"
+    params:
+        db = "data/krakenuniq_db"
+    shell:
+        """
+        krakenuniq-build --build --db {params.db} --threads {threads} 2> {log}
         """
 
 rule krakenuniq:
     input:
-        rules.download_krakenuniq_db.output,
+        rules.build_krakenuniq_db.output,
         fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
     output:
         report = "data/{run}/krakenuniq/krakenuniq_classification_{run}_{sample}.kreport",
@@ -37,10 +56,14 @@ rule krakenuniq:
         mem_mb = cluster_config["krakenuniq"]["memory"]
     params:
         db_dir = "data/krakenuniq_db"
+    log:
+        "logs/krakenuniq_{run}_{sample}.log"
+    singularity:
+        config["container"]
     shell:
         """
         krakenuniq --db {params.db_dir} \
           --report-file {output.report} \
           --output {output.outfile} \
-          --threads {threads}
+          --threads {threads} {input.fastq} 2> {log}
         """

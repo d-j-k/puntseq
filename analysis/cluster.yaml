@@ -9,7 +9,7 @@ __default__:
 
 porechop:
     nCPUs     : 32
-    memory    : 40000
+    memory    : 80000
     resources : "\"select[mem>40000] rusage[mem=40000] span[hosts=1]\""
 
 filtlong:
@@ -35,7 +35,12 @@ download_krakenuniq_db:
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
+build_krakenuniq_db:
+    nCPUs     : 32
+    memory    : 190000
+    resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
+
 krakenuniq:
     nCPUs     : 32
-    memory    : 20000
-    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+    memory    : 190000
+    resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
