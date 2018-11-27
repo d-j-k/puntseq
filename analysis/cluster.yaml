@@ -22,25 +22,25 @@ stats_post_filtering:
     resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 plot_post_filtering:
-    memory    : 4000
-    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
+    memory    : 32000
+    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
 
 centrifuge:
     nCPUs     : 16
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
-download_krakenuniq_db:
+download_kraken2_db:
     nCPUs     : 16
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
-build_krakenuniq_db:
+build_kraken2_db:
     nCPUs     : 32
     memory    : 190000
     resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
 
-krakenuniq:
+kraken2_classify:
     nCPUs     : 32
     memory    : 190000
     resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
