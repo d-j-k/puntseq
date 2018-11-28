@@ -12,7 +12,8 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     export LANG=C.UTF-8
     echo 'export LC_ALL=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
     echo 'export LANG=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
-    echo "export PATH=/usr/local:/usr/local/bin:$PATH" >> $SINGULARITY_ENVIRONMENT
+    echo "export PATH=/usr/local:/usr/local/bin:/usr/local/lib:$PATH" >> $SINGULARITY_ENVIRONMENT
+    echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> $SINGULARITY_ENVIRONMENT
 
     # ================================
     # INSTALL porechop
@@ -70,6 +71,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     # ================================
     # INSTALL kraken2
     # ================================
+    apt install -y rsync
     VERSION="2.0.7-beta"
     URL=https://github.com/DerrickWood/kraken2/archive/v"$VERSION".tar.gz
     wget -O - "$URL" | tar xzf -
@@ -94,6 +96,17 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     cd ~
 
     # ================================
+    # INSTALL jellyfish
+    # ================================
+    VERSION="1.1.11"
+    URL=http://www.cbcb.umd.edu/software/jellyfish/jellyfish-"$VERSION".tar.gz
+    wget -O - "$URL" | tar xzf -
+    cd jellyfish*
+    ./configure --prefix=/usr/local/
+    make
+    make install
+
+    # ================================
     # INSTALL krakenuniq
     # ================================
     VERSION="0.5.3"
@@ -102,7 +115,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     wget -O - "$URL" | tar xzf -
     cd krakenuniq-"$VERSION"
     echo "export PATH=$(pwd):$PATH" >> $SINGULARITY_ENVIRONMENT
-    ./install_krakenuniq.sh -j $(pwd)
+    ./install_krakenuniq.sh $(pwd)
     cd ~
     perl -MCPAN -e'install "LWP::Simple"'
     ln -s /krakenuniq-"$VERSION"/krakenuniq /krakenuniq-"$VERSION"/krakenuniq-build /krakenuniq-"$VERSION"/krakenuniq-download /krakenuniq-"$VERSION"/krakenuniq-extract-reads /krakenuniq-"$VERSION"/krakenuniq-filter /krakenuniq-"$VERSION"/krakenuniq-mpa-report /krakenuniq-"$VERSION"/krakenuniq-report /krakenuniq-"$VERSION"/krakenuniq-translate /usr/local/bin/

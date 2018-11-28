@@ -17,7 +17,8 @@ rule download_kraken2_db:
     input:
         rules.download_kraken2_taxonomy.output
     output:
-        "data/kraken2_db/database.kdb"
+        "data/kraken2_db/library/bacteria/library.fna",
+        "data/kraken2_db/library/archaea/library.fna"
     threads:
         cluster_config["build_kraken2_db"]["nCPUs"]
     resources:
@@ -38,7 +39,9 @@ rule build_kraken2_db:
     input:
         rules.download_kraken2_db.output
     output:
-        
+        "data/kraken2_db/hash.k2d",
+        "data/kraken2_db/opts.k2d",
+        "data/kraken2_db/taxo.k2d"
     resources:
         mem_mb = cluster_config["build_kraken2_db"]["memory"]
     threads:
@@ -52,29 +55,32 @@ rule build_kraken2_db:
     shell:
         """
         kraken2-build --build --db {params.db} 2> {log}
+        touch deleteme
         """
 
-#rule kraken2_classify:
-#    input:
-#        rules.build_kraken2_db.output,
-#        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
-#    output:
-#        report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport",
-#        outfile = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.out"
-#    threads:
-#        cluster_config["kraken2"]["nCPUs"]
-#    resources:
-#        mem_mb = cluster_config["kraken2"]["memory"]
-#    params:
-#        db_dir = "data/kraken2_db"
-#    log:
-#        "logs/kraken2_{run}_{sample}.log"
-#    singularity:
-#        config["container"]
-#    shell:
-#        """
-#        kraken2 --db {params.db_dir} \
-#          --report-file {output.report} \
-#          --output {output.outfile} \
-#          --threads {threads} {input.fastq} 2> {log}
-#        """
+rule kraken2_classify:
+    input:
+        rules.build_kraken2_db.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport",
+        outfile = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.out"
+    threads:
+        cluster_config["kraken2_classify"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["kraken2_classify"]["memory"]
+    params:
+        db_dir = "data/kraken2_db"
+    log:
+        "logs/kraken2_classify_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        kraken2 --db {params.db_dir} \
+          --output {output.outfile} \
+          --report {output.report} \
+          --fastq-input \
+          --gzip-compressed \
+          --threads {threads} {input.fastq} 2> {log}
+        """

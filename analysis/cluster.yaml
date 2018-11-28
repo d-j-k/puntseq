@@ -37,8 +37,8 @@ download_kraken2_db:
 
 build_kraken2_db:
     nCPUs     : 32
-    memory    : 190000
-    resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
+    memory    : 32000
+    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
 
 kraken2_classify:
     nCPUs     : 32
