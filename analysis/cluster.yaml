@@ -9,7 +9,11 @@ __default__:
 
 porechop:
     nCPUs     : 32
+<<<<<<< HEAD
     memory    : 80000
+=======
+    memory    : 40000
+>>>>>>> 1b5c5ee11a707cc49ccfb82565a66ded6d4b0643
     resources : "\"select[mem>40000] rusage[mem=40000] span[hosts=1]\""
 
 filtlong:
@@ -22,19 +26,29 @@ stats_post_filtering:
     resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 plot_post_filtering:
+<<<<<<< HEAD
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
+=======
+    memory    : 4000
+    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
+>>>>>>> 1b5c5ee11a707cc49ccfb82565a66ded6d4b0643
 
 centrifuge:
     nCPUs     : 16
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
+<<<<<<< HEAD
 download_kraken2_db:
+=======
+download_krakenuniq_db:
+>>>>>>> 1b5c5ee11a707cc49ccfb82565a66ded6d4b0643
     nCPUs     : 16
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
+<<<<<<< HEAD
 build_kraken2_db:
     nCPUs     : 32
     memory    : 32000
@@ -44,3 +58,9 @@ kraken2_classify:
     nCPUs     : 32
     memory    : 190000
     resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
+=======
+krakenuniq:
+    nCPUs     : 32
+    memory    : 20000
+    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+>>>>>>> 1b5c5ee11a707cc49ccfb82565a66ded6d4b0643
