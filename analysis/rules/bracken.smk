@@ -1,6 +1,8 @@
 build_bracken_db:
     input:
         rules.build_kraken2_db.output
+    output:
+        "data/kraken2_db/database35mers.kmer_distrib"
     threads:
         cluster_config["build_bracken_db"]["nCPUs"]
     resources:
