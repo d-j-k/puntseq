@@ -6,7 +6,8 @@ build_bracken_db:
     resources:
         mem_mb = cluster_config["build_bracken_db"]["memory"]
     params:
-        kraken2_db = "data/kraken2_db"
+        kraken2_db = "data/kraken2_db",
+        read_length = config["min_read_length"]
     singularity:
         config["container"]
     log:
@@ -15,5 +16,5 @@ build_bracken_db:
         """
         bracken-build -d {params.kraken2_db} \
           -threads {threads} \
-          -l ${READ_LEN} 2> {log}
+          -l {params.read_length} 2> {log}
         """
