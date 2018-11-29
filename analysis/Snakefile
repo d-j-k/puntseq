@@ -51,8 +51,7 @@ rule all:
         expand("data/{run}/stats/{sample}_stats.txt", sample=SAMPLES, run=RUNS),
         expand("data/{run}/plots/{sample}_filtered.pdf", sample=SAMPLES, run=RUNS),
         expand("data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS),
-        "data/kraken2_db/database35mers.kmer_distrib"
+        expand("data/{run}/bracken/bracken_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS)
 
 # the snakemake files that run the different parts of the pipeline
 include: str(RULES_DIR.joinpath("porechop.smk"))

@@ -20,3 +20,28 @@ build_bracken_db:
           -threads {threads} \
           -l {params.read_length} 2> {log}
         """
+
+bracken_classify:
+    input:
+        rules.build_bracken_db.output,
+        report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport"
+    output:
+        "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken"
+    resources:
+        cluster_config["bracken_classify"]["memory"]
+    singularity:
+        config["container"]
+    params:
+        db = "data/kraken2_db",
+        read_length = config["min_read_length"],
+        threshold = config["bracken_threshold"]
+    log:
+        "logs/bracken_classify_{run}_{sample}.log"
+    shell:
+        """
+        bracken -d {params.db} \
+          -i {input.report} \
+          -o {output} \
+          -r {params.read_length} \
+          -t {params.threshold}
+        """

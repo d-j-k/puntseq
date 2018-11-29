@@ -6,7 +6,6 @@ __default__:
     output    : "logs/cluster_{rule}.{wildcards}.o"
     error     : "logs/cluster_{rule}.{wildcards}.e"
 
-
 porechop:
     nCPUs     : 32
     memory    : 80000
@@ -47,5 +46,9 @@ kraken2_classify:
 
 build_bracken_db:
     nCPUs     : 32
+    memory    : 32000
+    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
+
+bracken_classify:
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
