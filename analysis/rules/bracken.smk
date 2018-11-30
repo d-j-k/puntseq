@@ -1,4 +1,4 @@
-build_bracken_db:
+rule build_bracken_db:
     input:
         rules.build_kraken2_db.output
     output:
@@ -21,7 +21,7 @@ build_bracken_db:
           -l {params.read_length} 2> {log}
         """
 
-bracken_classify:
+rule bracken_classify:
     input:
         rules.build_bracken_db.output,
         report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport"
