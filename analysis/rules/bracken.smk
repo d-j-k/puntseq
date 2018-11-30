@@ -28,7 +28,7 @@ rule bracken_classify:
     output:
         "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken"
     resources:
-        cluster_config["bracken_classify"]["memory"]
+        mem_mb = cluster_config["bracken_classify"]["memory"]
     singularity:
         config["container"]
     params:
