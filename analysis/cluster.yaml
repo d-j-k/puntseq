@@ -29,6 +29,11 @@ centrifuge:
     memory    : 20000
     resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
 
+build_centrifuge_16s_db:
+    nCPUs     : 16
+    memory    : 20000
+    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+
 download_kraken2_db:
     nCPUs     : 16
     memory    : 20000
@@ -39,12 +44,22 @@ build_kraken2_db:
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
 
+build_kraken2_16s_db:
+    nCPUs     : 32
+    memory    : 4000
+    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
+
 kraken2_classify:
     nCPUs     : 32
     memory    : 190000
     resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
 
 build_bracken_db:
+    nCPUs     : 32
+    memory    : 32000
+    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
+
+build_bracken_16s_db:
     nCPUs     : 32
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""

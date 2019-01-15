@@ -54,8 +54,34 @@ rule build_kraken2_db:
         "logs/build_kraken2_db.log"
     shell:
         """
-        kraken2-build --build --db {params.db} 2> {log}
-        touch deleteme
+        kraken2-build --build --db {params.db} --threads {threads} 2> {log}
+        """
+
+rule build_kraken2_16s_db:
+    output:
+        "data/kraken2_16s_db/hash.k2d",
+        "data/kraken2_16s_db/opts.k2d",
+        "data/kraken2_16s_db/taxo.k2d",
+        name_table = "data/kraken2_16s_db/taxonomy/names.dmp",
+        tax_tree = "data/kraken2_16s_db/taxonomy/nodes.dmp",
+        conversion_table = "data/kraken2_16s_db/seqid2taxid.map",
+        ref_seqs = "data/kraken2_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
+        
+    resources:
+        mem_mb = cluster_config["build_kraken2_16s_db"]["memory"]
+    threads:
+        cluster_config["build_kraken2_db"]["nCPUs"]
+    singularity:
+        config["container"]
+    params:
+        db = "data/kraken2_16s_db",
+        kraken2_16s_type = config["kraken2_16s_type"]
+    log:
+        "logs/build_kraken2_16s_db.log"
+    shell:
+        """
+        kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
+          --threads {threads} 2> {log}
         """
 
 rule kraken2_classify:

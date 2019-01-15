@@ -21,6 +21,30 @@ rule build_bracken_db:
           -l {params.read_length} 2> {log}
         """
 
+rule build_bracken_16s_db:
+    input:
+        rules.build_kraken2_16s_db.output
+    output:
+        "data/kraken2_16s_db/DELETEME"
+    params:
+        kraken2_db = "data/kraken2_16s_db",
+        read_length = config["min_read_length"]
+    threads:
+        cluster_config["build_bracken_16s_db"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["build_bracken_16s_db"]["memory"]
+    log:
+        "logs/build_bracken_16s_db.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        bracken-build -d {params.kraken2_db} \
+          -t {threads} \
+          -l {params.read_length} 2> {log}
+        touch {output}
+        """
+
 rule bracken_classify:
     input:
         rules.build_bracken_db.output,

@@ -57,3 +57,33 @@ rule centrifuge_krakenstyle_report:
         """
         centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
         """
+
+rule build_centrifuge_16s_db:
+    input:
+        name_table = rules.build_kraken2_16s_db.output.name_table,
+        tax_tree = rules.build_kraken2_16s_db.output.tax_tree,
+        conversion_table = rules.build_kraken2_16s_db.output.conversion_table,
+        ref_seqs = rules.build_kraken2_16s_db.output.ref_seqs
+    output:
+        "data/centrifuge_16s_db/silva_16s.1.cf",
+        "data/centrifuge_16s_db/silva_16s.2.cf",
+        "data/centrifuge_16s_db/silva_16s.3.cf"
+    threads:
+        cluster_config["build_centrifuge_16s_db"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["build_centrifuge_16s_db"]["memory"]
+    params:
+        prefix = "data/centrifuge_16s_db/silva_16s"
+    log:
+        "logs/build_centrifuge_16s_db.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        centrifuge-build -c {input.ref_seqs} \
+          --threads {threads} \
+          --conversion-table {input.conversion_table} \
+          --taxonomy-tree {input.tax_tree} \
+          --name-table {input.name_table} \ 
+          {params.prefix} 2> {log}
+        """
