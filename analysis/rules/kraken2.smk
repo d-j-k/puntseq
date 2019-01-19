@@ -110,3 +110,29 @@ rule kraken2_classify:
           --gzip-compressed \
           --threads {threads} {input.fastq} 2> {log}
         """
+rule kraken2_16s_classify:
+    input:
+        rules.build_kraken2_16s_db.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.kreport",
+        outfile = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.out"
+    threads:
+        cluster_config["kraken2_classify"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["kraken2_16s_classify"]["memory"]
+    params:
+        db_dir = "data/kraken2_16s_db"
+    log:
+        "logs/kraken2_16s_classify_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        kraken2 --db {params.db_dir} \
+            --output {output.outfile} \
+            --report {output.report} \
+            --fastq-input \
+            --gzip-compressed \
+            --threads {threads} {input.fastq} 2> {log}
+        """

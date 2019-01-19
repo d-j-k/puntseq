@@ -2,3 +2,5 @@
 *.fastq.gz
 Pipfile.lock
 .snakemake/
+*.out
+*.simg
