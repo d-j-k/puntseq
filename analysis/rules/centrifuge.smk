@@ -65,9 +65,7 @@ rule build_centrifuge_16s_db:
         conversion_table = rules.build_kraken2_16s_db.output.conversion_table,
         ref_seqs = rules.build_kraken2_16s_db.output.ref_seqs
     output:
-        "data/centrifuge_16s_db/silva_16s.1.cf",
-        "data/centrifuge_16s_db/silva_16s.2.cf",
-        "data/centrifuge_16s_db/silva_16s.3.cf"
+        expand("data/centrifuge_16s_db/silva_16s.{db_idx}.cf", db_idx=range(1, 5))
     threads:
         cluster_config["build_centrifuge_16s_db"]["nCPUs"]
     resources:
@@ -80,10 +78,54 @@ rule build_centrifuge_16s_db:
         config["container"]
     shell:
         """
-        centrifuge-build -c {input.ref_seqs} \
+        centrifuge-build \
           --threads {threads} \
           --conversion-table {input.conversion_table} \
           --taxonomy-tree {input.tax_tree} \
           --name-table {input.name_table} \ 
+          {input.ref_seqs} \ 
           {params.prefix} 2> {log}
+        """
+
+rule centrifuge_16s_classify:
+    input:
+        rules.build_centrifuge_16s_db.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/centrifuge/centrifuge_16s_report_{run}_{sample}.tsv",
+        classification = "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.tab"
+    threads:
+        cluster_config["centrifuge_16s_classify"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["centrifuge_16s_classify"]["memory"]
+    params:
+        index_prefix = "data/centrifuge_16s_db/silva_16s"
+    singularity:
+        config["container"]
+    log:
+        "logs/centrifuge_16s_classify_{run}_{sample}.log"
+    shell:
+        """
+        centrifuge -x {params.index_prefix} \
+          -U {input.fastq} \
+          --threads {threads} \
+          --report-file {output.report} \
+          -S {output.classification} \
+          --met-stderr 2> {log}
+        """
+
+rule centrifuge_16s_krakenstyle_report:
+    input:
+        "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.tab"
+    output:
+        "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport"
+    params:
+        index_prefix = "data/centrifuge_16s_db/silva_16s"
+    log:
+        "logs/centrifuge_16s_kreport_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
         """

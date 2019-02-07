@@ -26,13 +26,18 @@ plot_post_filtering:
 
 centrifuge:
     nCPUs     : 16
-    memory    : 20000
-    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
+
+centrifuge_16s_classify:
+    nCPUs     : 16
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 build_centrifuge_16s_db:
     nCPUs     : 16
-    memory    : 20000
-    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 download_kraken2_db:
     nCPUs     : 16

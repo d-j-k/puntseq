@@ -53,6 +53,7 @@ rule all:
         expand("data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS),
         expand("data/{run}/bracken/bracken_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS),
         expand("data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS),
+        expand("data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS)
 
 # the snakemake files that run the different parts of the pipeline
 include: str(RULES_DIR.joinpath("porechop.smk"))
