@@ -5,6 +5,7 @@ __default__:
     name      : "JOBNAME.{rule}.{wildcards}"
     output    : "logs/cluster_{rule}.{wildcards}.o"
     error     : "logs/cluster_{rule}.{wildcards}.e"
+    queue     : "research-rh74"
 
 porechop:
     nCPUs     : 32
@@ -31,8 +32,8 @@ centrifuge:
 
 centrifuge_16s_classify:
     nCPUs     : 16
-    memory    : 10000
-    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
+    memory    : 16000
+    resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
 
 build_centrifuge_16s_db:
     nCPUs     : 16
