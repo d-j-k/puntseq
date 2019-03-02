@@ -167,7 +167,7 @@ rule kraken2_16s_classify:
             --threads {threads} {input.fastq} 2> {log}
         """
 
-rule kraken2_16s_classify:
+rule kraken2_16s_k21_classify:
     input:
         rules.build_kraken2_16s_db_k21.output,
         fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
