@@ -106,7 +106,7 @@ rule build_kraken2_16s_db_k21:
         kmer_len = 21,
         minimizer_len = 17
     log:
-        "logs/build_kraken2_16s_db.log"
+        "logs/build_kraken2_16s_db_k21.log"
     shell:
         """
         kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
