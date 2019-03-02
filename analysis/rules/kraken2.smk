@@ -101,7 +101,7 @@ rule build_kraken2_16s_db_k21:
     singularity:
         config["container"]
     params:
-        db = "data/kraken2_16s_db",
+        db = "data/kraken2_16s_db_k21",
         kraken2_16s_type = config["kraken2_16s_type"],
         kmer_len = 21,
         minimizer_len = 17,
