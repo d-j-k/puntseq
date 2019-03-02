@@ -104,14 +104,16 @@ rule build_kraken2_16s_db_k21:
         db = "data/kraken2_16s_db",
         kraken2_16s_type = config["kraken2_16s_type"],
         kmer_len = 21,
-        minimizer_len = 17
+        minimizer_len = 17,
+        minimizer_spaces = 4,
     log:
-        "logs/build_kraken2_16s_db.log"
+        "logs/build_kraken2_16s_db_k21.log"
     shell:
         """
         kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
           --threads {threads} --kmer-len {params.kmer_len} \
-          --minimizer-len {params.minimizer_len} 2> {log}
+          --minimizer-len {params.minimizer_len} \
+          --minimizer-spaces {params.minimizer_spaces} 2> {log}
         """
 
 rule kraken2_classify:
