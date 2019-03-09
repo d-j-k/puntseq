@@ -3,7 +3,7 @@ runs: "april june august"
 min_read_length: 1000
 keep_percent: 95
 mean_q_weight: 10
-check_reads: 100000
+check_reads: 50000
 extra_end_trim: 10
 porechop_out_format: "fastq.gz"
 plot_downsample: 0

@@ -1,29 +1,73 @@
+def determine_demultiplex_action(wildcards, input, output, threads, resources):
+    df = samples.loc[(wildcards.run)]
+    out_dir = Path(
+        "data/{run}/porechopped/".format(run=wildcards.run)
+    )
+
+    expected_barcodes = df["barcode"]
+    is_multiplexed = not any(expected_barcodes.isnull())
+
+    if is_multiplexed:
+        out = out_dir
+    else:
+        out = out_dir / "{}.{}".format(wildcards.run, config["porechop_out_format"])
+
+    result = {
+        "df": df,
+        "out_dir": out_dir,
+        "out": out,
+        "is_multiplexed": is_multiplexed,
+        "expected_barcodes": set(expected_barcodes),
+    }
+    return result
+
+
+
 rule porechop:
     input:
-        "data/{run}/basecalled/{run}_all_passed.fastq.gz"
+        fastq  = "data/{run}/basecalled/{run}_all_passed.fastq.gz"
     output:
-        expand("data/{{run}}/porechopped/{sample}.fastq.gz", sample=SAMPLES)
+        "data/{run}/porechopped/DEMULTIPLEX_COMPLETE"
     threads:
         cluster_config["porechop"]["nCPUs"]
     resources:
         mem_mb = cluster_config["porechop"]["memory"]
-    params:
-        barcode_dir = lambda wildcards: f"data/{wildcards.run}/porechopped",
-        check_reads = config["check_reads"],
-        extra_end_trim = config["extra_end_trim"],
-        out_format = config["porechop_out_format"]
-    log:
-        "logs/porechop_{run}.log"
     singularity:
         config["container"]
+    params:
+        option = determine_demultiplex_action,
+        check_reads = config["check_reads"],
+        out_format = config["porechop_out_format"],
+    log:
+        "logs/porechop_{run}.log"
     shell:
         """
-        porechop --input {input} \
-          --barcode_dir {params.barcode_dir} \
-          --threads {threads} \
-          --check_reads {params.check_reads} \
-          --extra_end_trim {params.extra_end_trim} \
-          --discard_middle \
-          --discard_unassigned \
-          --format {params.out_format} &> {log}
+        bash analysis/scripts/porechop.sh {params.option[is_multiplexed]} \
+            {input.fastq} \
+            {params.option[out]}
+            {params.option[classification_path]} \
+            {output} \
+            {threads} \
+            {params.check_reads} \
+            {params.out_format} 2> {log}
         """
+
+
+rule fix_filenames:
+    input:
+        "data/{run}/porechopped/DEMULTIPLEX_COMPLETE"
+    output:
+        "data/{run}/porechopped/{sample}.trimmed.fastq.gz"
+    threads: 1
+    resources:
+        mem_mb = 500
+    params:
+        option = determine_demultiplex_action
+    log:
+        "logs/fix_filenames_{run}.log"
+    run:
+        original_path = Path(output[0].split(".")[0] + config["porechop_out_format"])
+        if not original_path.is_file():
+            raise FileNotFoundError("Expected porechop output {} not found.".format(original_path))
+
+        original_path.replace(output[0])
