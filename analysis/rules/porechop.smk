@@ -29,15 +29,15 @@ rule porechop:
     output:
         "data/{run}/porechopped/DEMULTIPLEX_COMPLETE"
     threads:
-        cluster_config["porechop"]["nCPUs"]
+        config["porechop"]["threads"]
     resources:
-        mem_mb = cluster_config["porechop"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["porechop"]["memory"]
     singularity:
         config["container"]
     params:
         option = determine_demultiplex_action,
-        check_reads = config["check_reads"],
-        out_format = config["porechop_out_format"],
+        check_reads = config["porechop"]["check_reads"],
+        out_format = config["porechop"]["output_format"],
     log:
         "logs/porechop_{run}.log"
     shell:
@@ -60,7 +60,7 @@ rule fix_filenames:
         "data/{run}/porechopped/{sample}.trimmed.fastq.gz"
     threads: 1
     resources:
-        mem_mb = 500
+        mem_mb = 250
     params:
         option = determine_demultiplex_action
     log:

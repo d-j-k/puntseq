@@ -1,10 +1,13 @@
 rule download_centrifuge_db:
     output:
         expand("data/centrifuge_db/p_compressed.{n}.cf", n=[1, 2, 3, 4]),
+    threads: 1
+    resources:
+        mem_mb = 500
     params:
-        db_url = config["centrifuge_db_url"],
-        output = "data/centrifuge_db/" + config["centrifuge_db_url"].split("/")[-1],
-        md5_hash = config["db_md5"]
+        db_url = config["download_centrifuge_db"]["url"],
+        output = "data/centrifuge_db/" + config["download_centrifuge_db"]["url"].split("/")[-1],
+        md5_hash = config["download_centrifuge_db"]["md5"]
     log:
         "logs/download_centrifuge_db.log"
     shell:
@@ -18,14 +21,14 @@ rule download_centrifuge_db:
 rule centrifuge:
     input:
         rules.download_centrifuge_db.output,
-        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
     output:
         report = "data/{run}/centrifuge/centrifuge_report_{run}_{sample}.tsv",
         classification = "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
     threads:
-        cluster_config["centrifuge"]["nCPUs"]
+        config["centrifuge"]["threads"]
     resources:
-        mem_mb = cluster_config["centrifuge"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["centrifuge"]["memory"]
     params:
         index_prefix = "data/centrifuge_db/p_compressed"
     singularity:
@@ -47,6 +50,9 @@ rule centrifuge_krakenstyle_report:
         "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.tab"
     output:
         "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport"
+    threads: 1
+    resources:
+        mem_mb = 500
     params:
         index_prefix = "data/centrifuge_db/p_compressed"
     log:
@@ -67,9 +73,9 @@ rule build_centrifuge_16s_db:
     output:
         expand("data/centrifuge_16s_db/silva_16s.{db_idx}.cf", db_idx=range(1, 5))
     threads:
-        cluster_config["build_centrifuge_16s_db"]["nCPUs"]
+        config["build_centrifuge_16s_db"]["threads"]
     resources:
-        mem_mb = cluster_config["build_centrifuge_16s_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_centrifuge_16s_db"]["memory"]
     params:
         prefix = "data/centrifuge_16s_db/silva_16s"
     log:
@@ -82,22 +88,22 @@ rule build_centrifuge_16s_db:
           --threads {threads} \
           --conversion-table {input.conversion_table} \
           --taxonomy-tree {input.tax_tree} \
-          --name-table {input.name_table} \ 
-          {input.ref_seqs} \ 
+          --name-table {input.name_table} \
+          {input.ref_seqs} \
           {params.prefix} 2> {log}
         """
 
 rule centrifuge_16s_classify:
     input:
         rules.build_centrifuge_16s_db.output,
-        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
     output:
         report = "data/{run}/centrifuge/centrifuge_16s_report_{run}_{sample}.tsv",
         classification = "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.tab"
     threads:
-        cluster_config["centrifuge_16s_classify"]["nCPUs"]
+        config["centrifuge_16s"]["threads"]
     resources:
-        mem_mb = cluster_config["centrifuge_16s_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["centrifuge_16s"]["memory"]
     params:
         index_prefix = "data/centrifuge_16s_db/silva_16s"
     singularity:
@@ -119,6 +125,9 @@ rule centrifuge_16s_krakenstyle_report:
         "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.tab"
     output:
         "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport"
+    threads: 1
+    resources:
+        mem_mb = 500
     params:
         index_prefix = "data/centrifuge_16s_db/silva_16s"
     log:

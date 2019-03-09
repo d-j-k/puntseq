@@ -2,6 +2,9 @@ rule download_kraken2_taxonomy:
     output:
         "data/kraken2_db/taxonomy/names.dmp",
         "data/kraken2_db/taxonomy/nodes.dmp"
+    threads: 1
+    resources:
+        mem_mb = 1000
     singularity:
         config["container"]
     params:
@@ -20,9 +23,9 @@ rule download_kraken2_db:
         "data/kraken2_db/library/bacteria/library.fna",
         "data/kraken2_db/library/archaea/library.fna"
     threads:
-        cluster_config["build_kraken2_db"]["nCPUs"]
+        config["download_kraken2_db"]["threads"]
     resources:
-        mem_mb = cluster_config["build_kraken2_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["download_kraken2_db"]["memory"]
     singularity:
         config["container"]
     log:
@@ -31,7 +34,7 @@ rule download_kraken2_db:
         db = "data/kraken2_db"
     shell:
         """
-        kraken2-build --download-library archaea --db {params.db} --threads {threads} 2>> {log}
+        kraken2-build --download-library archaea --db {params.db} --threads {threads} 2> {log}
         kraken2-build --download-library bacteria --db {params.db} --threads {threads} 2>> {log}
         """
 
@@ -43,9 +46,9 @@ rule build_kraken2_db:
         "data/kraken2_db/opts.k2d",
         "data/kraken2_db/taxo.k2d"
     resources:
-        mem_mb = cluster_config["build_kraken2_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_kraken2_db"]["memory"]
     threads:
-        cluster_config["build_kraken2_db"]["nCPUs"]
+        config["build_kraken2_db"]["threads"]
     singularity:
         config["container"]
     params:
@@ -66,16 +69,15 @@ rule build_kraken2_16s_db:
         tax_tree = "data/kraken2_16s_db/taxonomy/nodes.dmp",
         conversion_table = "data/kraken2_16s_db/seqid2taxid.map",
         ref_seqs = "data/kraken2_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
-
     resources:
-        mem_mb = cluster_config["build_kraken2_16s_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_kraken2_16s_db"]["memory"]
     threads:
-        cluster_config["build_kraken2_db"]["nCPUs"]
+        config["build_kraken2_16s_db"]["threads"]
     singularity:
         config["container"]
     params:
         db = "data/kraken2_16s_db",
-        kraken2_16s_type = config["kraken2_16s_type"]
+        kraken2_16s_type = config["build_kraken2_16s_db"]["db_type"]
     log:
         "logs/build_kraken2_16s_db.log"
     shell:
@@ -93,16 +95,15 @@ rule build_kraken2_16s_db_k21:
         tax_tree = "data/kraken2_16s_db_k21/taxonomy/nodes.dmp",
         conversion_table = "data/kraken2_16s_db_k21/seqid2taxid.map",
         ref_seqs = "data/kraken2_16s_db_k21/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
-
     resources:
-        mem_mb = cluster_config["build_kraken2_16s_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_kraken2_16s_db"]["memory"]
     threads:
-        cluster_config["build_kraken2_db"]["nCPUs"]
+        config["build_kraken2_16s_db"]["threads"]
     singularity:
         config["container"]
     params:
         db = "data/kraken2_16s_db_k21",
-        kraken2_16s_type = config["kraken2_16s_type"],
+        kraken2_16s_type = config["build_kraken2_16s_db"]["db_type"],
         kmer_len = 21,
         minimizer_len = 17,
         minimizer_spaces = 4,
@@ -119,14 +120,14 @@ rule build_kraken2_16s_db_k21:
 rule kraken2_classify:
     input:
         rules.build_kraken2_db.output,
-        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
     output:
         report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport",
         outfile = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.out"
     threads:
-        cluster_config["kraken2_classify"]["nCPUs"]
+        config["kraken2_classify"]["threads"]
     resources:
-        mem_mb = cluster_config["kraken2_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["kraken2_classify"]["memory"]
     params:
         db_dir = "data/kraken2_db"
     log:
@@ -142,17 +143,18 @@ rule kraken2_classify:
           --gzip-compressed \
           --threads {threads} {input.fastq} 2> {log}
         """
+
 rule kraken2_16s_classify:
     input:
         rules.build_kraken2_16s_db.output,
-        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
     output:
         report = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.kreport",
         outfile = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.out"
     threads:
-        cluster_config["kraken2_classify"]["nCPUs"]
+        config["kraken2_16s_classify"]["threads"]
     resources:
-        mem_mb = cluster_config["kraken2_16s_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["kraken2_16s_classify"]["memory"]
     params:
         db_dir = "data/kraken2_16s_db"
     log:
@@ -177,9 +179,9 @@ rule kraken2_16s_k21_classify:
         report = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.kreport",
         outfile = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.out"
     threads:
-        cluster_config["kraken2_classify"]["nCPUs"]
+        config["kraken2_16s_classify"]["threads"]
     resources:
-        mem_mb = cluster_config["kraken2_16s_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["kraken2_16s_classify"]["memory"]
     params:
         db_dir = "data/kraken2_16s_db_k21"
     log:

@@ -1,14 +1,13 @@
 rule filtlong:
     input:
-        "data/{run}/porechopped/{sample}.fastq.gz"
+        "data/{run}/porechopped/{sample}.trimmed.fastq.gz"
     output:
-        "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        "data/{run}/filtlong/{sample}.filtered.fastq.gz"
+    threads: 1
     resources:
-        mem_mb = cluster_config["filtlong"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["filtlong"]["memory"]
     params:
-        min_read_length = config["min_read_length"],
-        keep_percent = config["keep_percent"],
-        mean_q_weight = config["mean_q_weight"]
+        min_read_length = config["filtlong"]["min_len"],
     log:
         "logs/filtlong_{run}_{sample}.log"
     singularity:
@@ -16,7 +15,5 @@ rule filtlong:
     shell:
         """
         filtlong --min_length {params.min_read_length} \
-            --keep_percent {params.keep_percent} \
-            --mean_q_weight {params.mean_q_weight} \
             --verbose {input} 2> {log} | gzip > {output}
         """
