@@ -5,6 +5,7 @@ __default__:
     name      : "JOBNAME.{rule}.{wildcards}"
     output    : "logs/cluster_{rule}.{wildcards}.o"
     error     : "logs/cluster_{rule}.{wildcards}.e"
+    queue     : "research-rh74"
 
 porechop:
     nCPUs     : 32
@@ -26,8 +27,18 @@ plot_post_filtering:
 
 centrifuge:
     nCPUs     : 16
-    memory    : 20000
-    resources : "\"select[mem>20000] rusage[mem=20000] span[hosts=1]\""
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
+
+centrifuge_16s_classify:
+    nCPUs     : 16
+    memory    : 16000
+    resources : "\"select[mem>16000] rusage[mem=16000] span[hosts=1]\""
+
+build_centrifuge_16s_db:
+    nCPUs     : 16
+    memory    : 10000
+    resources : "\"select[mem>10000] rusage[mem=10000] span[hosts=1]\""
 
 download_kraken2_db:
     nCPUs     : 16
@@ -39,16 +50,34 @@ build_kraken2_db:
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
 
+build_kraken2_16s_db:
+    nCPUs     : 32
+    memory    : 4000
+    resources : "\"select[mem>4000] rusage[mem=4000] span[hosts=1]\""
+
 kraken2_classify:
     nCPUs     : 32
-    memory    : 190000
-    resources : "\"select[mem>190000] rusage[mem=190000] span[hosts=1]\""
+    memory    : 32000
+    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
+
+kraken2_16s_classify:
+    memory    : 500
+    resources : "\"select[mem>500] rusage[mem=500] span[hosts=1]\""
 
 build_bracken_db:
     nCPUs     : 32
     memory    : 32000
     resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
 
+build_bracken_16s_db:
+    nCPUs     : 16
+    memory    : 3000
+    resources : "\"select[mem>3000] rusage[mem=3000] span[hosts=1]\""
+
 bracken_classify:
-    memory    : 32000
-    resources : "\"select[mem>32000] rusage[mem=32000] span[hosts=1]\""
+    memory    : 500
+    resources : "\"select[mem>500] rusage[mem=500] span[hosts=1]\""
+
+bracken_16s_classify:
+    memory    : 500
+    resources : "\"select[mem>500] rusage[mem=500] span[hosts=1]\""

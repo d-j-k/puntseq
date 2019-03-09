@@ -45,8 +45,8 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     # INSTALL blast tools (dustmasker req. for kraken)
     # ================================
     apt install -y libidn11-dev
-    VERSION="2.7.1+"
-    URL=ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-"$VERSION"-x64-linux.tar.gz
+    VERSION="2.7.1"
+    URL=ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/"$VERSION"/ncbi-blast-"$VERSION"+-x64-linux.tar.gz
     wget -O - "$URL" | tar xzf -
     cp ncbi*/bin/dustmasker /usr/local/bin/
     rm -rf ncbi-blast*
@@ -93,6 +93,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     bash install_bracken.sh
     cp bracken /usr/local/bin
     cp bracken-build /usr/local/bin
+    echo "export PATH=$(pwd)/src:$PATH" >> $SINGULARITY_ENVIRONMENT
     cd ~
 
     # ================================
@@ -106,16 +107,3 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     make
     make install
 
-    # ================================
-    # INSTALL krakenuniq
-    # ================================
-    VERSION="0.5.3"
-    URL=https://github.com/fbreitwieser/krakenuniq/archive/v"$VERSION".tar.gz
-    apt install -y zlib1g-dev
-    wget -O - "$URL" | tar xzf -
-    cd krakenuniq-"$VERSION"
-    echo "export PATH=$(pwd):$PATH" >> $SINGULARITY_ENVIRONMENT
-    ./install_krakenuniq.sh $(pwd)
-    cd ~
-    perl -MCPAN -e'install "LWP::Simple"'
-    ln -s /krakenuniq-"$VERSION"/krakenuniq /krakenuniq-"$VERSION"/krakenuniq-build /krakenuniq-"$VERSION"/krakenuniq-download /krakenuniq-"$VERSION"/krakenuniq-extract-reads /krakenuniq-"$VERSION"/krakenuniq-filter /krakenuniq-"$VERSION"/krakenuniq-mpa-report /krakenuniq-"$VERSION"/krakenuniq-report /krakenuniq-"$VERSION"/krakenuniq-translate /usr/local/bin/

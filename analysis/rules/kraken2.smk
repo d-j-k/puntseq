@@ -54,8 +54,66 @@ rule build_kraken2_db:
         "logs/build_kraken2_db.log"
     shell:
         """
-        kraken2-build --build --db {params.db} 2> {log}
-        touch deleteme
+        kraken2-build --build --db {params.db} --threads {threads} 2> {log}
+        """
+
+rule build_kraken2_16s_db:
+    output:
+        "data/kraken2_16s_db/hash.k2d",
+        "data/kraken2_16s_db/opts.k2d",
+        "data/kraken2_16s_db/taxo.k2d",
+        name_table = "data/kraken2_16s_db/taxonomy/names.dmp",
+        tax_tree = "data/kraken2_16s_db/taxonomy/nodes.dmp",
+        conversion_table = "data/kraken2_16s_db/seqid2taxid.map",
+        ref_seqs = "data/kraken2_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
+
+    resources:
+        mem_mb = cluster_config["build_kraken2_16s_db"]["memory"]
+    threads:
+        cluster_config["build_kraken2_db"]["nCPUs"]
+    singularity:
+        config["container"]
+    params:
+        db = "data/kraken2_16s_db",
+        kraken2_16s_type = config["kraken2_16s_type"]
+    log:
+        "logs/build_kraken2_16s_db.log"
+    shell:
+        """
+        kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
+          --threads {threads} 2> {log}
+        """
+
+rule build_kraken2_16s_db_k21:
+    output:
+        "data/kraken2_16s_db_k21/hash.k2d",
+        "data/kraken2_16s_db_k21/opts.k2d",
+        "data/kraken2_16s_db_k21/taxo.k2d",
+        name_table = "data/kraken2_16s_db_k21/taxonomy/names.dmp",
+        tax_tree = "data/kraken2_16s_db_k21/taxonomy/nodes.dmp",
+        conversion_table = "data/kraken2_16s_db_k21/seqid2taxid.map",
+        ref_seqs = "data/kraken2_16s_db_k21/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
+
+    resources:
+        mem_mb = cluster_config["build_kraken2_16s_db"]["memory"]
+    threads:
+        cluster_config["build_kraken2_db"]["nCPUs"]
+    singularity:
+        config["container"]
+    params:
+        db = "data/kraken2_16s_db_k21",
+        kraken2_16s_type = config["kraken2_16s_type"],
+        kmer_len = 21,
+        minimizer_len = 17,
+        minimizer_spaces = 4,
+    log:
+        "logs/build_kraken2_16s_db_k21.log"
+    shell:
+        """
+        kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
+          --threads {threads} --kmer-len {params.kmer_len} \
+          --minimizer-len {params.minimizer_len} \
+          --minimizer-spaces {params.minimizer_spaces} 2> {log}
         """
 
 rule kraken2_classify:
@@ -83,4 +141,57 @@ rule kraken2_classify:
           --fastq-input \
           --gzip-compressed \
           --threads {threads} {input.fastq} 2> {log}
+        """
+rule kraken2_16s_classify:
+    input:
+        rules.build_kraken2_16s_db.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.kreport",
+        outfile = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.out"
+    threads:
+        cluster_config["kraken2_classify"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["kraken2_16s_classify"]["memory"]
+    params:
+        db_dir = "data/kraken2_16s_db"
+    log:
+        "logs/kraken2_16s_classify_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        kraken2 --db {params.db_dir} \
+            --output {output.outfile} \
+            --report {output.report} \
+            --fastq-input \
+            --gzip-compressed \
+            --threads {threads} {input.fastq} 2> {log}
+        """
+
+rule kraken2_16s_k21_classify:
+    input:
+        rules.build_kraken2_16s_db_k21.output,
+        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+    output:
+        report = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.kreport",
+        outfile = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.out"
+    threads:
+        cluster_config["kraken2_classify"]["nCPUs"]
+    resources:
+        mem_mb = cluster_config["kraken2_16s_classify"]["memory"]
+    params:
+        db_dir = "data/kraken2_16s_db_k21"
+    log:
+        "logs/kraken2_16s_k21_classify_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        kraken2 --db {params.db_dir} \
+            --output {output.outfile} \
+            --report {output.report} \
+            --fastq-input \
+            --gzip-compressed \
+            --threads {threads} {input.fastq} 2> {log}
         """
