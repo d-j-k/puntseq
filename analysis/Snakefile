@@ -2,11 +2,9 @@ import re
 import yaml
 from typing import List
 from pathlib import Path
-from snakemake.utils import min_version
+from snakemake.utils import min_version, validate
 
-
-# Snakemake version when Singularity support was added
-min_version("4.2.0")
+min_version("5.1.0")
 
 
 #======================================================
