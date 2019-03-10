@@ -10,7 +10,7 @@ def determine_demultiplex_action(wildcards, input, output, threads, resources):
     if is_multiplexed:
         out = out_dir
     else:
-        out = out_dir / "{}.{}".format(wildcards.run, config["porechop_out_format"])
+        out = out_dir / "{}.{}".format(wildcards.run, config["porechop"]["output_format"])
 
     result = {
         "df": df,
