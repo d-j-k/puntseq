@@ -6,12 +6,13 @@ rule build_bracken_db:
     output:
         bracken_db_output
     threads:
-        cluster_config["build_bracken_db"]["nCPUs"]
+        config["build_bracken_db"]["threads"]
     resources:
-        mem_mb = cluster_config["build_bracken_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_bracken_db"]["memory"]
     params:
         kraken2_db = "data/kraken2_db",
-        read_length = config["min_read_length"]
+        read_length = config["build_bracken_db"]["read_length"],
+        kmer_length = config["build_bracken_db"]["kmer_length"],
     singularity:
         config["container"]
     log:
@@ -20,6 +21,7 @@ rule build_bracken_db:
         """
         bracken-build -d {params.kraken2_db} \
           -t {threads} \
+          -k {params.kmer_length} \
           -l {params.read_length} 2> {log}
         """
 
@@ -32,11 +34,12 @@ rule build_bracken_16s_db:
         bracken_16s_db_output
     params:
         kraken2_db = "data/kraken2_16s_db",
-        read_length = config["min_read_length"]
+        read_length = config["build_bracken_16s_db"]["read_length"],
+        kmer_length = config["build_bracken_16s_db"]["kmer_length"],
     threads:
-        cluster_config["build_bracken_16s_db"]["nCPUs"]
+        config["build_bracken_16s_db"]["threads"]
     resources:
-        mem_mb = cluster_config["build_bracken_16s_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_bracken_16s_db"]["memory"]
     log:
         "logs/build_bracken_16s_db.log"
     singularity:
@@ -45,6 +48,7 @@ rule build_bracken_16s_db:
         """
         bracken-build -d {params.kraken2_db} \
           -t {threads} \
+          -k {params.kmer_length} \
           -l {params.read_length} 2> {log}
         """
 
@@ -54,14 +58,15 @@ rule bracken_classify:
         report = "data/{run}/kraken2/kraken2_classification_{run}_{sample}.kreport"
     output:
         "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken"
+    threads: 1
     resources:
-        mem_mb = cluster_config["bracken_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["bracken"]["memory"]
     singularity:
         config["container"]
     params:
         db = "data/kraken2_db",
-        read_length = config["min_read_length"],
-        threshold = config["bracken_threshold"]
+        read_length = config["bracken"]["read_length"],
+        threshold = config["bracken"]["threshold"]
     log:
         "logs/bracken_classify_{run}_{sample}.log"
     shell:
@@ -79,14 +84,15 @@ rule bracken_16s_classify:
         report = "data/{run}/kraken2/kraken2_16s_classification_{run}_{sample}.kreport"
     output:
         "data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken"
+    threads: 1
     resources:
-        mem_mb = cluster_config["bracken_16s_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["bracken"]["memory"]
     singularity:
         config["container"]
     params:
         db = "data/kraken2_16s_db",
-        read_length = config["min_read_length"],
-        threshold = config["bracken_threshold"]
+        read_length = config["bracken"]["read_length"],
+        threshold = config["bracken"]["threshold"]
     log:
         "logs/bracken_16s_classify_{run}_{sample}.log"
     shell:
@@ -107,11 +113,12 @@ rule build_bracken_16s_db_k21:
         bracken_16s_db_k21_output
     params:
         kraken2_db = "data/kraken2_16s_db_k21",
-        read_length = config["min_read_length"]
+        read_length = config["build_bracken_16s_db_k21"]["read_length"],
+        kmer_length = config["build_bracken_16s_db_k21"]["kmer_length"],
     threads:
-        cluster_config["build_bracken_16s_db"]["nCPUs"]
+        config["build_bracken_16s_db_k21"]["threads"]
     resources:
-        mem_mb = cluster_config["build_bracken_16s_db"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["build_bracken_16s_db_k21"]["memory"]
     log:
         "logs/build_bracken_16s_db_k21.log"
     singularity:
@@ -120,6 +127,7 @@ rule build_bracken_16s_db_k21:
         """
         bracken-build -d {params.kraken2_db} \
           -t {threads} \
+          -k {params.kmer_length} \
           -l {params.read_length} 2> {log}
         """
 
@@ -130,13 +138,13 @@ rule bracken_16s_k21_classify:
     output:
         "data/{run}/bracken/bracken_16s_k21_classification_{run}_{sample}.bracken"
     resources:
-        mem_mb = cluster_config["bracken_16s_classify"]["memory"]
+        mem_mb = lambda wildcards, attempt: attempt * config["bracken"]["memory"]
     singularity:
         config["container"]
     params:
         db = "data/kraken2_16s_db_k21",
-        read_length = config["min_read_length"],
-        threshold = config["bracken_threshold"]
+        read_length = config["bracken"]["read_length"],
+        threshold = config["bracken"]["threshold"]
     log:
         "logs/bracken_16s_k21_classify_{run}_{sample}.log"
     shell:
