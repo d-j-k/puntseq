@@ -1,0 +1,18 @@
+$schema:              "http://json-schema.org/draft-07/schema#"
+
+description:          an entry in the sample sheet
+properties:
+    run_id:
+        type:         string
+        description:  ID for the nanopore run. Can contain multiple sample IDs.
+    sample_id:
+        type:         string
+        description:  Sample ID for individual sample.
+    barcode:
+        type:         string
+        pattern:      "BC[0-1][0-9]"
+        description:  Nanopore barcode number used if multiplexed.
+
+required:
+    - run_id
+    - sample_id

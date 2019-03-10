@@ -66,7 +66,7 @@ rule fix_filenames:
     log:
         "logs/fix_filenames_{run}.log"
     run:
-        original_path = Path(output[0].split(".")[0] + config["porechop_out_format"])
+        original_path = Path(output[0].split(".")[0] + config["porechop"]["output_format"])
         if not original_path.is_file():
             raise FileNotFoundError("Expected porechop output {} not found.".format(original_path))
 
