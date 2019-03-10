@@ -1,4 +1,4 @@
-bracken_db_output = "data/kraken2_db/database{}mers.kmer_distrib".format(config["min_read_length"])
+bracken_db_output = "data/kraken2_db/database{}mers.kmer_distrib".format(config["build_bracken_db"]["read_length"])
 
 rule build_bracken_db:
     input:
@@ -25,7 +25,7 @@ rule build_bracken_db:
           -l {params.read_length} 2> {log}
         """
 
-bracken_16s_db_output = "data/kraken2_16s_db/database{}mers.kmer_distrib".format(config["min_read_length"])
+bracken_16s_db_output = "data/kraken2_16s_db/database{}mers.kmer_distrib".format(config["build_bracken_16s_db"]["read_length"])
 
 rule build_bracken_16s_db:
     input:
@@ -104,7 +104,7 @@ rule bracken_16s_classify:
           -t {params.threshold} 2> {log}
         """
 
-bracken_16s_db_k21_output = "data/kraken2_16s_db_k21/database{}mers.kmer_distrib".format(config["min_read_length"])
+bracken_16s_db_k21_output = "data/kraken2_16s_db_k21/database{}mers.kmer_distrib".format(config["build_bracken_16s_db_k21"]["read_length"])
 
 rule build_bracken_16s_db_k21:
     input:
