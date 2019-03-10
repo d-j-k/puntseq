@@ -12,10 +12,9 @@ min_version("5.1.0")
 #======================================================
 configfile: "config.yaml"
 
-with open("cluster.yaml", "r") as fh:
-    cluster_config = yaml.load(fh)
-
-
+samples = pd.read_csv(config["samples"]).set_index(
+    ["run_id", "sample_id"], drop=False
+)
 #======================================================
 # Functions and Classes
 #======================================================
@@ -38,21 +37,28 @@ def barcode_parser(barcodes_string: str) -> List[str]:
 # Global variables
 #======================================================
 RULES_DIR = Path("rules")
-SAMPLES = barcode_parser(config["barcodes"])
-RUNS = config["runs"].split()
 
+files = []
+for index, row in samples.iterrows():
+    run_id = row["run_id"]
+    if pd.isnull(run_id):
+        continue
+    sample_id = row["sample_id"]
+
+    files.extend([
+        "data/{run}/stats/{sample}_stats.txt".format(sample=sample_id, run=run_id),
+        "data/{run}/plots/{sample}_filtered.pdf".format(sample=sample_id, run=run_id),
+        "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport".format(sample=sample_id, run=run_id),
+        "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
+        "data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
+        "data/{run}/bracken/bracken_16s_k21_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
+        "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport".format(sample=sample_id, run=run_id)
+    ])
 #======================================================
 # Rules
 #======================================================
 rule all:
-    input:
-        expand("data/{run}/stats/{sample}_stats.txt", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/plots/{sample}_filtered.pdf", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/bracken/bracken_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/bracken/bracken_16s_k21_classification_{run}_{sample}.bracken", sample=SAMPLES, run=RUNS),
-        expand("data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport", sample=SAMPLES, run=RUNS)
+    input: files
 
 # the snakemake files that run the different parts of the pipeline
 include: str(RULES_DIR.joinpath("porechop.smk"))
