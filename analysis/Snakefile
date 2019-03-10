@@ -35,8 +35,8 @@ for index, row in samples.iterrows():
 
     files.extend(
         [
-            "data/{run}/stats/{sample}_stats.txt".format(sample=sample_id, run=run_id),
-            "data/{run}/plots/{sample}_filtered.pdf".format(
+            "data/{run}/stats/{sample}.stats.txt".format(sample=sample_id, run=run_id),
+            "data/{run}/plots/{sample}.filtered.pdf".format(
                 sample=sample_id, run=run_id
             ),
             "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport".format(
