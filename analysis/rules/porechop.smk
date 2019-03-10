@@ -44,8 +44,7 @@ rule porechop:
         """
         bash analysis/scripts/porechop.sh {params.option[is_multiplexed]} \
             {input.fastq} \
-            {params.option[out]}
-            {params.option[classification_path]} \
+            {params.option[out]} \
             {output} \
             {threads} \
             {params.check_reads} \
