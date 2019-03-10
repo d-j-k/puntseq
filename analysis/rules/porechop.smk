@@ -42,7 +42,7 @@ rule porechop:
         "logs/porechop_{run}.log"
     shell:
         """
-        bash analysis/scripts/porechop.sh {params.option[is_multiplexed]} \
+        bash scripts/porechop.sh {params.option[is_multiplexed]} \
             {input.fastq} \
             {params.option[out]} \
             {output} \
