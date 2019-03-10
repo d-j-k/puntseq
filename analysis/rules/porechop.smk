@@ -64,7 +64,7 @@ rule fix_filenames:
     params:
         option = determine_demultiplex_action
     log:
-        "logs/fix_filenames_{run}.log"
+        "logs/fix_filenames_{run}_{sample}.log"
     run:
         original_path = Path(output[0].split(".")[0] + config["porechop"]["output_format"])
         if not original_path.is_file():
