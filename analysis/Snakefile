@@ -2,40 +2,28 @@ import re
 import yaml
 from typing import List
 from pathlib import Path
+import pandas as pd
 from snakemake.utils import min_version, validate
 
 min_version("5.1.0")
 
 
-#======================================================
+# ======================================================
 # Config files
-#======================================================
+# ======================================================
 configfile: "config.yaml"
+validate(config, "schemas/config.schema.yaml")
 
-samples = pd.read_csv(config["samples"]).set_index(
-    ["run_id", "sample_id"], drop=False
-)
-#======================================================
+samples = pd.read_csv(config["samples"]).set_index(["run_id", "sample_id"], drop=False)
+validate(samples, "schemas/samples.schema.yaml")
+# ======================================================
 # Functions and Classes
-#======================================================
-class InvalidBarcode(Exception):
-    __module__ = Exception.__module__
+# ======================================================
 
 
-def barcode_parser(barcodes_string: str) -> List[str]:
-    """Parses the barcodes string and ensures they follow correct format"""
-    msg = "Barcode must be of the form BC01. That is, BC followed by 2 digits."
-    regex = r"\bBC\d{2}\b"
-    barcodes = barcodes_string.split()
-    for barcode in barcodes:
-        if not (len(barcode) == 4 and re.match(regex, barcode)):
-            raise InvalidBarcode(barcode + "\n" + msg)
-    return barcodes
-
-
-#======================================================
+# ======================================================
 # Global variables
-#======================================================
+# ======================================================
 RULES_DIR = Path("rules")
 
 files = []
@@ -45,15 +33,30 @@ for index, row in samples.iterrows():
         continue
     sample_id = row["sample_id"]
 
-    files.extend([
-        "data/{run}/stats/{sample}_stats.txt".format(sample=sample_id, run=run_id),
-        "data/{run}/plots/{sample}_filtered.pdf".format(sample=sample_id, run=run_id),
-        "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport".format(sample=sample_id, run=run_id),
-        "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
-        "data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
-        "data/{run}/bracken/bracken_16s_k21_classification_{run}_{sample}.bracken".format(sample=sample_id, run=run_id),
-        "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport".format(sample=sample_id, run=run_id)
-    ])
+    files.extend(
+        [
+            "data/{run}/stats/{sample}_stats.txt".format(sample=sample_id, run=run_id),
+            "data/{run}/plots/{sample}_filtered.pdf".format(
+                sample=sample_id, run=run_id
+            ),
+            "data/{run}/centrifuge/centrifuge_classification_{run}_{sample}.kreport".format(
+                sample=sample_id, run=run_id
+            ),
+            "data/{run}/bracken/bracken_classification_{run}_{sample}.bracken".format(
+                sample=sample_id, run=run_id
+            ),
+            "data/{run}/bracken/bracken_16s_classification_{run}_{sample}.bracken".format(
+                sample=sample_id, run=run_id
+            ),
+            "data/{run}/bracken/bracken_16s_k21_classification_{run}_{sample}.bracken".format(
+                sample=sample_id, run=run_id
+            ),
+            "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport".format(
+                sample=sample_id, run=run_id
+            ),
+        ]
+    )
+
 #======================================================
 # Rules
 #======================================================
