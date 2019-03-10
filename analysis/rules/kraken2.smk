@@ -174,7 +174,7 @@ rule kraken2_16s_classify:
 rule kraken2_16s_k21_classify:
     input:
         rules.build_kraken2_16s_db_k21.output,
-        fastq = "data/{run}/filtlong/{sample}_filtered.fastq.gz"
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
     output:
         report = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.kreport",
         outfile = "data/{run}/kraken2/kraken2_16s_k21_classification_{run}_{sample}.out"
