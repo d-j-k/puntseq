@@ -48,7 +48,7 @@ rule porechop:
             {output} \
             {threads} \
             {params.check_reads} \
-            {params.out_format} 2> {log}
+            {params.out_format} &> {log}
         """
 
 
