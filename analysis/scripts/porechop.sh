@@ -20,7 +20,7 @@ if [[ $is_multiplexed = "True" ]]; then
     echo "Porechop demultiplex and adapter trimming finished."
 else
     porechop --input "$fastq" \
-      --output "$out_dir" \
+      --output "$out" \
       --threads "$threads" \
       --check_reads "$check_reads" \
       --discard_middle \
