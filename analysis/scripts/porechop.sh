@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 is_multiplexed="$1"
 fastq="$2"
