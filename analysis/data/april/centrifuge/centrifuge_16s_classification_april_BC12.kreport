@@ -1,32 +1,32 @@
- 94.65	531	531	U	0	unclassified
-  5.35	30	0	-	1	root
-  5.17	29	11	D	3	  Bacteria
-  1.25	7	0	P	2375	    Proteobacteria
-  0.89	5	0	C	3303	      Gammaproteobacteria
+ 94.67	533	533	U	0	unclassified
+  5.33	30	0	-	1	root
+  5.15	29	9	D	3	  Bacteria
+  1.42	8	0	P	2375	    Proteobacteria
+  1.07	6	0	C	3303	      Gammaproteobacteria
   0.36	2	0	O	3333	        Alteromonadales
   0.36	2	0	F	26313	          Marinobacteraceae
   0.36	2	2	G	26314	            Marinobacter
+  0.36	2	0	O	26341	        Betaproteobacteriales
+  0.36	2	1	F	26352	          Burkholderiaceae
+  0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
   0.18	1	0	O	3316	        Aeromonadales
   0.18	1	0	F	3326	          Succinivibrionaceae
   0.18	1	1	G	3331	            Succinivibrio
   0.18	1	0	O	3468	        Enterobacteriales
   0.18	1	0	F	3469	          Enterobacteriaceae
   0.18	1	1	G	3504	            Escherichia-Shigella
-  0.18	1	0	O	26341	        Betaproteobacteriales
-  0.18	1	0	F	26352	          Burkholderiaceae
-  0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
   0.36	2	0	C	2379	      Alphaproteobacteria
-  0.18	1	0	O	2761	        Rickettsiales
-  0.18	1	0	F	2781	          Rickettsiaceae
-  0.18	1	1	G	2784	            Rickettsia
+  0.18	1	0	O	2421	        Rhizobiales
+  0.18	1	0	F	2435	          Beijerinckiaceae
+  0.18	1	1	G	26045	            Methylobacterium
   0.18	1	0	O	2823	        Sphingomonadales
   0.18	1	0	F	2844	          Sphingomonadaceae
   0.18	1	1	G	2854	            Sphingorhabdus
-  0.71	4	0	P	1672	    Firmicutes
-  0.36	2	0	C	1673	      Bacilli
-  0.36	2	1	O	1674	        Bacillales
-  0.18	1	0	F	1680	          Bacillaceae
-  0.18	1	1	G	1688	            Bacillus
+  0.89	5	0	P	1672	    Firmicutes
+  0.53	3	0	C	1673	      Bacilli
+  0.53	3	1	O	1674	        Bacillales
+  0.36	2	0	F	1680	          Bacillaceae
+  0.36	2	2	G	1688	            Bacillus
   0.18	1	0	C	1859	      Clostridia
   0.18	1	0	O	1863	        Clostridiales
   0.18	1	0	F	1869	          Clostridiaceae 1
@@ -37,13 +37,11 @@
   0.18	1	1	G	2167	            Acidaminococcus
   0.53	3	0	P	3982	    Verrucomicrobia
   0.53	3	3	C	4029	      Verrucomicrobiae
-  0.18	1	0	P	321	    Acidobacteria
-  0.18	1	0	C	24413	      Acidobacteriia
-  0.18	1	0	O	24414	        Acidobacteriales
-  0.18	1	0	F	24415	          Acidobacteriaceae (Subgroup 1)
-  0.18	1	1	G	24426	            uncultured
-  0.18	1	0	P	905	    Bacteroidetes
-  0.18	1	1	C	912	      Bacteroidia
+  0.36	2	0	P	905	    Bacteroidetes
+  0.36	2	1	C	912	      Bacteroidia
+  0.18	1	0	O	24714	        Cytophagales
+  0.18	1	0	F	24725	          Cyclobacteriaceae
+  0.18	1	1	G	24760	            uncultured
   0.18	1	0	P	1385	    Chloroflexi
   0.18	1	0	C	1428	      Dehalococcoidia
   0.18	1	0	O	1429	        Dehalococcoidales

@@ -1,30 +1,29 @@
- 96.54	1311	1311	U	0	unclassified
-  3.46	47	1	-	1	root
-  3.09	42	14	D	3	  Bacteria
-  1.03	14	0	P	3982	    Verrucomicrobia
-  1.03	14	14	C	4029	      Verrucomicrobiae
-  0.52	7	0	P	2375	    Proteobacteria
-  0.37	5	0	C	3303	      Gammaproteobacteria
+ 96.28	1321	1321	U	0	unclassified
+  3.72	51	1	-	1	root
+  3.28	45	14	D	3	  Bacteria
+  1.02	14	0	P	3982	    Verrucomicrobia
+  1.02	14	14	C	4029	      Verrucomicrobiae
+  0.58	8	0	P	2375	    Proteobacteria
+  0.44	6	1	C	3303	      Gammaproteobacteria
   0.15	2	0	O	3468	        Enterobacteriales
   0.15	2	0	F	3469	          Enterobacteriaceae
   0.15	2	2	G	3504	            Escherichia-Shigella
-  0.07	1	0	O	3535	        Gammaproteobacteria Incertae Sedis
-  0.07	1	0	F	3536	          Unknown Family
-  0.07	1	1	G	26663	            Candidatus Berkiella
+  0.15	2	0	O	26341	        Betaproteobacteriales
+  0.15	2	1	F	26352	          Burkholderiaceae
+  0.07	1	1	G	26384	            Comamonas
   0.07	1	0	O	3709	        Pseudomonadales
   0.07	1	0	F	3718	          Pseudomonadaceae
   0.07	1	1	G	3723	            Pseudomonas
-  0.07	1	0	O	26341	        Betaproteobacteriales
-  0.07	1	1	F	26352	          Burkholderiaceae
   0.07	1	0	C	2379	      Alphaproteobacteria
-  0.07	1	0	O	2667	        Rhodospirillales
-  0.07	1	1	F	26198	          uncultured
+  0.07	1	0	O	2421	        Rhizobiales
+  0.07	1	0	F	2435	          Beijerinckiaceae
+  0.07	1	1	G	26054	            alphaI cluster
   0.07	1	0	C	3087	      Deltaproteobacteria
   0.07	1	0	O	3210	        Myxococcales
   0.07	1	0	F	3236	          Polyangiaceae
   0.07	1	1	G	26282	            Pajaroellobacter
-  0.29	4	0	P	905	    Bacteroidetes
-  0.29	4	2	C	912	      Bacteroidia
+  0.36	5	0	P	905	    Bacteroidetes
+  0.36	5	3	C	912	      Bacteroidia
   0.07	1	0	O	913	        Bacteroidales
   0.07	1	0	F	917	          Bacteroidaceae
   0.07	1	1	G	918	            Bacteroides
@@ -37,11 +36,13 @@
   0.07	1	0	O	1863	        Clostridiales
   0.07	1	0	F	2050	          Ruminococcaceae
   0.07	1	1	G	2058	            Fastidiosipila
+  0.07	1	0	P	2224	    Gemmatimonadetes
+  0.07	1	1	C	14419	      S0134 terrestrial group
   0.07	1	0	P	25560	    Entotheonellaeota
   0.07	1	0	C	25561	      Entotheonellia
   0.07	1	0	O	25562	        Entotheonellales
   0.07	1	1	F	25563	          Entotheonellaceae
-  0.29	4	0	D	4	  Eukaryota
+  0.36	5	1	D	4	  Eukaryota
   0.22	3	0	-	6428	    Opisthokonta
   0.22	3	0	D	6430	      Holozoa
   0.22	3	0	K	12882	        Metazoa (Animalia)

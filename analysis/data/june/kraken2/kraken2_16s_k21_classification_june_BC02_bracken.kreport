@@ -1,33 +1,33 @@
-4.11	302	302	U	0	unclassified
-95.89	7041	0	R	1	root
-95.82	7036	0	D	3	  Bacteria
-62.85	4615	0	P	1500	    Cyanobacteria
-62.85	4615	0	C	25227	      Oxyphotobacteria
-62.79	4611	4611	O	25228	        Chloroplast
+4.15	306	306	U	0	unclassified
+95.85	7068	0	R	1	root
+95.78	7063	0	D	3	  Bacteria
+62.64	4619	0	P	1500	    Cyanobacteria
+62.64	4619	0	C	25227	      Oxyphotobacteria
+62.58	4615	4615	O	25228	        Chloroplast
 0.01	1	0	O	25273	        Nostocales
 0.01	1	0	F	25315	          Gloeocapsaceae
 0.01	1	1	G	25316	            Gleocapsa
-27.84	2044	0	P	2375	    Proteobacteria
-16.68	1225	0	C	3303	      Gammaproteobacteria
-15.89	1167	0	O	26341	        Betaproteobacteriales
-15.52	1140	0	F	26352	          Burkholderiaceae
-2.23	164	164	G	26410	            Limnohabitans
-2.17	159	159	G	26446	            Rhodoferax
-1.81	133	133	G	26384	            Comamonas
-1.35	99	99	G	26355	            Acidovorax
+28.00	2065	0	P	2375	    Proteobacteria
+16.86	1243	0	C	3303	      Gammaproteobacteria
+16.07	1185	0	O	26341	        Betaproteobacteriales
+15.72	1159	0	F	26352	          Burkholderiaceae
+2.25	166	166	G	26410	            Limnohabitans
+2.18	161	161	G	26446	            Rhodoferax
+1.83	135	135	G	26384	            Comamonas
+1.34	99	99	G	26355	            Acidovorax
+0.57	42	42	G	26388	            Delftia
 0.54	40	40	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
-0.54	40	40	G	26388	            Delftia
-0.44	32	32	G	26471	            uncultured
-0.39	29	29	G	26433	            Pelomonas
-0.38	28	28	G	26399	            Hydrogenophaga
-0.34	25	25	G	26414	            Massilia
+0.42	31	31	G	26471	            uncultured
+0.41	30	30	G	26399	            Hydrogenophaga
+0.41	30	30	G	26433	            Pelomonas
 0.31	23	23	G	26390	            Diaphorobacter
-0.30	22	22	G	26462	            Variovorax
-0.29	21	21	G	26436	            Polaromonas
-0.26	19	19	G	26354	            Achromobacter
+0.31	23	23	G	26414	            Massilia
+0.31	23	23	G	26462	            Variovorax
+0.28	21	21	G	26436	            Polaromonas
+0.27	20	20	G	26354	            Achromobacter
 0.23	17	17	G	26452	            Simplicispira
-0.20	15	15	G	26361	            Aquabacterium
-0.20	15	15	G	26444	            Ramlibacter
+0.22	16	16	G	26361	            Aquabacterium
+0.22	16	16	G	26444	            Ramlibacter
 0.14	10	10	G	26437	            Polynucleobacter
 0.12	9	9	G	26440	            Pseudorhodoferax
 0.12	9	9	G	26408	            Leptothrix
@@ -37,8 +37,8 @@
 0.07	5	5	G	26366	            Brachymonas
 0.05	4	4	G	26386	            Cupriavidus
 0.05	4	4	G	26397	            Herbaspirillum
+0.05	4	4	G	26453	            Sphaerotilus
 0.04	3	3	G	26421	            Ottowia
-0.04	3	3	G	26453	            Sphaerotilus
 0.04	3	3	G	26418	            Noviherbaspirillum
 0.03	2	2	G	26463	            Verminephrobacter
 0.03	2	2	G	26401	            Ideonella
@@ -68,12 +68,14 @@
 0.01	1	1	G	26580	            Zoogloea
 0.07	5	0	F	26486	          Chromobacteriaceae
 0.07	5	5	G	26493	            Vogesella
-0.05	4	0	F	26526	          Neisseriaceae
-0.04	3	3	G	26532	            Neisseria
+0.04	3	0	F	26526	          Neisseriaceae
+0.03	2	2	G	26532	            Neisseria
 0.04	3	0	F	26515	          Methylophilaceae
 0.01	1	1	G	26525	            uncultured
 0.01	1	1	G	26523	            OM43 clade
 0.01	1	1	G	26521	            Methylotenera
+0.01	1	0	F	26497	          Gallionellaceae
+0.01	1	1	G	26500	            Gallionella
 0.01	1	1	F	26582	          SC-I-84
 0.01	1	0	F	26483	          Chitinimonadaceae
 0.01	1	1	G	26484	            Chitinimonas
@@ -96,23 +98,23 @@
 0.01	1	0	F	11528	          Halieaceae
 0.01	1	1	G	11534	            OM60(NOR5) clade
 0.01	1	1	O	14692	        uncultured
-11.09	814	0	C	2379	      Alphaproteobacteria
-9.78	718	0	O	2557	        Rhodobacterales
-9.78	718	0	F	2558	          Rhodobacteraceae
-1.55	114	114	G	2624	            Rhodobacter
-1.46	107	107	G	2654	            Tabrizicola
-1.35	99	99	G	2666	            uncultured
-0.78	57	57	G	2607	            Paracoccus
-0.64	47	47	G	2620	            Pseudorhodobacter
-0.44	32	32	G	14530	            Cereibacter
+11.08	817	0	C	2379	      Alphaproteobacteria
+9.76	720	0	O	2557	        Rhodobacterales
+9.76	720	0	F	2558	          Rhodobacteraceae
+1.57	116	116	G	2624	            Rhodobacter
+1.46	108	108	G	2654	            Tabrizicola
+1.32	97	97	G	2666	            uncultured
+0.79	58	58	G	2607	            Paracoccus
+0.65	48	48	G	2620	            Pseudorhodobacter
+0.43	32	32	G	14530	            Cereibacter
 0.31	23	23	G	2641	            Roseovarius
 0.26	19	19	G	2575	            Haematobacter
 0.26	19	19	G	11450	            Halocynthiibacter
 0.19	14	14	G	2621	            Pseudoruegeria
 0.14	10	10	G	2572	            Falsirhodobacter
 0.11	8	8	G	2653	            Sulfitobacter
-0.10	7	7	G	2645	            Ruegeria
-0.10	7	7	G	2638	            Roseobacter clade NAC11-7 lineage
+0.09	7	7	G	2645	            Ruegeria
+0.09	7	7	G	2638	            Roseobacter clade NAC11-7 lineage
 0.08	6	6	G	2632	            Roseinatronobacter
 0.07	5	5	G	11460	            Sedimentitalea
 0.07	5	5	G	11455	            Planktomarina
@@ -140,8 +142,8 @@
 0.01	1	1	G	2559	            Actibacterium
 0.83	61	0	O	2823	        Sphingomonadales
 0.83	61	0	F	2844	          Sphingomonadaceae
-0.29	21	21	G	2846	            Novosphingobium
-0.25	18	18	G	2852	            Sphingomonas
+0.28	21	21	G	2846	            Novosphingobium
+0.26	19	19	G	2852	            Sphingomonas
 0.04	3	3	G	2850	            Sphingobium
 0.04	3	3	G	2854	            Sphingorhabdus
 0.04	3	3	G	26240	            Altererythrobacter
@@ -150,9 +152,9 @@
 0.01	1	1	G	26244	            Ellin6055
 0.01	1	1	G	2845	            Blastomonas
 0.01	1	1	G	2848	            Sandaracinobacter
-0.34	25	0	O	2421	        Rhizobiales
+0.35	26	0	O	2421	        Rhizobiales
 0.12	9	0	F	2525	          Rhizobiaceae
-0.10	7	7	G	26091	            Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium
+0.09	7	7	G	26091	            Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium
 0.01	1	1	G	26112	            Mesorhizobium
 0.01	1	1	G	26127	            uncultured
 0.05	4	0	F	2545	          Xanthobacteraceae
@@ -168,6 +170,7 @@
 0.01	1	1	F	2556	          uncultured
 0.01	1	0	F	2472	          Hyphomicrobiaceae
 0.01	1	1	G	2480	            Hyphomicrobium
+0.01	1	1	F	2423	          A0839
 0.04	3	0	O	2761	        Rickettsiales
 0.03	2	2	F	2805	          Mitochondria
 0.01	1	0	F	2781	          Rickettsiaceae
@@ -192,17 +195,17 @@
 0.01	1	0	O	3109	        Desulfobacterales
 0.01	1	0	F	3139	          Desulfobulbaceae
 0.01	1	1	G	3142	            Desulfofustis
-3.60	264	0	P	905	    Bacteroidetes
-3.60	264	0	C	912	      Bacteroidia
-1.39	102	0	O	25002	        Sphingobacteriales
-1.35	99	99	F	25015	          NS11-12 marine group
+3.58	264	0	P	905	    Bacteroidetes
+3.58	264	0	C	912	      Bacteroidia
+1.38	102	0	O	25002	        Sphingobacteriales
+1.34	99	99	F	25015	          NS11-12 marine group
 0.01	1	1	F	25012	          Lentimicrobiaceae
 0.01	1	1	F	25009	          GWF2-29-10
 0.01	1	0	F	25020	          Sphingobacteriaceae
 0.01	1	1	G	25027	            Pedobacter
-1.16	85	0	O	24714	        Cytophagales
-1.12	82	0	F	24794	          Spirosomaceae
-0.97	71	71	G	24809	            Pseudarcicella
+1.15	85	0	O	24714	        Cytophagales
+1.11	82	0	F	24794	          Spirosomaceae
+0.96	71	71	G	24809	            Pseudarcicella
 0.04	3	3	G	24795	            Arcicella
 0.04	3	3	G	24804	            Lacihabitans
 0.03	2	2	G	24801	            Flectobacillus
@@ -218,7 +221,7 @@
 0.01	1	0	F	24983	          Weeksellaceae
 0.01	1	1	G	24989	            Chryseobacterium
 0.01	1	1	F	24980	          NS9 marine group
-0.25	18	0	O	24665	        Chitinophagales
+0.24	18	0	O	24665	        Chitinophagales
 0.23	17	0	F	24667	          Chitinophagaceae
 0.18	13	13	G	24673	            Dinghuibacter
 0.03	2	2	G	24700	            uncultured
@@ -231,11 +234,11 @@
 0.01	1	1	G	11179	            Prevotella 1
 0.01	1	0	F	967	          Rikenellaceae
 0.01	1	1	G	968	            Alistipes
-0.52	38	0	P	1672	    Firmicutes
+0.53	39	0	P	1672	    Firmicutes
 0.42	31	0	C	1673	      Bacilli
-0.38	28	0	O	1674	        Bacillales
-0.29	21	0	F	1680	          Bacillaceae
-0.26	19	19	G	1688	            Bacillus
+0.37	27	0	O	1674	        Bacillales
+0.27	20	0	F	1680	          Bacillaceae
+0.24	18	18	G	1688	            Bacillus
 0.01	1	1	G	1707	            Oceanobacillus
 0.01	1	1	G	1686	            Anoxybacillus
 0.07	5	0	F	1775	          Staphylococcaceae
@@ -247,13 +250,14 @@
 0.04	3	0	O	1800	        Lactobacillales
 0.04	3	0	F	1836	          Lactobacillaceae
 0.04	3	3	G	1837	            Lactobacillus
-0.10	7	0	C	1859	      Clostridia
-0.10	7	0	O	1863	        Clostridiales
+0.11	8	0	C	1859	      Clostridia
+0.11	8	0	O	1863	        Clostridiales
+0.03	2	0	F	2050	          Ruminococcaceae
+0.01	1	1	G	11375	            [Eubacterium] coprostanoligenes group
 0.03	2	0	F	2042	          Peptostreptococcaceae
 0.03	2	2	G	11347	            Romboutsia
 0.03	2	0	F	1869	          Clostridiaceae 1
 0.03	2	2	G	1873	            Clostridium sensu stricto 1
-0.01	1	1	F	2050	          Ruminococcaceae
 0.01	1	0	F	2024	          Peptococcaceae
 0.01	1	1	G	2036	            Pelotomaculum
 0.01	1	0	F	1987	          Lachnospiraceae
@@ -272,8 +276,8 @@
 0.01	1	1	G	576	            Tetrasphaera
 0.01	1	1	F	636	          Micrococcaceae
 0.12	9	0	O	475	        Frankiales
-0.10	7	0	F	491	          Sporichthyaceae
-0.10	7	7	G	494	            hgcI clade
+0.09	7	0	F	491	          Sporichthyaceae
+0.09	7	7	G	494	            hgcI clade
 0.03	2	0	F	478	          Cryptosporangiaceae
 0.03	2	2	G	480	            Fodinicola
 0.04	3	0	O	447	        Corynebacteriales
@@ -302,9 +306,9 @@
 0.15	11	0	O	896	        Armatimonadales
 0.15	11	0	F	897	          Armatimonadaceae
 0.15	11	11	G	898	            Armatimonas
-0.10	7	0	P	25565	    Epsilonbacteraeota
-0.10	7	0	C	25566	      Campylobacteria
-0.10	7	0	O	25567	        Campylobacterales
+0.09	7	0	P	25565	    Epsilonbacteraeota
+0.09	7	0	C	25566	      Campylobacteria
+0.09	7	0	O	25567	        Campylobacterales
 0.08	6	0	F	25568	          Arcobacteraceae
 0.08	6	6	G	25569	            Arcobacter
 0.01	1	0	F	25590	          Thiovulaceae

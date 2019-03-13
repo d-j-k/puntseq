@@ -1,20 +1,19 @@
- 95.18	790	790	U	0	unclassified
-  4.82	40	0	-	1	root
-  4.58	38	13	D	3	  Bacteria
-  1.45	12	1	P	2375	    Proteobacteria
-  1.33	11	1	C	3303	      Gammaproteobacteria
-  0.96	8	0	O	3468	        Enterobacteriales
-  0.96	8	4	F	3469	          Enterobacteriaceae
+ 95.56	797	797	U	0	unclassified
+  4.44	37	0	-	1	root
+  4.32	36	13	D	3	  Bacteria
+  1.32	11	1	P	2375	    Proteobacteria
+  1.20	10	1	C	3303	      Gammaproteobacteria
+  0.84	7	0	O	3468	        Enterobacteriales
+  0.84	7	4	F	3469	          Enterobacteriaceae
   0.24	2	2	G	3504	            Escherichia-Shigella
   0.12	1	1	G	3514	            Pectobacterium
-  0.12	1	1	G	3523	            Serratia
   0.12	1	0	O	26341	        Betaproteobacteriales
   0.12	1	1	F	26352	          Burkholderiaceae
   0.12	1	0	O	26715	        Nitrococcales
   0.12	1	0	F	26722	          Nitrococcaceae
   0.12	1	1	G	26724	            Arhodomonas
-  0.72	6	0	P	3982	    Verrucomicrobia
-  0.72	6	6	C	4029	      Verrucomicrobiae
+  0.60	5	0	P	3982	    Verrucomicrobia
+  0.60	5	5	C	4029	      Verrucomicrobiae
   0.24	2	1	P	400	    Actinobacteria
   0.12	1	0	C	419	      Actinobacteria
   0.12	1	0	O	704	        Propionibacteriales
@@ -32,13 +31,13 @@
   0.12	1	0	P	1385	    Chloroflexi
   0.12	1	0	C	1386	      Anaerolineae
   0.12	1	1	O	25141	        RBG-13-54-9
+  0.12	1	0	P	1672	    Firmicutes
+  0.12	1	0	C	1673	      Bacilli
+  0.12	1	0	O	1674	        Bacillales
+  0.12	1	0	F	1680	          Bacillaceae
+  0.12	1	1	G	1688	            Bacillus
   0.12	1	1	P	25725	    MAT-CR-M4-B07
-  0.12	1	0	P	26899	    Spirochaetes
-  0.12	1	0	C	26917	      Spirochaetia
-  0.12	1	0	O	26921	        Spirochaetales
-  0.12	1	0	F	26922	          Spirochaetaceae
-  0.12	1	1	G	26936	            uncultured
-  0.24	2	0	D	4	  Eukaryota
+  0.12	1	0	D	4	  Eukaryota
   0.12	1	0	-	6428	    Opisthokonta
   0.12	1	0	D	6430	      Holozoa
   0.12	1	0	K	12882	        Metazoa (Animalia)
@@ -48,9 +47,3 @@
   0.12	1	0	C	13290	                Cestoda
   0.12	1	0	-	13294	                  Eucestoda
   0.12	1	1	O	13298	                    Cyclophyllidea
-  0.12	1	0	-	8770	    SAR
-  0.12	1	0	K	9387	      Rhizaria
-  0.12	1	0	P	9540	        Retaria
-  0.12	1	0	C	9562	          Foraminifera
-  0.12	1	0	O	9563	            Globothalamea
-  0.12	1	1	F	9564	              Rotaliida
