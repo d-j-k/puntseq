@@ -1,222 +1,232 @@
-$schema:                       "http://json-schema.org/draft-07/schema#"
+$schema:                              "http://json-schema.org/draft-07/schema#"
 
-description:                   snakemake configuration file
+description:                          snakemake configuration file
 
-type:                          object
+type:                                 object
 
 properties:
 
     samples:
-        type:                  string
+        type:                         string
 
     container:
-        type:                  string
+        type:                         string
 
     porechop:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       4000
+                type:                 number
+                default:              4000
             check_reads:
-                type:          number
-                default:       25000
+                type:                 number
+                default:              25000
             output_format:
-                type:          string
-                default:       "fastq.gz"
+                type:                 string
+                default:              "fastq.gz"
 
     filtlong:
-        type:                  object
+        type:                         object
         properties:
             memory:
-                type:          number
-                default:       4000
+                type:                 number
+                default:              4000
             min_len:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
 
     stats:
-        type:                  object
+        type:                         object
         properties:
             memory:
-                type:          number
-                default:       4000
+                type:                 number
+                default:              4000
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
 
     plot:
-        type:                  object
+        type:                         object
         properties:
             memory:
-                type:          number
-                default:       4000
+                type:                 number
+                default:              4000
             downsample:
-                type:          number
-                default:       0
+                type:                 number
+                default:              0
 
     download_centrifuge_db:
-        type:                  object
+        type:                         object
         properties:
             url:
-                type:          string
+                type:                 string
             md5:
-                type:          string
+                type:                 string
         required:
             - url
             - md5
 
 
     centrifuge:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     centrifuge_16s:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     build_centrifuge_16s_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     download_kraken2_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     build_kraken2_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     build_kraken2_16s_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
             db_type:
-                type:          string
-                default:       "silva"
+                type:                 string
+                default:              "silva"
 
     kraken2_classify:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     kraken2_16s_classify:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
 
     build_bracken_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
             read_length:
-                type:          number
+                type:                 number
             kmer_length:
-                type:          number
+                type:                 number
         required:
             - read_length
             - kmer_length
 
     build_bracken_16s_db:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
             read_length:
-                type:          number
+                type:                 number
             kmer_length:
-                type:          number
+                type:                 number
         required:
             - read_length
             - kmer_length
 
     build_bracken_16s_db_k21:
-        type:                  object
+        type:                         object
         properties:
             threads:
-                type:          number
-                default:       1
+                type:                 number
+                default:              1
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
             read_length:
-                type:          number
+                type:                 number
             kmer_length:
-                type:          number
+                type:                 number
         required:
             - read_length
             - kmer_length
 
     bracken:
-        type:                  object
+        type:                         object
         properties:
             memory:
-                type:          number
-                default:       1000
+                type:                 number
+                default:              1000
             read_length:
-                type:          number
+                type:                 number
             threshold:
-                type:          number
+                type:                 number
         required:
             - read_length
             - threshold
+
+    build_centrifuge_full_kraken_db:
+        type:                         object
+        properties:
+            memory:
+                type:                 number
+                default:              4000
+            threads:
+                type:                 number
+                default:              1
 required:
   - samples
   - container

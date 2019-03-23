@@ -138,3 +138,79 @@ rule centrifuge_16s_krakenstyle_report:
         """
         centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
         """
+
+rule build_centrifuge_full_kraken_db:
+    input:
+        rules.build_kraken2_db.output
+    output:
+        expand("data/centrifuge_full_kraken_db/kraken_full.{db_idx}.cf", db_idx=range(1, 5))
+    threads:
+        config["build_centrifuge_full_kraken_db"]["threads"]
+    resources:
+        mem_mb = lambda wildcards, attempt: attempt * config["build_centrifuge_full_kraken_db"]["memory"]
+    params:
+        prefix = "data/centrifuge_full_kraken_db/kraken_full",
+        conversion_table = "data/kraken2_db/seqid2taxid.map",
+        tax_tree = "data/kraken2_db/taxonomy/nodes.dmp",
+        name_table = "data/kraken2_db/taxonomy/names.dmp",
+        ref_seqs = "data/kraken2_db/library/bacteria/library.fna"
+    log:
+        "logs/build_centrifuge_full_kraken_db.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        centrifuge-build \
+          --threads {threads} \
+          --conversion-table {params.conversion_table} \
+          --taxonomy-tree {params.tax_tree} \
+          --name-table {params.name_table} \
+          {params.ref_seqs} \
+          {params.prefix} 2> {log}
+        """
+
+rule centrifuge_full_kraken_classify:
+    input:
+        rules.build_centrifuge_full_kraken_db.output,
+        fastq = "data/{run}/filtlong/{sample}.filtered.fastq.gz"
+    output:
+        report = "data/{run}/centrifuge/centrifuge_full_kraken_report_{run}_{sample}.tsv",
+        classification = "data/{run}/centrifuge/centrifuge_full_kraken_classification_{run}_{sample}.tab"
+    threads:
+        config["centrifuge"]["threads"]
+    resources:
+        mem_mb = lambda wildcards, attempt: attempt * config["centrifuge"]["memory"]
+    params:
+        index_prefix = "data/centrifuge_full_kraken_db/kraken_full"
+    singularity:
+        config["container"]
+    log:
+        "logs/centrifuge_full_kraken_classify_{run}_{sample}.log"
+    shell:
+        """
+        centrifuge -x {params.index_prefix} \
+          -U {input.fastq} \
+          --threads {threads} \
+          --report-file {output.report} \
+          -S {output.classification} \
+          --met-stderr 2> {log}
+        """
+
+rule centrifuge_full_kraken_krakenstyle_report:
+    input:
+        "data/{run}/centrifuge/centrifuge_full_kraken_classification_{run}_{sample}.tab"
+    output:
+        "data/{run}/centrifuge/centrifuge_full_kraken_classification_{run}_{sample}.kreport"
+    threads: 1
+    resources:
+        mem_mb = 500
+    params:
+        index_prefix = "data/centrifuge_full_kraken_db/kraken_full"
+    log:
+        "logs/centrifuge_full_kraken_krakenstyle_report_{run}_{sample}.log"
+    singularity:
+        config["container"]
+    shell:
+        """
+        centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
+        """
