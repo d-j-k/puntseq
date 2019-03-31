@@ -3,8 +3,8 @@ CLUSTER_CMD=("bsub -n {threads} -R \"select[mem>{resources.mem_mb}] rusage[mem={
 JOB_NAME="$1"
 LOG_DIR="logs/"
 
-bsub -R "select[mem>1000] rusage[mem=1000]" \
-    -M 1000 \
+bsub -R "select[mem>1500] rusage[mem=1500]" \
+    -M 1500 \
     -o "$LOG_DIR"/cluster_"$JOB_NAME".o \
     -e "$LOG_DIR"/cluster_"$JOB_NAME".e \
     -J "$JOB_NAME" \
