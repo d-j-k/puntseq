@@ -94,5 +94,5 @@ bracken:
 
 
 build_centrifuge_full_kraken_db:
-    memory:                       100000
+    memory:                       150000
     threads:                      32
