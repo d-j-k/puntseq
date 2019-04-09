@@ -228,7 +228,6 @@ properties:
 required:
   - samples
   - container
-  - download_centrifuge_db
   - build_bracken_db
   - build_bracken_16s_db
   - build_bracken_16s_db_k21
