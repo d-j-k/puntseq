@@ -1,98 +1,97 @@
-container:                        "shub://mbhall88/Singularity_recipes:puntseq"
-samples:                          "docs/samples.csv"
+container:                         "shub://mbhall88/Singularity_recipes:puntseq"
+samples:                           "docs/samples.csv"
 
 porechop:
-    threads     :                 4
-    memory    :                   32000
-    check_reads:                  50000
+    threads     :                  4
+    memory    :                    32000
+    check_reads:                   50000
 
 
 filtlong:
-    memory    :                   8000
-    min_len :                     1000
+    memory    :                    8000
+    min_len :                      1000
 
 
 stats:
-    threads     :                 2
-    memory    :                   8000
+    threads     :                  2
+    memory    :                    8000
 
 
 plot:
-    memory    :                   32000
+    memory    :                    32000
 
 
-download_centrifuge_db:
-    url:                          "ftp://ftp.ccb.jhu.edu/pub/infphilo/centrifuge/data/p_compressed_2018_4_15.tar.gz"
-    md5:                          "cd383338ef67ebf0bed098f694d5a5bb"
-
+build_centrifuge_db:
+    threads:                       16
+    memory:                        200000
 
 centrifuge:
-    threads     :                 16
-    memory    :                   10000
+    threads     :                  16
+    memory    :                    10000
 
 
 centrifuge_16s:
-    threads     :                 16
-    memory    :                   16000
+    threads     :                  16
+    memory    :                    16000
 
 
 build_centrifuge_16s_db:
-    threads     :                 16
-    memory    :                   10000
+    threads     :                  16
+    memory    :                    10000
 
 
 download_kraken2_db:
-    threads     :                 16
-    memory    :                   20000
+    threads     :                  16
+    memory    :                    20000
 
 
 build_kraken2_db:
-    threads     :                 32
-    memory    :                   32000
+    threads     :                  32
+    memory    :                    32000
 
 
 build_kraken2_16s_db:
-    threads     :                 32
-    memory    :                   4000
+    threads     :                  32
+    memory    :                    4000
 
 
 kraken2_classify:
-    threads     :                 32
-    memory    :                   32000
+    threads     :                  32
+    memory    :                    32000
 
 
 kraken2_16s_classify:
-    threads     :                 16
-    memory    :                   500
+    threads     :                  16
+    memory    :                    500
 
 
 build_bracken_db:
-    threads     :                 32
-    memory    :                   32000
-    read_length:                  1450
-    kmer_length:                  35
+    threads     :                  32
+    memory    :                    32000
+    read_length:                   1450
+    kmer_length:                   35
 
 
 build_bracken_16s_db:
-    threads     :                 16
-    memory    :                   3000
-    read_length:                  1450
-    kmer_length:                  35
+    threads     :                  16
+    memory    :                    3000
+    read_length:                   1450
+    kmer_length:                   35
 
 
 build_bracken_16s_db_k21:
-    threads     :                 16
-    memory    :                   3000
-    read_length:                  1450
-    kmer_length:                  21
+    threads     :                  16
+    memory    :                    3000
+    read_length:                   1450
+    kmer_length:                   21
 
 
 bracken:
-    memory    :                   500
-    read_length:                  1450
-    threshold:                    2
+    memory    :                    500
+    read_length:                   1450
+    threshold:                     2
 
 
 build_centrifuge_full_kraken_db:
-    memory:                       150000
-    threads:                      32
+    memory:                        150000
+    threads:                       32

@@ -58,17 +58,15 @@ properties:
                 type:                 number
                 default:              0
 
-    download_centrifuge_db:
+    build_centrifuge_db:
         type:                         object
         properties:
-            url:
-                type:                 string
-            md5:
-                type:                 string
-        required:
-            - url
-            - md5
-
+            threads:
+                type:                 number
+                default:              1
+            memory:
+                type:                 number
+                default:              4000
 
     centrifuge:
         type:                         object
