@@ -11,7 +11,7 @@ rule download_centrifuge_taxonomy:
         "logs/download_centrifuge_taxonomy.log"
     shell:
         """
-        centrifuge-download -o $(dirname {output[0]}) taxonomy 2> {log}
+        centrifuge-download -o data/centrifuge_db/taxonomy taxonomy 2> {log}
         """
 
 
