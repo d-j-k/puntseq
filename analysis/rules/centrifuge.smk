@@ -30,7 +30,7 @@ rule download_centrifuge_library:
         "logs/download_centrifuge_library.log"
     shell:
         """
-        centrifuge-download -o {library} -m -d {params.domain} refseq > {output.mapping} 2> {log}
+        centrifuge-download -o {output.library} -m -d {params.domain} refseq > {output.mapping} 2> {log}
         """
 
 rule combine_centrifuge_library_sequences:
