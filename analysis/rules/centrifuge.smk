@@ -4,7 +4,7 @@ rule download_centrifuge_taxonomy:
         tax_tree = "data/centrifuge_db/taxonomy/nodes.dmp",
     threads: 1
     resources:
-        mem_mb = 500
+        mem_mb = 200
     singularity:
         config["container"]
     log:
@@ -21,7 +21,7 @@ rule download_centrifuge_library:
         library = directory("data/centrifuge_db/library")
     threads: 1
     resources:
-        mem_mb = 500
+        mem_mb = 200
     params:
         domain = "archaea,bacteria"
     singularity:
@@ -40,7 +40,7 @@ rule combine_centrifuge_library_sequences:
         temp("data/centrifuge_db/combined.fna")
     threads: 1
     resources:
-        mem_mb = 500
+        mem_mb = 200
     log:
         "logs/combine_centrifuge_library_sequences.log"
     shell:
