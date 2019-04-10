@@ -23,7 +23,7 @@ plot:
 
 build_centrifuge_db:
     threads:                       16
-    memory:                        200000
+    memory:                        350000
 
 centrifuge:
     threads     :                  16
@@ -90,8 +90,3 @@ bracken:
     memory    :                    500
     read_length:                   1450
     threshold:                     2
-
-
-build_centrifuge_full_kraken_db:
-    memory:                        150000
-    threads:                       32
