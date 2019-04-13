@@ -22,8 +22,8 @@ plot:
 
 
 build_centrifuge_db:
-    threads:                       16
-    memory:                        400000
+    threads:                       32
+    memory:                        600000
 
 centrifuge:
     threads     :                  16

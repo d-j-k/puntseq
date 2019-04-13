@@ -70,7 +70,7 @@ rule build_centrifuge_db:
         """
         centrifuge-build -p {threads} --conversion-table {input.conversion_table} \
                  --taxonomy-tree {input.tax_tree} --name-table {input.name_table} \
-                 {input.sequences} {params.prefix} 2> {log}
+                 {input.sequences} {params.prefix} &> {log}
         """
 
 
@@ -110,7 +110,7 @@ rule centrifuge_krakenstyle_report:
     resources:
         mem_mb = 500
     params:
-        index_prefix = "data/centrifuge_db/p_compressed"
+        index_prefix = "data/centrifuge_16s/archaea_bacteria" 
     log:
         "logs/centrifuge_kreport_{run}_{sample}.log"
     singularity:
