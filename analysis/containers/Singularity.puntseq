@@ -2,6 +2,11 @@ Bootstrap: debootstrap
 OSVersion: bionic
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
+%environment
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+    export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
+
 %post
     apt update
     apt install -y software-properties-common
@@ -10,10 +15,10 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt install -y git wget build-essential
     export LC_ALL=C.UTF-8
     export LANG=C.UTF-8
-    echo 'export LC_ALL=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
-    echo 'export LANG=C.UTF-8' >> $SINGULARITY_ENVIRONMENT
-    echo "export PATH=/usr/local:/usr/local/bin:/usr/local/lib:$PATH" >> $SINGULARITY_ENVIRONMENT
-    echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> $SINGULARITY_ENVIRONMENT
+    {
+        echo "export PATH=/usr/local:/usr/local/bin:/usr/local/lib:$PATH"
+        echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH"
+    } >> "$SINGULARITY_ENVIRONMENT"
 
     # ================================
     # INSTALL porechop
@@ -25,9 +30,9 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
         python3-distutils \
         python3-lib2to3
     wget -O - "$URL" | tar xzf -
-    cd Porechop*
+    cd Porechop* || exit 1
     python3 setup.py install
-    cd ~
+    cd "$HOME" || exit 1
 
     # ================================
     # INSTALL filtlong
@@ -36,10 +41,10 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     URL=https://github.com/rrwick/Filtlong/archive/v${VERSION}.tar.gz
     apt install -y zlib1g-dev
     wget -O - "$URL" | tar xzf -
-    cd Filtlong*
+    cd Filtlong* || exit 1
     make -j
     cp bin/filtlong /usr/local/bin
-    cd ~
+    cd "$HOME" || exit 1
 
     # ================================
     # INSTALL blast tools (dustmasker req. for kraken)
@@ -50,18 +55,18 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     wget -O - "$URL" | tar xzf -
     cp ncbi*/bin/dustmasker /usr/local/bin/
     rm -rf ncbi-blast*
-    cd ~
+    cd "$HOME" || exit 1
 
     # ================================
     # INSTALL centrifuge
     # ================================
-    VERSION="1.0.4-beta"
-    URL=https://github.com/infphilo/centrifuge/archive/v"$VERSION".tar.gz
-    wget -O - "$URL" | tar xzf -
-    cd centrifuge*
+    VERSION="88ecab483e32f1d1b54b2e155ddb34ea5806e511"
+    git clone https://github.com/infphilo/centrifuge.git
+    cd centrifuge* || exit 1
+    git checkout "$VERSION"
     make
     make install prefix=/usr/local
-    cd ~
+    cd "$HOME" || exit 1
     # need python2 for kreport
     add-apt-repository ppa:deadsnakes/ppa
     apt update
@@ -75,13 +80,13 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     VERSION="2.0.7-beta"
     URL=https://github.com/DerrickWood/kraken2/archive/v"$VERSION".tar.gz
     wget -O - "$URL" | tar xzf -
-    cd kraken2*
-    echo "export PATH=$(pwd):$PATH" >> $SINGULARITY_ENVIRONMENT
-    ./install_kraken2.sh $(pwd)
+    cd kraken2* || exit 1
+    echo "export PATH=$(pwd):$PATH" >> "$SINGULARITY_ENVIRONMENT"
+    ./install_kraken2.sh "$(pwd)"
     cp kraken2 /usr/local/bin
     cp kraken2-build /usr/local/bin
     cp kraken2-inspect /usr/local/bin
-    cd ~
+    cd "$HOME" || exit 1
 
     # ================================
     # INSTALL bracken
@@ -89,12 +94,12 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     VERSION="2.2"
     URL=https://github.com/jenniferlu717/Bracken/archive/v"$VERSION".tar.gz
     wget -O - "$URL" | tar xzf -
-    cd Bracken*
+    cd Bracken* || exit 1
     bash install_bracken.sh
     cp bracken /usr/local/bin
     cp bracken-build /usr/local/bin
-    echo "export PATH=$(pwd)/src:$PATH" >> $SINGULARITY_ENVIRONMENT
-    cd ~
+    cp -r src /usr/local/bin/
+    cd "$HOME" || exit 1
 
     # ================================
     # INSTALL jellyfish
@@ -102,8 +107,21 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     VERSION="1.1.11"
     URL=http://www.cbcb.umd.edu/software/jellyfish/jellyfish-"$VERSION".tar.gz
     wget -O - "$URL" | tar xzf -
-    cd jellyfish*
+    cd jellyfish* || exit 1
     ./configure --prefix=/usr/local/
     make
     make install
+    cd "$HOME" || exit 1
 
+    # ================================
+    # INSTALL nanostat
+    # ================================
+    VERSION=1.1.2
+    apt install -y python3-pip
+    pip3 install NanoStat=="$VERSION"
+
+    # ================================
+    # INSTALL pistis
+    # ================================
+    VERSION=0.3.3
+    pip3 install pistis=="$VERSION"
