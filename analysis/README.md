@@ -11,10 +11,15 @@ These instructions are for if you have access to the `ebi-cli` cluster.
 The first dependency is [`singularity`](https://www.sylabs.io/singularity/) which is a program for building and running containers. This package is installed on all worker nodes on the EBI cluster so you don't need to worry about installing it.  
 
 ### Python dependencies
-The pipeline requires a few python packages. [`snakemake`](https://snakemake.readthedocs.io/en/stable/) is the package which runs and coordinates the analysis pipeline. In addition the pipeline requires [`pistis`](https://github.com/mbhall88/pistis) for plotting, and [`NanoStat`](https://github.com/wdecoster/nanostat) for statistics on the nanopore data.  
-The recommended way of installing these packages is using the virtual environment tool [`pipenv`](https://pipenv.readthedocs.io/en/latest/).  
+The pipeline requires the python package [`snakemake`](https://snakemake.readthedocs.io/en/stable/) - which require python3. It is the package which runs and coordinates the analysis pipeline.
+There are multiple ways of installing this package. Three will be presented here using `pip`, [`conda`](https://conda.io/en/latest/) and using the virtual environment tool [`pipenv`](https://pipenv.readthedocs.io/en/latest/).  
 
 ```sh
+# using pip
+pip3 install snakemake
+# using bioconda
+conda install -c bioconda -c conda-forge snakemake
+# using pipenv
 # if you dont have pipenv
 pip3 install --user pipenv
 # the following installs requirements and creates virtual env
@@ -24,13 +29,9 @@ pipenv install
 pipenv shell
 ```
 
+The instructions below will assume you are using the `pipenv` virtual environment for your `snakemake` installation.  
+
 *NOTE: Make sure to activate the virtual environment whenever you start a new session.*  
-
-If you don't want to use a virtual environment then just run
-
-```sh
-pip3 install snakemake pistis nanostat
-```
 
 ## Setup
 
