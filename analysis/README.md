@@ -1,6 +1,6 @@
 # Analysis
 
-
+![Pipeline DAG](./docs/dag.png)
 
 # Internal usage of analysis
 These instructions are for if you have access to the `ebi-cli` cluster.  
