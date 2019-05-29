@@ -1,15 +1,18 @@
- 92.91	813	813	U	0	unclassified
-  7.09	62	1	-	1	root
-  6.86	60	24	D	3	  Bacteria
-  1.26	11	1	P	905	    Bacteroidetes
-  1.14	10	7	C	912	      Bacteroidia
-  0.23	2	0	O	913	        Bacteroidales
+ 92.57	810	810	U	0	unclassified
+  7.43	65	1	-	1	root
+  7.20	63	26	D	3	  Bacteria
+  1.03	9	1	P	905	    Bacteroidetes
+  0.91	8	3	C	912	      Bacteroidia
+  0.46	4	2	O	913	        Bacteroidales
   0.11	1	1	F	24595	          Bacteroidetes BD2-2
   0.11	1	1	F	24634	          Muribaculaceae
   0.11	1	0	O	25002	        Sphingobacteriales
   0.11	1	1	F	25020	          Sphingobacteriaceae
   1.03	9	1	P	2375	    Proteobacteria
-  0.69	6	2	C	3303	      Gammaproteobacteria
+  0.69	6	1	C	3303	      Gammaproteobacteria
+  0.11	1	0	O	3468	        Enterobacteriales
+  0.11	1	0	F	3469	          Enterobacteriaceae
+  0.11	1	1	G	3504	            Escherichia-Shigella
   0.11	1	0	O	3709	        Pseudomonadales
   0.11	1	0	F	3710	          Moraxellaceae
   0.11	1	1	G	3711	            Acinetobacter
@@ -28,15 +31,19 @@
   0.11	1	0	O	3210	        Myxococcales
   0.11	1	0	F	3234	          Phaselicystidaceae
   0.11	1	1	G	3235	            Phaselicystis
-  0.69	6	1	P	1672	    Firmicutes
-  0.46	4	0	C	1673	      Bacilli
-  0.46	4	1	O	1674	        Bacillales
+  0.91	8	1	P	1672	    Firmicutes
+  0.57	5	0	C	1673	      Bacilli
+  0.57	5	1	O	1674	        Bacillales
   0.34	3	0	F	1680	          Bacillaceae
   0.34	3	3	G	1688	            Bacillus
-  0.11	1	0	C	1859	      Clostridia
-  0.11	1	0	O	1863	        Clostridiales
+  0.11	1	0	F	1775	          Staphylococcaceae
+  0.11	1	1	G	1780	            Staphylococcus
+  0.23	2	0	C	1859	      Clostridia
+  0.23	2	0	O	1863	        Clostridiales
   0.11	1	0	F	1970	          Family XVIII
   0.11	1	1	G	1973	            uncultured
+  0.11	1	0	F	1987	          Lachnospiraceae
+  0.11	1	1	G	11319	            Lachnospiraceae NK4A136 group
   0.69	6	0	P	3982	    Verrucomicrobia
   0.69	6	4	C	4029	      Verrucomicrobiae
   0.11	1	0	O	4030	        Verrucomicrobiales
@@ -47,4 +54,8 @@
   0.11	1	0	O	704	        Propionibacteriales
   0.11	1	0	F	714	          Propionibacteriaceae
   0.11	1	1	G	24519	            Cutibacterium
+  0.11	1	0	P	1500	    Cyanobacteria
+  0.11	1	0	C	25227	      Oxyphotobacteria
+  0.11	1	0	O	25510	        Synechococcales
+  0.11	1	1	F	25511	          Cyanobiaceae
   0.11	1	1	D	4	  Eukaryota

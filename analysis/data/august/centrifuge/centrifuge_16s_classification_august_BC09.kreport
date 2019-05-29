@@ -1,11 +1,11 @@
- 95.32	795	795	U	0	unclassified
-  4.68	39	0	-	1	root
-  4.56	38	13	D	3	  Bacteria
-  1.68	14	2	P	2375	    Proteobacteria
-  1.44	12	2	C	3303	      Gammaproteobacteria
-  0.96	8	0	O	3468	        Enterobacteriales
-  0.96	8	5	F	3469	          Enterobacteriaceae
-  0.24	2	2	G	3504	            Escherichia-Shigella
+ 95.20	794	794	U	0	unclassified
+  4.80	40	0	-	1	root
+  4.68	39	14	D	3	  Bacteria
+  1.56	13	0	P	2375	    Proteobacteria
+  1.56	13	1	C	3303	      Gammaproteobacteria
+  1.20	10	0	O	3468	        Enterobacteriales
+  1.20	10	6	F	3469	          Enterobacteriaceae
+  0.36	3	3	G	3504	            Escherichia-Shigella
   0.12	1	1	G	3514	            Pectobacterium
   0.12	1	0	O	26341	        Betaproteobacteriales
   0.12	1	1	F	26352	          Burkholderiaceae
@@ -14,11 +14,14 @@
   0.12	1	1	G	26724	            Arhodomonas
   0.60	5	0	P	3982	    Verrucomicrobia
   0.60	5	5	C	4029	      Verrucomicrobiae
-  0.24	2	1	P	400	    Actinobacteria
-  0.12	1	0	C	419	      Actinobacteria
+  0.36	3	1	P	400	    Actinobacteria
+  0.24	2	0	C	419	      Actinobacteria
   0.12	1	0	O	704	        Propionibacteriales
   0.12	1	0	F	705	          Nocardioidaceae
   0.12	1	1	G	710	            Marmoricola
+  0.12	1	0	O	765	        Streptomycetales
+  0.12	1	0	F	766	          Streptomycetaceae
+  0.12	1	1	G	769	            Streptomyces
   0.12	1	0	P	894	    Armatimonadetes
   0.12	1	0	C	14237	      Fimbriimonadia
   0.12	1	0	O	14238	        Fimbriimonadales
