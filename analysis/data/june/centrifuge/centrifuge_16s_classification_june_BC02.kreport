@@ -1,8 +1,25 @@
- 97.36	7179	7179	U	0	unclassified
-  2.64	195	1	-	1	root
-  2.52	186	89	D	3	  Bacteria
-  0.73	54	2	P	2375	    Proteobacteria
-  0.39	29	3	C	3303	      Gammaproteobacteria
+ 97.29	7174	7174	U	0	unclassified
+  2.71	200	1	-	1	root
+  2.59	191	53	D	3	  Bacteria
+  1.25	92	2	P	2375	    Proteobacteria
+  0.79	58	6	C	2379	      Alphaproteobacteria
+  0.64	47	0	O	2557	        Rhodobacterales
+  0.64	47	41	F	2558	          Rhodobacteraceae
+  0.05	4	4	G	2624	            Rhodobacter
+  0.03	2	2	G	2666	            uncultured
+  0.03	2	1	O	2421	        Rhizobiales
+  0.01	1	0	F	2530	          Rhizobiales Incertae Sedis
+  0.01	1	1	G	14525	            uncultured
+  0.01	1	0	O	2823	        Sphingomonadales
+  0.01	1	0	F	2844	          Sphingomonadaceae
+  0.01	1	1	G	2852	            Sphingomonas
+  0.01	1	0	O	25900	        Acetobacterales
+  0.01	1	0	F	25901	          Acetobacteraceae
+  0.01	1	1	G	25937	            uncultured
+  0.01	1	0	O	25946	        Azospirillales
+  0.01	1	0	F	25947	          Azospirillaceae
+  0.01	1	1	G	25948	            Azospirillum
+  0.41	30	4	C	3303	      Gammaproteobacteria
   0.23	17	1	O	26341	        Betaproteobacteriales
   0.16	12	2	F	26352	          Burkholderiaceae
   0.04	3	3	G	26403	            Janthinobacterium
@@ -36,24 +53,9 @@
   0.01	1	0	O	3709	        Pseudomonadales
   0.01	1	0	F	3710	          Moraxellaceae
   0.01	1	1	G	3711	            Acinetobacter
-  0.30	22	6	C	2379	      Alphaproteobacteria
-  0.15	11	0	O	2557	        Rhodobacterales
-  0.15	11	4	F	2558	          Rhodobacteraceae
-  0.07	5	5	G	2624	            Rhodobacter
-  0.03	2	2	G	2666	            uncultured
-  0.03	2	1	O	2421	        Rhizobiales
-  0.01	1	0	F	2530	          Rhizobiales Incertae Sedis
-  0.01	1	1	G	14525	            uncultured
-  0.01	1	0	O	2823	        Sphingomonadales
-  0.01	1	0	F	2844	          Sphingomonadaceae
-  0.01	1	1	G	2852	            Sphingomonas
-  0.01	1	0	O	25900	        Acetobacterales
-  0.01	1	0	F	25901	          Acetobacteraceae
-  0.01	1	1	G	25937	            uncultured
-  0.01	1	0	O	25946	        Azospirillales
-  0.01	1	0	F	25947	          Azospirillaceae
-  0.01	1	1	G	25948	            Azospirillum
-  0.01	1	0	C	3087	      Deltaproteobacteria
+  0.03	2	0	C	3087	      Deltaproteobacteria
+  0.01	1	0	O	11497	        Oligoflexales
+  0.01	1	1	F	14610	          0319-6G20
   0.01	1	1	O	14584	        Bradymonadales
   0.18	13	1	P	1672	    Firmicutes
   0.11	8	0	C	1673	      Bacilli
@@ -63,8 +65,9 @@
   0.05	4	0	F	1753	          Planococcaceae
   0.05	4	4	G	1757	            Chungangia
   0.05	4	0	C	1859	      Clostridia
-  0.04	3	1	O	1863	        Clostridiales
-  0.03	2	0	F	2050	          Ruminococcaceae
+  0.04	3	0	O	1863	        Clostridiales
+  0.04	3	0	F	2050	          Ruminococcaceae
+  0.01	1	1	G	2057	            Faecalibacterium
   0.01	1	1	G	2058	            Fastidiosipila
   0.01	1	1	G	11360	            Ruminococcaceae UCG-002
   0.01	1	0	O	2112	        Thermoanaerobacterales
@@ -86,8 +89,8 @@
   0.01	1	0	O	24483	        Microtrichales
   0.01	1	0	F	24490	          Microtrichaceae
   0.01	1	1	G	24493	            Sva0996 marine group
-  0.08	6	0	P	905	    Bacteroidetes
-  0.08	6	1	C	912	      Bacteroidia
+  0.12	9	0	P	905	    Bacteroidetes
+  0.12	9	4	C	912	      Bacteroidia
   0.04	3	0	O	25002	        Sphingobacteriales
   0.04	3	2	F	25020	          Sphingobacteriaceae
   0.01	1	1	G	25032	            Sphingobacterium

@@ -1,36 +1,30 @@
- 94.67	533	533	U	0	unclassified
-  5.33	30	0	-	1	root
-  5.15	29	9	D	3	  Bacteria
-  1.42	8	0	P	2375	    Proteobacteria
+ 94.14	530	530	U	0	unclassified
+  5.86	33	1	-	1	root
+  5.68	32	13	D	3	  Bacteria
+  1.42	8	1	P	2375	    Proteobacteria
   1.07	6	0	C	3303	      Gammaproteobacteria
   0.36	2	0	O	3333	        Alteromonadales
   0.36	2	0	F	26313	          Marinobacteraceae
   0.36	2	2	G	26314	            Marinobacter
   0.36	2	0	O	26341	        Betaproteobacteriales
-  0.36	2	1	F	26352	          Burkholderiaceae
+  0.36	2	0	F	26352	          Burkholderiaceae
   0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
+  0.18	1	1	G	26437	            Polynucleobacter
   0.18	1	0	O	3316	        Aeromonadales
   0.18	1	0	F	3326	          Succinivibrionaceae
   0.18	1	1	G	3331	            Succinivibrio
   0.18	1	0	O	3468	        Enterobacteriales
   0.18	1	0	F	3469	          Enterobacteriaceae
   0.18	1	1	G	3504	            Escherichia-Shigella
-  0.36	2	0	C	2379	      Alphaproteobacteria
-  0.18	1	0	O	2421	        Rhizobiales
-  0.18	1	0	F	2435	          Beijerinckiaceae
-  0.18	1	1	G	26045	            Methylobacterium
+  0.18	1	0	C	2379	      Alphaproteobacteria
   0.18	1	0	O	2823	        Sphingomonadales
   0.18	1	0	F	2844	          Sphingomonadaceae
   0.18	1	1	G	2854	            Sphingorhabdus
-  0.89	5	0	P	1672	    Firmicutes
+  0.71	4	0	P	1672	    Firmicutes
   0.53	3	0	C	1673	      Bacilli
   0.53	3	1	O	1674	        Bacillales
   0.36	2	0	F	1680	          Bacillaceae
   0.36	2	2	G	1688	            Bacillus
-  0.18	1	0	C	1859	      Clostridia
-  0.18	1	0	O	1863	        Clostridiales
-  0.18	1	0	F	1869	          Clostridiaceae 1
-  0.18	1	1	G	1873	            Clostridium sensu stricto 1
   0.18	1	0	C	2164	      Negativicutes
   0.18	1	0	O	2165	        Selenomonadales
   0.18	1	0	F	2166	          Acidaminococcaceae
@@ -48,11 +42,3 @@
   0.18	1	0	F	1433	          Dehalococcoidales Incertae Sedis
   0.18	1	1	G	1434	            Dehalobium
   0.18	1	1	P	14244	    BRC1
-  0.18	1	0	D	4	  Eukaryota
-  0.18	1	0	-	8770	    SAR
-  0.18	1	0	K	9387	      Rhizaria
-  0.18	1	0	P	9540	        Retaria
-  0.18	1	0	C	9562	          Foraminifera
-  0.18	1	0	O	9581	            Tubothalamea
-  0.18	1	0	G	9582	              Miliolida
-  0.18	1	1	G	9583	                Amphisorus
