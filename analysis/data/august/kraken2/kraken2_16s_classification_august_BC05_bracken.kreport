@@ -3,7 +3,7 @@
 99.91	976748	0	D	3	  Bacteria
 44.76	437576	0	P	2375	    Proteobacteria
 37.55	367128	0	C	3303	      Gammaproteobacteria
-35.66	348603	0	O	26341	        Betaproteobacteriales
+35.66	348602	0	O	26341	        Betaproteobacteriales
 34.15	333894	0	F	26352	          Burkholderiaceae
 4.86	47476	47476	G	26410	            Limnohabitans
 4.31	42111	42111	G	26384	            Comamonas
@@ -178,7 +178,7 @@
 0.00	18	18	G	26533	            Simonsiella
 0.00	7	7	G	26531	            Kingella
 0.00	4	4	G	26534	            Snodgrassella
-0.00	4	4	G	26530	            Eikenella
+0.00	3	3	G	26530	            Eikenella
 0.00	1	1	G	26537	            Vitreoscilla
 0.00	1	1	G	26529	            Conchiformibius
 0.00	1	1	G	26527	            Alysiella
@@ -205,8 +205,8 @@
 0.00	1	1	G	26510	            Thiobacter
 0.00	1	1	G	26507	            Sulfuritortus
 0.02	216	216	F	26589	          TRA3-20
-0.02	204	0	F	26583	          Sulfuricellaceae
-0.01	94	94	G	26584	            Ferritrophicum
+0.02	203	0	F	26583	          Sulfuricellaceae
+0.01	93	93	G	26584	            Ferritrophicum
 0.01	74	74	G	26585	            Sulfuricella
 0.00	32	32	G	26586	            Sulfuriferula
 0.00	4	4	G	26587	            Sulfurirhabdus
@@ -317,9 +317,9 @@
 0.00	1	1	G	3527	            Thorsellia
 0.00	1	1	G	3528	            Trabulsiella
 0.00	1	1	G	3487	            Candidatus Purcelliella
-0.27	2668	0	O	3709	        Pseudomonadales
-0.25	2423	0	F	3718	          Pseudomonadaceae
-0.25	2418	2418	G	3723	            Pseudomonas
+0.27	2669	0	O	3709	        Pseudomonadales
+0.25	2424	0	F	3718	          Pseudomonadaceae
+0.25	2419	2419	G	3723	            Pseudomonas
 0.00	2	2	G	3721	            Azotobacter
 0.00	1	1	G	14683	            Thiopseudomonas
 0.02	229	0	F	3710	          Moraxellaceae
@@ -2839,12 +2839,6 @@
 0.00	9	9	F	25730	          Moduliflexaceae
 0.00	9	9	P	27012	    Zixibacteria
 0.00	9	9	P	26898	    Schekmanbacteria
-0.00	7	0	P	11239	    Cloacimonetes
-0.00	7	0	C	25205	      Cloacimonadia
-0.00	7	0	O	25206	        Cloacimonadales
-0.00	6	0	F	25208	          Cloacimonadaceae
-0.00	5	5	G	25212	            W5
-0.00	1	1	G	25210	            Candidatus Cloacimonas
 0.00	7	0	P	1334	    Chlamydiae
 0.00	4	0	C	1335	      Chlamydiae
 0.00	4	0	O	1336	        Chlamydiales
@@ -2856,14 +2850,20 @@
 0.00	1	0	F	1346	          Parachlamydiaceae
 0.00	1	1	G	1349	            Neochlamydia
 0.00	3	3	C	14326	      LD1-PA32
-0.00	7	0	P	11130	    Acetothermia
-0.00	7	7	C	24412	      Acetothermiia
+0.00	7	0	P	11239	    Cloacimonetes
+0.00	7	0	C	25205	      Cloacimonadia
+0.00	7	0	O	25206	        Cloacimonadales
+0.00	6	0	F	25208	          Cloacimonadaceae
+0.00	5	5	G	25212	            W5
+0.00	1	1	G	25210	            Candidatus Cloacimonas
 0.00	6	0	P	11163	    Atribacteria
 0.00	5	5	C	24594	      JS1
 0.00	1	0	C	24590	      Caldatribacteriia
 0.00	1	0	O	24591	        Caldatribacteriales
 0.00	1	0	F	24592	          Caldatribacteriaceae
 0.00	1	1	G	24593	            Candidatus Caldatribacterium
+0.00	6	0	P	11130	    Acetothermia
+0.00	6	6	C	24412	      Acetothermiia
 0.00	5	0	P	25102	    Calditrichaeota
 0.00	5	0	C	25103	      Calditrichia
 0.00	5	0	O	25104	        Calditrichales

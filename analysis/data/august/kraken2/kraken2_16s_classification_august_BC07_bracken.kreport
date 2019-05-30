@@ -1,6 +1,6 @@
 0.14	1120	1120	U	0	unclassified
 99.86	806707	0	R	1	root
-99.86	806680	0	D	3	  Bacteria
+99.86	806681	0	D	3	  Bacteria
 53.30	430578	0	P	2375	    Proteobacteria
 40.46	326853	0	C	3303	      Gammaproteobacteria
 36.57	295404	0	O	26341	        Betaproteobacteriales
@@ -1251,10 +1251,10 @@
 0.00	3	0	O	3846	        Mariprofundales
 0.00	3	0	F	3847	          Mariprofundaceae
 0.00	3	3	G	3848	            Mariprofundus
-19.49	157408	0	P	3982	    Verrucomicrobia
-19.49	157408	0	C	4029	      Verrucomicrobiae
+19.49	157409	0	P	3982	    Verrucomicrobia
+19.49	157409	0	C	4029	      Verrucomicrobiae
 16.32	131817	131817	O	27008	        uncultured
-1.99	16037	0	O	26972	        Opitutales
+1.99	16038	0	O	26972	        Opitutales
 1.10	8925	0	F	26981	          Puniceicoccaceae
 0.18	1463	1463	G	26983	            Cerasicoccus
 0.17	1366	1366	G	26988	            Puniceicoccus
@@ -1265,10 +1265,10 @@
 0.03	242	242	G	26986	            MB11C04 marine group
 0.02	179	179	G	26982	            A714019
 0.02	159	159	G	26987	            Pelagicoccus
-0.84	6768	0	F	26973	          Opitutaceae
+0.84	6769	0	F	26973	          Opitutaceae
 0.31	2486	2486	G	26978	            Lacunisphaera
 0.24	1899	1899	G	26977	            IMCC26134
-0.13	1088	1088	G	26979	            Opitutus
+0.13	1089	1089	G	26979	            Opitutus
 0.05	372	372	G	26975	            Cephaloticoccus
 0.03	274	274	G	26976	            Diplosphaera
 0.01	104	104	G	26974	            Alterococcus
@@ -2748,12 +2748,12 @@
 0.00	1	1	O	1453	        C0119
 0.00	1	1	C	25203	      TK17
 0.00	1	1	C	25119	      AD3
-0.03	259	0	P	26899	    Spirochaetes
+0.03	260	0	P	26899	    Spirochaetes
 0.01	121	121	C	26916	      MVP-15
-0.01	88	0	C	26917	      Spirochaetia
-0.01	88	0	O	26921	        Spirochaetales
-0.01	88	0	F	26922	          Spirochaetaceae
-0.01	42	42	G	26932	            Spirochaeta 2
+0.01	89	0	C	26917	      Spirochaetia
+0.01	89	0	O	26921	        Spirochaetales
+0.01	89	0	F	26922	          Spirochaetaceae
+0.01	43	43	G	26932	            Spirochaeta 2
 0.00	11	11	G	26935	            Treponema 2
 0.00	10	10	G	26934	            Treponema
 0.00	7	7	G	26929	            Salinispira
@@ -2976,28 +2976,7 @@
 0.00	1	0	F	25685	          Halanaerobiaceae
 0.00	1	1	G	25688	            Halocella
 0.00	1	1	P	14343	    FCPU426
-0.00	10	0	D	4	  Eukaryota
-0.00	4	0	D1	6428	    Opisthokonta
-0.00	4	0	D	6430	      Holozoa
-0.00	4	0	K	12882	        Metazoa (Animalia)
-0.00	4	0	K1	12883	          Eumetazoa
-0.00	4	0	K2	12884	            Bilateria
-0.00	1	0	P	13286	              Platyhelminthes
-0.00	1	0	C	13290	                Cestoda
-0.00	1	0	C1	13291	                  Cestodaria
-0.00	1	1	O	13292	                    Amphilinidea
-0.00	1	0	K3	13104	              Chordata
-0.00	1	0	P	13120	                Vertebrata
-0.00	1	0	P1	13126	                  Gnathostomata
-0.00	1	0	P2	13134	                    Euteleostomi
-0.00	1	0	C	13135	                      Actinopterygii
-0.00	1	0	C1	13138	                        Neopterygii
-0.00	1	1	C2	13141	                          Teleostei
-0.00	1	0	P	12943	              Arthropoda
-0.00	1	0	P1	12961	                Crustacea
-0.00	1	0	C	13007	                  Ostracoda
-0.00	1	0	C1	13011	                    Podocopa
-0.00	1	1	O	13013	                      Podocopida
+0.00	9	0	D	4	  Eukaryota
 0.00	4	0	D1	4152	    Archaeplastida
 0.00	4	0	K	4153	      Chloroplastida
 0.00	4	0	K1	4154	        Charophyta
@@ -3011,6 +2990,22 @@
 0.00	3	3	G	5221	                        Populus
 0.00	1	0	O	4477	                      Brassicales
 0.00	1	1	G	11769	                        Brassica
+0.00	3	0	D1	6428	    Opisthokonta
+0.00	3	0	D	6430	      Holozoa
+0.00	3	0	K	12882	        Metazoa (Animalia)
+0.00	3	0	K1	12883	          Eumetazoa
+0.00	3	0	K2	12884	            Bilateria
+0.00	1	0	P	13286	              Platyhelminthes
+0.00	1	0	C	13290	                Cestoda
+0.00	1	0	C1	13291	                  Cestodaria
+0.00	1	1	O	13292	                    Amphilinidea
+0.00	1	0	K3	13104	              Chordata
+0.00	1	0	P	13120	                Vertebrata
+0.00	1	0	P1	13126	                  Gnathostomata
+0.00	1	0	P2	13134	                    Euteleostomi
+0.00	1	0	C	13135	                      Actinopterygii
+0.00	1	0	C1	13138	                        Neopterygii
+0.00	1	1	C2	13141	                          Teleostei
 0.00	2	0	D1	8770	    SAR
 0.00	1	1	K	9629	      Stramenopiles
 0.00	1	0	K	8771	      Alveolata
