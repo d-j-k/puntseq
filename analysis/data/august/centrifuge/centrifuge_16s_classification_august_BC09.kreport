@@ -1,27 +1,27 @@
- 95.20	794	794	U	0	unclassified
-  4.80	40	0	-	1	root
-  4.68	39	14	D	3	  Bacteria
-  1.56	13	0	P	2375	    Proteobacteria
-  1.56	13	1	C	3303	      Gammaproteobacteria
-  1.20	10	0	O	3468	        Enterobacteriales
-  1.20	10	6	F	3469	          Enterobacteriaceae
-  0.36	3	3	G	3504	            Escherichia-Shigella
+ 94.84	791	791	U	0	unclassified
+  5.16	43	0	-	1	root
+  5.04	42	17	D	3	  Bacteria
+  1.68	14	0	P	2375	    Proteobacteria
+  1.56	13	2	C	3303	      Gammaproteobacteria
+  1.08	9	0	O	3468	        Enterobacteriales
+  1.08	9	6	F	3469	          Enterobacteriaceae
+  0.24	2	2	G	3504	            Escherichia-Shigella
   0.12	1	1	G	3514	            Pectobacterium
   0.12	1	0	O	26341	        Betaproteobacteriales
   0.12	1	1	F	26352	          Burkholderiaceae
   0.12	1	0	O	26715	        Nitrococcales
   0.12	1	0	F	26722	          Nitrococcaceae
   0.12	1	1	G	26724	            Arhodomonas
+  0.12	1	0	C	2379	      Alphaproteobacteria
+  0.12	1	1	O	2421	        Rhizobiales
   0.60	5	0	P	3982	    Verrucomicrobia
   0.60	5	5	C	4029	      Verrucomicrobiae
-  0.36	3	1	P	400	    Actinobacteria
-  0.24	2	0	C	419	      Actinobacteria
-  0.12	1	0	O	704	        Propionibacteriales
-  0.12	1	0	F	705	          Nocardioidaceae
-  0.12	1	1	G	710	            Marmoricola
-  0.12	1	0	O	765	        Streptomycetales
-  0.12	1	0	F	766	          Streptomycetaceae
-  0.12	1	1	G	769	            Streptomyces
+  0.24	2	0	P	1672	    Firmicutes
+  0.24	2	0	C	1673	      Bacilli
+  0.24	2	0	O	1674	        Bacillales
+  0.24	2	0	F	1680	          Bacillaceae
+  0.24	2	2	G	1688	            Bacillus
+  0.12	1	1	P	400	    Actinobacteria
   0.12	1	0	P	894	    Armatimonadetes
   0.12	1	0	C	14237	      Fimbriimonadia
   0.12	1	0	O	14238	        Fimbriimonadales
@@ -29,11 +29,6 @@
   0.12	1	0	P	1385	    Chloroflexi
   0.12	1	0	C	1386	      Anaerolineae
   0.12	1	1	O	25141	        RBG-13-54-9
-  0.12	1	0	P	1672	    Firmicutes
-  0.12	1	0	C	1673	      Bacilli
-  0.12	1	0	O	1674	        Bacillales
-  0.12	1	0	F	1680	          Bacillaceae
-  0.12	1	1	G	1688	            Bacillus
   0.12	1	1	P	25725	    MAT-CR-M4-B07
   0.12	1	0	D	4	  Eukaryota
   0.12	1	0	-	6428	    Opisthokonta

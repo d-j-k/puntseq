@@ -1,21 +1,21 @@
- 93.61	527	527	U	0	unclassified
-  6.39	36	1	-	1	root
-  6.22	35	13	D	3	  Bacteria
-  1.78	10	1	P	2375	    Proteobacteria
-  1.24	7	1	C	3303	      Gammaproteobacteria
+ 92.72	522	522	U	0	unclassified
+  7.28	41	1	-	1	root
+  7.10	40	19	D	3	  Bacteria
+  1.60	9	1	P	2375	    Proteobacteria
+  1.24	7	0	C	3303	      Gammaproteobacteria
+  0.53	3	0	O	26341	        Betaproteobacteriales
+  0.53	3	2	F	26352	          Burkholderiaceae
+  0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
   0.36	2	0	O	3333	        Alteromonadales
   0.36	2	0	F	26313	          Marinobacteraceae
   0.36	2	2	G	26314	            Marinobacter
-  0.36	2	0	O	26341	        Betaproteobacteriales
-  0.36	2	1	F	26352	          Burkholderiaceae
-  0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
   0.18	1	0	O	3316	        Aeromonadales
   0.18	1	0	F	3326	          Succinivibrionaceae
   0.18	1	1	G	3331	            Succinivibrio
   0.18	1	0	O	3468	        Enterobacteriales
   0.18	1	0	F	3469	          Enterobacteriaceae
   0.18	1	1	G	3504	            Escherichia-Shigella
-  0.36	2	1	C	2379	      Alphaproteobacteria
+  0.18	1	0	C	2379	      Alphaproteobacteria
   0.18	1	0	O	2823	        Sphingomonadales
   0.18	1	0	F	2844	          Sphingomonadaceae
   0.18	1	1	G	2854	            Sphingorhabdus
@@ -28,18 +28,13 @@
   0.18	1	0	O	2165	        Selenomonadales
   0.18	1	0	F	2166	          Acidaminococcaceae
   0.18	1	1	G	2167	            Acidaminococcus
-  0.53	3	0	P	3982	    Verrucomicrobia
-  0.53	3	3	C	4029	      Verrucomicrobiae
-  0.36	2	0	P	905	    Bacteroidetes
-  0.36	2	1	C	912	      Bacteroidia
+  0.53	3	0	P	905	    Bacteroidetes
+  0.53	3	2	C	912	      Bacteroidia
   0.18	1	0	O	24714	        Cytophagales
   0.18	1	0	F	24725	          Cyclobacteriaceae
   0.18	1	1	G	24760	            uncultured
-  0.18	1	0	P	400	    Actinobacteria
-  0.18	1	0	C	401	      Acidimicrobiia
-  0.18	1	0	O	24483	        Microtrichales
-  0.18	1	0	F	24490	          Microtrichaceae
-  0.18	1	1	G	24493	            Sva0996 marine group
+  0.53	3	0	P	3982	    Verrucomicrobia
+  0.53	3	3	C	4029	      Verrucomicrobiae
   0.18	1	0	P	1385	    Chloroflexi
   0.18	1	0	C	1428	      Dehalococcoidia
   0.18	1	0	O	1429	        Dehalococcoidales

@@ -1,13 +1,11 @@
  94.50	103	103	U	0	unclassified
   5.50	6	0	-	1	root
-  5.50	6	0	D	3	  Bacteria
-  3.67	4	0	P	2375	    Proteobacteria
-  1.83	2	0	C	2379	      Alphaproteobacteria
-  0.92	1	0	O	2557	        Rhodobacterales
-  0.92	1	1	F	2558	          Rhodobacteraceae
+  5.50	6	3	D	3	  Bacteria
+  1.83	2	0	P	2375	    Proteobacteria
+  0.92	1	0	C	2379	      Alphaproteobacteria
   0.92	1	0	O	2761	        Rickettsiales
   0.92	1	1	F	2805	          Mitochondria
-  1.83	2	1	C	3303	      Gammaproteobacteria
+  0.92	1	0	C	3303	      Gammaproteobacteria
   0.92	1	0	O	3468	        Enterobacteriales
   0.92	1	1	F	3469	          Enterobacteriaceae
   0.92	1	0	P	400	    Actinobacteria
@@ -15,6 +13,3 @@
   0.92	1	0	O	704	        Propionibacteriales
   0.92	1	0	F	714	          Propionibacteriaceae
   0.92	1	1	G	733	            Tessaracoccus
-  0.92	1	0	P	905	    Bacteroidetes
-  0.92	1	0	C	912	      Bacteroidia
-  0.92	1	1	O	913	        Bacteroidales
