@@ -1,42 +1,54 @@
- 94.84	791	791	U	0	unclassified
-  5.16	43	0	-	1	root
-  5.04	42	17	D	3	  Bacteria
-  1.68	14	0	P	2375	    Proteobacteria
-  1.56	13	2	C	3303	      Gammaproteobacteria
-  1.08	9	0	O	3468	        Enterobacteriales
-  1.08	9	6	F	3469	          Enterobacteriaceae
-  0.24	2	2	G	3504	            Escherichia-Shigella
-  0.12	1	1	G	3514	            Pectobacterium
-  0.12	1	0	O	26341	        Betaproteobacteriales
-  0.12	1	1	F	26352	          Burkholderiaceae
-  0.12	1	0	O	26715	        Nitrococcales
-  0.12	1	0	F	26722	          Nitrococcaceae
-  0.12	1	1	G	26724	            Arhodomonas
-  0.12	1	0	C	2379	      Alphaproteobacteria
-  0.12	1	1	O	2421	        Rhizobiales
-  0.60	5	0	P	3982	    Verrucomicrobia
-  0.60	5	5	C	4029	      Verrucomicrobiae
-  0.24	2	0	P	1672	    Firmicutes
-  0.24	2	0	C	1673	      Bacilli
-  0.24	2	0	O	1674	        Bacillales
-  0.24	2	0	F	1680	          Bacillaceae
-  0.24	2	2	G	1688	            Bacillus
-  0.12	1	1	P	400	    Actinobacteria
-  0.12	1	0	P	894	    Armatimonadetes
-  0.12	1	0	C	14237	      Fimbriimonadia
-  0.12	1	0	O	14238	        Fimbriimonadales
-  0.12	1	1	F	14239	          Fimbriimonadaceae
-  0.12	1	0	P	1385	    Chloroflexi
-  0.12	1	0	C	1386	      Anaerolineae
-  0.12	1	1	O	25141	        RBG-13-54-9
-  0.12	1	1	P	25725	    MAT-CR-M4-B07
-  0.12	1	0	D	4	  Eukaryota
-  0.12	1	0	-	6428	    Opisthokonta
-  0.12	1	0	D	6430	      Holozoa
-  0.12	1	0	K	12882	        Metazoa (Animalia)
-  0.12	1	0	-	12883	          Eumetazoa
-  0.12	1	0	-	12884	            Bilateria
-  0.12	1	0	P	13286	              Platyhelminthes
-  0.12	1	0	C	13290	                Cestoda
-  0.12	1	0	-	13294	                  Eucestoda
-  0.12	1	1	O	13298	                    Cyclophyllidea
+ 95.56	797	797	U	0	unclassified
+  4.44	37	9	-	1	root
+  3.24	27	2	-	131567	  cellular organisms
+  2.88	24	5	D	2	    Bacteria
+  0.84	7	0	P	1224	      Proteobacteria
+  0.72	6	2	C	1236	        Gammaproteobacteria
+  0.48	4	2	O	91347	          Enterobacterales
+  0.24	2	0	F	543	            Enterobacteriaceae
+  0.12	1	0	G	561	              Escherichia
+  0.12	1	1	S	562	                Escherichia coli
+  0.12	1	0	-	191675	              unclassified Enterobacteriaceae
+  0.12	1	0	-	84563	                ant, tsetse, mealybug, aphid, etc. endosymbionts
+  0.12	1	1	S	801	                  BEV proteobacterium
+  0.12	1	0	C	28216	        Betaproteobacteria
+  0.12	1	1	O	80840	          Burkholderiales
+  0.48	4	1	-	48479	      environmental samples
+  0.36	3	3	S	77133	        uncultured bacterium
+  0.48	4	0	-	1783257	      PVC group
+  0.48	4	4	P	74201	        Verrucomicrobia
+  0.36	3	0	-	1783272	      Terrabacteria group
+  0.24	2	1	P	1239	        Firmicutes
+  0.12	1	0	C	91061	          Bacilli
+  0.12	1	0	O	1385	            Bacillales
+  0.12	1	0	F	186817	              Bacillaceae
+  0.12	1	0	G	1386	                Bacillus
+  0.12	1	1	S	115979	                  Bacillus nealsonii
+  0.12	1	0	P	201174	        Actinobacteria
+  0.12	1	0	C	1760	          Actinobacteria
+  0.12	1	0	O	85009	            Propionibacteriales
+  0.12	1	0	F	85015	              Nocardioidaceae
+  0.12	1	0	G	1839	                Nocardioides
+  0.12	1	0	-	198440	                  environmental samples
+  0.12	1	1	S	198441	                    uncultured Nocardioides sp.
+  0.12	1	0	-	1783270	      FCB group
+  0.12	1	0	-	68336	        Bacteroidetes/Chlorobi group
+  0.12	1	0	P	976	          Bacteroidetes
+  0.12	1	0	C	117747	            Sphingobacteriia
+  0.12	1	0	O	200666	              Sphingobacteriales
+  0.12	1	1	F	84566	                Sphingobacteriaceae
+  0.12	1	0	D	2759	    Eukaryota
+  0.12	1	0	-	33154	      Opisthokonta
+  0.12	1	0	K	33208	        Metazoa
+  0.12	1	0	-	6072	          Eumetazoa
+  0.12	1	0	-	33213	            Bilateria
+  0.12	1	0	P	6157	              Platyhelminthes
+  0.12	1	0	C	6199	                Cestoda
+  0.12	1	0	-	6200	                  Eucestoda
+  0.12	1	0	O	6201	                    Cyclophyllidea
+  0.12	1	0	F	6208	                      Taeniidae
+  0.12	1	0	G	6202	                        Taenia
+  0.12	1	1	S	6207	                          Taenia crassiceps
+  0.12	1	0	-	12908	  unclassified sequences
+  0.12	1	0	-	151659	    environmental samples
+  0.12	1	1	S	155900	      uncultured organism

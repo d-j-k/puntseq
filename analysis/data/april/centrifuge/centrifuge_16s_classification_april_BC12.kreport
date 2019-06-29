@@ -1,43 +1,43 @@
- 92.72	522	522	U	0	unclassified
-  7.28	41	1	-	1	root
-  7.10	40	19	D	3	  Bacteria
-  1.60	9	1	P	2375	    Proteobacteria
-  1.24	7	0	C	3303	      Gammaproteobacteria
-  0.53	3	0	O	26341	        Betaproteobacteriales
-  0.53	3	2	F	26352	          Burkholderiaceae
-  0.18	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
-  0.36	2	0	O	3333	        Alteromonadales
-  0.36	2	0	F	26313	          Marinobacteraceae
-  0.36	2	2	G	26314	            Marinobacter
-  0.18	1	0	O	3316	        Aeromonadales
-  0.18	1	0	F	3326	          Succinivibrionaceae
-  0.18	1	1	G	3331	            Succinivibrio
-  0.18	1	0	O	3468	        Enterobacteriales
-  0.18	1	0	F	3469	          Enterobacteriaceae
-  0.18	1	1	G	3504	            Escherichia-Shigella
-  0.18	1	0	C	2379	      Alphaproteobacteria
-  0.18	1	0	O	2823	        Sphingomonadales
-  0.18	1	0	F	2844	          Sphingomonadaceae
-  0.18	1	1	G	2854	            Sphingorhabdus
-  0.71	4	1	P	1672	    Firmicutes
-  0.36	2	0	C	1673	      Bacilli
-  0.36	2	1	O	1674	        Bacillales
-  0.18	1	0	F	1680	          Bacillaceae
-  0.18	1	1	G	1688	            Bacillus
-  0.18	1	0	C	2164	      Negativicutes
-  0.18	1	0	O	2165	        Selenomonadales
-  0.18	1	0	F	2166	          Acidaminococcaceae
-  0.18	1	1	G	2167	            Acidaminococcus
-  0.53	3	0	P	905	    Bacteroidetes
-  0.53	3	2	C	912	      Bacteroidia
-  0.18	1	0	O	24714	        Cytophagales
-  0.18	1	0	F	24725	          Cyclobacteriaceae
-  0.18	1	1	G	24760	            uncultured
-  0.53	3	0	P	3982	    Verrucomicrobia
-  0.53	3	3	C	4029	      Verrucomicrobiae
-  0.18	1	0	P	1385	    Chloroflexi
-  0.18	1	0	C	1428	      Dehalococcoidia
-  0.18	1	0	O	1429	        Dehalococcoidales
-  0.18	1	0	F	1433	          Dehalococcoidales Incertae Sedis
-  0.18	1	1	G	1434	            Dehalobium
-  0.18	1	1	P	14244	    BRC1
+ 94.67	533	533	U	0	unclassified
+  5.33	30	5	-	1	root
+  4.26	24	2	-	131567	  cellular organisms
+  3.91	22	6	D	2	    Bacteria
+  1.07	6	0	-	48479	      environmental samples
+  1.07	6	6	S	77133	        uncultured bacterium
+  0.89	5	0	P	1224	      Proteobacteria
+  0.36	2	0	C	1236	        Gammaproteobacteria
+  0.36	2	0	O	135622	          Alteromonadales
+  0.36	2	0	F	72275	            Alteromonadaceae
+  0.36	2	0	G	2742	              Marinobacter
+  0.36	2	2	S	1388793	                Marinobacter sp. KK1
+  0.36	2	0	C	28216	        Betaproteobacteria
+  0.36	2	1	O	80840	          Burkholderiales
+  0.18	1	0	F	119060	            Burkholderiaceae
+  0.18	1	1	G	32008	              Burkholderia
+  0.18	1	0	C	28211	        Alphaproteobacteria
+  0.18	1	0	O	204457	          Sphingomonadales
+  0.18	1	0	F	41297	            Sphingomonadaceae
+  0.18	1	0	G	13687	              Sphingomonas
+  0.18	1	1	S	28214	                Sphingomonas sp.
+  0.36	2	0	-	1783257	      PVC group
+  0.36	2	2	P	74201	        Verrucomicrobia
+  0.36	2	0	-	1783272	      Terrabacteria group
+  0.18	1	0	P	1239	        Firmicutes
+  0.18	1	0	C	91061	          Bacilli
+  0.18	1	0	O	1385	            Bacillales
+  0.18	1	0	F	186817	              Bacillaceae
+  0.18	1	0	G	1386	                Bacillus
+  0.18	1	0	S	653685	                  Bacillus subtilis group
+  0.18	1	1	S	1423	                    Bacillus subtilis
+  0.18	1	0	P	201174	        Actinobacteria
+  0.18	1	1	C	1760	          Actinobacteria
+  0.18	1	0	-	1783270	      FCB group
+  0.18	1	0	-	68336	        Bacteroidetes/Chlorobi group
+  0.18	1	0	P	976	          Bacteroidetes
+  0.18	1	0	C	117747	            Sphingobacteriia
+  0.18	1	0	O	200666	              Sphingobacteriales
+  0.18	1	0	-	117769	                environmental samples
+  0.18	1	1	S	212696	                  uncultured Sphingobacteriales bacterium
+  0.18	1	0	-	12908	  unclassified sequences
+  0.18	1	0	-	408169	    metagenomes
+  0.18	1	1	S	256318	      metagenome

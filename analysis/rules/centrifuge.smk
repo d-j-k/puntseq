@@ -120,12 +120,45 @@ rule centrifuge_krakenstyle_report:
         centrifuge-kreport -x {params.index_prefix} {input} > {output} 2> {log}
         """
 
+rule download_centrifuge_16s_resources:
+    output:
+        ref_seqs = "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta",
+        taxmap = "data/centrifuge_16s_db/data/taxmap_embl_ssu_ref_nr99_132.txt"
+    threads: 1
+    resources:
+        mem_mb = 500
+    params:
+        seq_url = "https://www.arb-silva.de/fileadmin/silva_databases/release_132/Exports/SILVA_132_SSURef_Nr99_tax_silva.fasta.gz",
+        taxmap_url = "https://www.arb-silva.de/fileadmin/silva_databases/release_132/Exports/taxonomy/taxmap_embl_ssu_ref_nr99_132.txt.gz",
+    log:
+        "logs/download_centrifuge_16s_resources.log"
+    shell:
+        """
+        wget {params.seq_url} -O - | gzip -d -c - > {output.ref_seqs} 2> {log}
+        wget {params.taxmap_url} -O - | gzip -d -c - > {output.taxmap} 2>> {log} 
+        """
+
+rule make_centrifuge_16s_conversion_table:
+    input:
+        taxmap = rules.download_centrifuge_16s_resources.output.taxmap,
+    output:
+        conversion_table = "data/centrifuge_16s_db/seqid2taxid.map",
+    threads: 1
+    resources:
+        mem_mb = 300
+    log:
+        "logs/make_centrifuge_16s_conversion_table.log"
+    shell:
+        """
+        awk '{{print $1\".\"$2\".\"$3\"\t\"$(NF)}}' {input.taxmap} > {output.conversion_table} 2> {log}
+        """
+
 rule build_centrifuge_16s_db:
     input:
-        name_table = rules.build_kraken2_16s_db.output.name_table,
-        tax_tree = rules.build_kraken2_16s_db.output.tax_tree,
-        conversion_table = rules.build_kraken2_16s_db.output.conversion_table,
-        ref_seqs = rules.build_kraken2_16s_db.output.ref_seqs
+        name_table = rules.download_centrifuge_taxonomy.output.name_table,
+        tax_tree = rules.download_centrifuge_taxonomy.output.tax_tree, 
+        conversion_table = rules.make_centrifuge_16s_conversion_table.output.conversion_table,
+        ref_seqs = rules.download_centrifuge_16s_resources.output.ref_seqs
     output:
         expand("data/centrifuge_16s_db/silva_16s.{db_idx}.cf", db_idx=range(1, 5))
     threads:
@@ -173,7 +206,6 @@ rule centrifuge_16s_classify:
           --threads {threads} \
           --report-file {output.report} \
           -S {output.classification} \
-          -k 1000 \
           --met-stderr 2> {log}
         """
 

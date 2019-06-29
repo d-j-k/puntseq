@@ -1,67 +1,67 @@
- 95.63	1312	1312	U	0	unclassified
-  4.37	60	1	-	1	root
-  3.94	54	22	D	3	  Bacteria
-  1.02	14	0	P	3982	    Verrucomicrobia
-  1.02	14	14	C	4029	      Verrucomicrobiae
-  0.51	7	0	P	2375	    Proteobacteria
-  0.36	5	1	C	3303	      Gammaproteobacteria
-  0.15	2	0	O	3468	        Enterobacteriales
-  0.15	2	0	F	3469	          Enterobacteriaceae
-  0.15	2	2	G	3504	            Escherichia-Shigella
-  0.07	1	0	O	3709	        Pseudomonadales
-  0.07	1	0	F	3718	          Pseudomonadaceae
-  0.07	1	1	G	3723	            Pseudomonas
-  0.07	1	0	O	26341	        Betaproteobacteriales
-  0.07	1	1	F	26352	          Burkholderiaceae
-  0.07	1	0	C	2379	      Alphaproteobacteria
-  0.07	1	0	O	2421	        Rhizobiales
-  0.07	1	0	F	2435	          Beijerinckiaceae
-  0.07	1	1	G	26054	            alphaI cluster
-  0.07	1	0	C	3087	      Deltaproteobacteria
-  0.07	1	0	O	3210	        Myxococcales
-  0.07	1	0	F	3236	          Polyangiaceae
-  0.07	1	1	G	26282	            Pajaroellobacter
-  0.29	4	0	P	905	    Bacteroidetes
-  0.29	4	2	C	912	      Bacteroidia
-  0.07	1	0	O	913	        Bacteroidales
-  0.07	1	0	F	917	          Bacteroidaceae
-  0.07	1	1	G	918	            Bacteroides
-  0.07	1	0	O	25002	        Sphingobacteriales
-  0.07	1	1	F	25020	          Sphingobacteriaceae
-  0.22	3	0	P	1672	    Firmicutes
-  0.15	2	0	C	1673	      Bacilli
-  0.15	2	1	O	1674	        Bacillales
-  0.07	1	0	F	1680	          Bacillaceae
-  0.07	1	1	G	1688	            Bacillus
-  0.07	1	0	C	1859	      Clostridia
-  0.07	1	0	O	1863	        Clostridiales
-  0.07	1	0	F	2050	          Ruminococcaceae
-  0.07	1	1	G	2058	            Fastidiosipila
-  0.15	2	0	P	400	    Actinobacteria
-  0.15	2	2	C	419	      Actinobacteria
-  0.07	1	0	P	2224	    Gemmatimonadetes
-  0.07	1	1	C	14419	      S0134 terrestrial group
-  0.07	1	0	P	25560	    Entotheonellaeota
-  0.07	1	0	C	25561	      Entotheonellia
-  0.07	1	0	O	25562	        Entotheonellales
-  0.07	1	1	F	25563	          Entotheonellaceae
-  0.36	5	1	D	4	  Eukaryota
-  0.22	3	0	-	6428	    Opisthokonta
-  0.22	3	0	D	6430	      Holozoa
-  0.22	3	0	K	12882	        Metazoa (Animalia)
-  0.22	3	0	-	12883	          Eumetazoa
-  0.22	3	0	-	12884	            Bilateria
-  0.15	2	0	-	13104	              Chordata
-  0.15	2	0	P	13120	                Vertebrata
-  0.15	2	0	-	13126	                  Gnathostomata
-  0.15	2	0	-	13134	                    Euteleostomi
-  0.15	2	0	C	13135	                      Actinopterygii
-  0.15	2	0	-	13138	                        Neopterygii
-  0.15	2	2	-	13141	                          Teleostei
-  0.07	1	0	P	13286	              Platyhelminthes
-  0.07	1	0	C	13290	                Cestoda
-  0.07	1	0	-	13294	                  Eucestoda
-  0.07	1	1	O	13298	                    Cyclophyllidea
-  0.07	1	0	K	6201	    Cryptophyceae
-  0.07	1	0	P	6202	      Cryptomonadales
-  0.07	1	1	G	6204	        Cryptomonas
+ 96.28	1321	1321	U	0	unclassified
+  3.72	51	14	-	1	root
+  2.55	35	1	-	131567	  cellular organisms
+  1.97	27	8	D	2	    Bacteria
+  0.58	8	0	-	1783257	      PVC group
+  0.58	8	8	P	74201	        Verrucomicrobia
+  0.36	5	0	-	48479	      environmental samples
+  0.36	5	5	S	77133	        uncultured bacterium
+  0.22	3	0	P	1224	      Proteobacteria
+  0.07	1	1	C	1236	        Gammaproteobacteria
+  0.07	1	0	C	28211	        Alphaproteobacteria
+  0.07	1	0	-	47925	          environmental samples
+  0.07	1	1	S	91750	            uncultured Alphaproteobacteria bacterium
+  0.07	1	0	C	28216	        Betaproteobacteria
+  0.07	1	1	O	80840	          Burkholderiales
+  0.22	3	0	-	1783270	      FCB group
+  0.22	3	0	-	68336	        Bacteroidetes/Chlorobi group
+  0.22	3	1	P	976	          Bacteroidetes
+  0.07	1	0	C	117747	            Sphingobacteriia
+  0.07	1	0	O	200666	              Sphingobacteriales
+  0.07	1	1	F	84566	                Sphingobacteriaceae
+  0.07	1	0	C	200643	            Bacteroidia
+  0.07	1	0	O	171549	              Bacteroidales
+  0.07	1	0	F	815	                Bacteroidaceae
+  0.07	1	0	G	816	                  Bacteroides
+  0.07	1	1	S	818	                    Bacteroides thetaiotaomicron
+  0.51	7	3	D	2759	    Eukaryota
+  0.22	3	0	-	33154	      Opisthokonta
+  0.22	3	0	K	33208	        Metazoa
+  0.22	3	0	-	6072	          Eumetazoa
+  0.22	3	0	-	33213	            Bilateria
+  0.15	2	0	-	33511	              Deuterostomia
+  0.15	2	0	P	7711	                Chordata
+  0.15	2	0	-	89593	                  Craniata
+  0.15	2	0	-	7742	                    Vertebrata
+  0.15	2	0	-	7776	                      Gnathostomata
+  0.15	2	0	-	117570	                        Teleostomi
+  0.15	2	0	-	117571	                          Euteleostomi
+  0.15	2	0	-	7898	                            Actinopterygii
+  0.15	2	0	C	186623	                              Actinopteri
+  0.15	2	0	-	41665	                                Neopterygii
+  0.15	2	0	-	32443	                                  Teleostei
+  0.15	2	0	-	1489341	                                    Osteoglossocephalai
+  0.15	2	0	-	186625	                                      Clupeocephala
+  0.15	2	0	-	1489388	                                        Euteleosteomorpha
+  0.15	2	0	-	41705	                                          Protacanthopterygii
+  0.15	2	0	O	8006	                                            Salmoniformes
+  0.15	2	0	F	8015	                                              Salmonidae
+  0.15	2	0	-	504568	                                                Salmoninae
+  0.15	2	0	G	8028	                                                  Salmo
+  0.15	2	2	S	8030	                                                    Salmo salar
+  0.07	1	0	P	6157	              Platyhelminthes
+  0.07	1	0	C	6199	                Cestoda
+  0.07	1	0	-	6200	                  Eucestoda
+  0.07	1	0	O	6201	                    Cyclophyllidea
+  0.07	1	0	F	6208	                      Taeniidae
+  0.07	1	0	G	6202	                        Taenia
+  0.07	1	1	S	432621	                          Taenia madoquae
+  0.07	1	0	P	3027	      Cryptophyta
+  0.07	1	0	O	589350	        Cryptomonadales
+  0.07	1	0	F	2896	          Cryptomonadaceae
+  0.07	1	0	G	3030	            Cryptomonas
+  0.07	1	0	-	356653	              unclassified Cryptomonas
+  0.07	1	1	S	400247	                Cryptomonas sp. M2807
+  0.15	2	0	-	12908	  unclassified sequences
+  0.15	2	0	-	408169	    metagenomes
+  0.15	2	2	S	256318	      metagenome

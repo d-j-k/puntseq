@@ -1,20 +1,41 @@
  96.74	178	178	U	0	unclassified
   3.26	6	0	-	1	root
-  2.72	5	1	D	4	  Eukaryota
-  2.17	4	0	-	6428	    Opisthokonta
-  2.17	4	0	D	6430	      Holozoa
-  2.17	4	0	K	12882	        Metazoa (Animalia)
-  2.17	4	0	-	12883	          Eumetazoa
-  2.17	4	0	-	12884	            Bilateria
-  1.63	3	0	P	13286	              Platyhelminthes
-  1.63	3	0	C	13290	                Cestoda
-  1.63	3	0	-	13294	                  Eucestoda
-  1.63	3	3	O	13298	                    Cyclophyllidea
-  0.54	1	0	-	13104	              Chordata
-  0.54	1	0	P	13120	                Vertebrata
-  0.54	1	0	-	13126	                  Gnathostomata
-  0.54	1	0	-	13134	                    Euteleostomi
-  0.54	1	0	C	13135	                      Actinopterygii
-  0.54	1	0	-	13138	                        Neopterygii
-  0.54	1	1	-	13141	                          Teleostei
-  0.54	1	1	D	3	  Bacteria
+  3.26	6	0	-	131567	  cellular organisms
+  2.72	5	1	D	2759	    Eukaryota
+  2.17	4	0	-	33154	      Opisthokonta
+  2.17	4	0	K	33208	        Metazoa
+  2.17	4	0	-	6072	          Eumetazoa
+  2.17	4	0	-	33213	            Bilateria
+  1.63	3	0	P	6157	              Platyhelminthes
+  1.63	3	0	C	6199	                Cestoda
+  1.63	3	0	-	6200	                  Eucestoda
+  1.63	3	0	O	6201	                    Cyclophyllidea
+  1.09	2	0	F	6208	                      Taeniidae
+  0.54	1	0	G	6202	                        Taenia
+  0.54	1	1	S	94034	                          Taenia multiceps
+  0.54	1	0	G	1434708	                        Hydatigera
+  0.54	1	1	S	6205	                          Hydatigera taeniaeformis
+  0.54	1	0	F	227340	                      Paruterinidae
+  0.54	1	0	G	1229964	                        Anonchotaenia
+  0.54	1	1	S	1403075	                          Anonchotaenia cf. brasiliensis AW-2013
+  0.54	1	0	-	33511	              Deuterostomia
+  0.54	1	0	P	7711	                Chordata
+  0.54	1	0	-	89593	                  Craniata
+  0.54	1	0	-	7742	                    Vertebrata
+  0.54	1	0	-	7776	                      Gnathostomata
+  0.54	1	0	-	117570	                        Teleostomi
+  0.54	1	0	-	117571	                          Euteleostomi
+  0.54	1	0	-	7898	                            Actinopterygii
+  0.54	1	0	C	186623	                              Actinopteri
+  0.54	1	0	-	41665	                                Neopterygii
+  0.54	1	0	-	32443	                                  Teleostei
+  0.54	1	0	-	1489341	                                    Osteoglossocephalai
+  0.54	1	0	-	186625	                                      Clupeocephala
+  0.54	1	0	-	1489388	                                        Euteleosteomorpha
+  0.54	1	0	-	41705	                                          Protacanthopterygii
+  0.54	1	0	O	8006	                                            Salmoniformes
+  0.54	1	0	F	8015	                                              Salmonidae
+  0.54	1	0	-	504568	                                                Salmoninae
+  0.54	1	0	G	8028	                                                  Salmo
+  0.54	1	1	S	8030	                                                    Salmo salar
+  0.54	1	1	D	2	    Bacteria
