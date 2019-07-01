@@ -194,7 +194,7 @@ rule centrifuge_16s_classify:
     resources:
         mem_mb = lambda wildcards, attempt: attempt * config["centrifuge_16s"]["memory"]
     params:
-        index_prefix = "data/centrifuge_16s_db/silva_16s"
+        index_prefix = "data/centrifuge_16s_db/tmp/silva"
     singularity:
         config["container"]
     log:

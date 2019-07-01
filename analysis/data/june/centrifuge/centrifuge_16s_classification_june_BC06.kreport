@@ -1,8 +1,40 @@
- 97.97	145	145	U	0	unclassified
-  2.03	3	0	-	1	root
-  2.03	3	0	-	131567	  cellular organisms
-  1.35	2	2	D	2	    Bacteria
-  0.68	1	0	D	2759	    Eukaryota
+ 66.22	98	98	U	0	unclassified
+ 33.78	50	9	-	1	root
+ 23.65	35	4	-	131567	  cellular organisms
+ 18.24	27	5	D	2	    Bacteria
+ 10.14	15	2	-	48479	      environmental samples
+  8.11	12	12	S	77133	        uncultured bacterium
+  0.68	1	1	S	1070644	        bacterium enrichment culture clone B160(2011)
+  3.38	5	0	P	1224	      Proteobacteria
+  2.70	4	1	C	28216	        Betaproteobacteria
+  2.03	3	0	O	80840	          Burkholderiales
+  2.03	3	0	F	80864	            Comamonadaceae
+  0.68	1	0	G	238749	              Diaphorobacter
+  0.68	1	1	S	1302547	                Diaphorobacter sp. DS1
+  0.68	1	0	G	263066	              Malikia
+  0.68	1	1	S	86180	                Malikia spinosa
+  0.68	1	0	G	665874	              Limnohabitans
+  0.68	1	0	-	768542	                environmental samples
+  0.68	1	1	S	768543	                  uncultured Limnohabitans sp.
+  0.68	1	0	C	1236	        Gammaproteobacteria
+  0.68	1	0	O	91347	          Enterobacterales
+  0.68	1	0	F	543	            Enterobacteriaceae
+  0.68	1	0	G	590	              Salmonella
+  0.68	1	1	S	1392969	                Salmonella sp. 31
+  1.35	2	0	-	1783272	      Terrabacteria group
+  1.35	2	0	P	1239	        Firmicutes
+  1.35	2	0	C	91061	          Bacilli
+  0.68	1	0	O	1385	            Bacillales
+  0.68	1	0	F	186820	              Listeriaceae
+  0.68	1	1	G	1637	                Listeria
+  0.68	1	0	O	186826	            Lactobacillales
+  0.68	1	0	F	33958	              Lactobacillaceae
+  0.68	1	0	G	1578	                Lactobacillus
+  0.68	1	1	S	1598	                  Lactobacillus reuteri
+  2.70	4	0	D	2759	    Eukaryota
+  1.35	2	0	-	61964	      environmental samples
+  0.68	1	1	S	172788	        uncultured phototrophic eukaryote
+  0.68	1	1	S	203449	        uncultured marine eukaryote
   0.68	1	0	K	33090	      Viridiplantae
   0.68	1	0	P	3041	        Chlorophyta
   0.68	1	0	C	3166	          Chlorophyceae
@@ -10,3 +42,17 @@
   0.68	1	0	F	2491658	              Protosiphonaceae
   0.68	1	0	G	1163536	                Chlorochytrium
   0.68	1	1	S	1158274	                  Chlorochytrium sp. ACKU 222
+  0.68	1	0	-	33630	      Alveolata
+  0.68	1	0	P	5794	        Apicomplexa
+  0.68	1	0	C	1280412	          Conoidasida
+  0.68	1	0	-	5796	            Coccidia
+  0.68	1	0	O	75739	              Eucoccidiorida
+  0.68	1	0	-	423054	                Eimeriorina
+  0.68	1	0	F	5809	                  Sarcocystidae
+  0.68	1	0	G	5812	                    Sarcocystis
+  0.68	1	1	S	137008	                      Sarcocystis singaporensis
+  4.05	6	0	-	12908	  unclassified sequences
+  2.70	4	0	-	408169	    metagenomes
+  2.70	4	4	S	256318	      metagenome
+  1.35	2	0	-	151659	    environmental samples
+  1.35	2	2	S	155900	      uncultured organism

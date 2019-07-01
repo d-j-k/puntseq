@@ -1,20 +1,55 @@
- 95.41	104	104	U	0	unclassified
-  4.59	5	0	-	1	root
-  3.67	4	0	-	131567	  cellular organisms
-  2.75	3	2	D	2	    Bacteria
-  0.92	1	0	P	1224	      Proteobacteria
-  0.92	1	0	C	1236	        Gammaproteobacteria
-  0.92	1	1	O	91347	          Enterobacterales
-  0.92	1	0	D	2759	    Eukaryota
-  0.92	1	0	-	33630	      Alveolata
-  0.92	1	0	P	5794	        Apicomplexa
-  0.92	1	0	C	422676	          Aconoidasida
-  0.92	1	0	O	5819	            Haemosporida
-  0.92	1	0	F	1639119	              Plasmodiidae
-  0.92	1	0	G	5820	                Plasmodium
-  0.92	1	0	-	418107	                  Plasmodium (Laverania)
-  0.92	1	0	S	5833	                    Plasmodium falciparum
-  0.92	1	1	-	1245018	                      Plasmodium falciparum 365.1
-  0.92	1	0	-	12908	  unclassified sequences
-  0.92	1	0	-	408169	    metagenomes
-  0.92	1	1	S	256318	      metagenome
+ 59.63	65	65	U	0	unclassified
+ 40.37	44	8	-	1	root
+ 25.69	28	0	-	131567	  cellular organisms
+ 20.18	22	2	D	2	    Bacteria
+ 10.09	11	0	-	48479	      environmental samples
+ 10.09	11	11	S	77133	        uncultured bacterium
+  7.34	8	0	P	1224	      Proteobacteria
+  6.42	7	2	C	1236	        Gammaproteobacteria
+  3.67	4	0	O	91347	          Enterobacterales
+  3.67	4	1	F	543	            Enterobacteriaceae
+  1.83	2	0	G	561	              Escherichia
+  0.92	1	1	S	562	                Escherichia coli
+  0.92	1	1	S	1645070	                Escherichia sp. UIWRF0964
+  0.92	1	0	G	547	              Enterobacter
+  0.92	1	0	-	238201	                environmental samples
+  0.92	1	1	S	238202	                  uncultured Enterobacter sp.
+  0.92	1	0	O	135622	          Alteromonadales
+  0.92	1	0	F	267890	            Shewanellaceae
+  0.92	1	0	G	22	              Shewanella
+  0.92	1	0	-	73872	                environmental samples
+  0.92	1	1	S	608526	                  Shewanella sp. enrichment culture clone B4
+  0.92	1	0	C	28211	        Alphaproteobacteria
+  0.92	1	0	O	204455	          Rhodobacterales
+  0.92	1	0	F	31989	            Rhodobacteraceae
+  0.92	1	0	G	1060	              Rhodobacter
+  0.92	1	0	-	126073	                environmental samples
+  0.92	1	1	S	204728	                  uncultured Rhodobacter sp.
+  0.92	1	0	-	1783272	      Terrabacteria group
+  0.92	1	0	P	1239	        Firmicutes
+  0.92	1	0	C	91061	          Bacilli
+  0.92	1	0	O	186826	            Lactobacillales
+  0.92	1	0	F	1300	              Streptococcaceae
+  0.92	1	0	-	57697	                environmental samples
+  0.92	1	1	S	208546	                  uncultured Streptococcaceae bacterium
+  5.50	6	1	D	2759	    Eukaryota
+  2.75	3	0	-	61964	      environmental samples
+  2.75	3	3	S	203449	        uncultured marine eukaryote
+  0.92	1	0	-	33634	      Stramenopiles
+  0.92	1	0	P	2836	        Bacillariophyta
+  0.92	1	0	C	33836	          Coscinodiscophyceae
+  0.92	1	0	-	33846	            Thalassiosirophycidae
+  0.92	1	0	O	33847	              Thalassiosirales
+  0.92	1	0	F	29202	                Thalassiosiraceae
+  0.92	1	0	G	35127	                  Thalassiosira
+  0.92	1	1	S	35128	                    Thalassiosira pseudonana
+  0.92	1	0	-	543769	      Rhizaria
+  0.92	1	0	-	29178	        Foraminifera
+  0.92	1	0	O	29185	          Rotaliida
+  0.92	1	0	-	243194	            Virgulinellacea
+  0.92	1	0	G	243195	              Virgulinella
+  0.92	1	1	S	243198	                Virgulinella fragilis
+  7.34	8	0	-	12908	  unclassified sequences
+  6.42	7	0	-	408169	    metagenomes
+  6.42	7	7	S	256318	      metagenome
+  0.92	1	1	S	32644	    unidentified
