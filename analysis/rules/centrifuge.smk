@@ -55,13 +55,13 @@ rule build_centrifuge_db:
         tax_tree = rules.download_centrifuge_taxonomy.output.tax_tree,
         name_table = rules.download_centrifuge_taxonomy.output.name_table
     output:
-        expand("data/centrifuge_16s/archaea_bacteria.{db_idx}.cf", db_idx=range(1, 4))
+        expand("data/centrifuge/archaea_bacteria.{db_idx}.cf", db_idx=range(1, 4))
     threads:
         config["build_centrifuge_db"]["threads"]
     resources:
         mem_mb = lambda wildcards, attempt: attempt * config["build_centrifuge_db"]["memory"]
     params:
-        prefix = "data/centrifuge_16s/archaea_bacteria"
+        prefix = "data/centrifuge_db/archaea_bacteria"
     singularity:
         config["container"]
     log:
@@ -86,7 +86,7 @@ rule centrifuge:
     resources:
         mem_mb = lambda wildcards, attempt: attempt * config["centrifuge"]["memory"]
     params:
-        index_prefix = "data/centrifuge_16s/archaea_bacteria"
+        index_prefix = "data/centrifuge_db/archaea_bacteria"
     singularity:
         config["container"]
     log:
@@ -110,7 +110,7 @@ rule centrifuge_krakenstyle_report:
     resources:
         mem_mb = 500
     params:
-        index_prefix = "data/centrifuge_16s/archaea_bacteria" 
+        index_prefix = "data/centrifuge_db/archaea_bacteria" 
     log:
         "logs/centrifuge_kreport_{run}_{sample}.log"
     singularity:
@@ -122,7 +122,7 @@ rule centrifuge_krakenstyle_report:
 
 rule download_centrifuge_16s_resources:
     output:
-        ref_seqs = "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta",
+        ref_seqs = "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.rna.fasta",
         taxmap = "data/centrifuge_16s_db/data/taxmap_embl_ssu_ref_nr99_132.txt"
     threads: 1
     resources:
@@ -137,6 +137,20 @@ rule download_centrifuge_16s_resources:
         wget {params.seq_url} -O - | gzip -d -c - > {output.ref_seqs} 2> {log}
         wget {params.taxmap_url} -O - | gzip -d -c - > {output.taxmap} 2>> {log} 
         """
+
+rule convert_silva_db_to_dna:
+    input:
+        "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.rna.fasta"
+    output:
+        "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
+    threads: 1
+    resources:
+        mem_mb = 500
+    log:
+        "logs/convert_silva_db_to_dna.log"
+    wrapper:
+        "0.35.2-28-g9f45aaa/bio/pyfastaq/replace_bases"
+
 
 rule make_centrifuge_16s_conversion_table:
     input:
@@ -158,7 +172,7 @@ rule build_centrifuge_16s_db:
         name_table = rules.download_centrifuge_taxonomy.output.name_table,
         tax_tree = rules.download_centrifuge_taxonomy.output.tax_tree, 
         conversion_table = rules.make_centrifuge_16s_conversion_table.output.conversion_table,
-        ref_seqs = rules.download_centrifuge_16s_resources.output.ref_seqs
+        ref_seqs = "data/centrifuge_16s_db/data/SILVA_132_SSURef_Nr99_tax_silva.fasta"
     output:
         expand("data/centrifuge_16s_db/silva_16s.{db_idx}.cf", db_idx=range(1, 5))
     threads:
@@ -194,7 +208,7 @@ rule centrifuge_16s_classify:
     resources:
         mem_mb = lambda wildcards, attempt: attempt * config["centrifuge_16s"]["memory"]
     params:
-        index_prefix = "data/centrifuge_16s_db/tmp/silva"
+        index_prefix = "data/centrifuge_16s_db/silva_16s"
     singularity:
         config["container"]
     log:
