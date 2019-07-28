@@ -1,111 +1,18 @@
- 79.89	147	147	U	0	unclassified
- 20.11	37	1	-	1	root
- 18.48	34	0	-	131567	  cellular organisms
- 10.87	20	6	D	2	    Bacteria
-  5.43	10	1	-	48479	      environmental samples
-  4.89	9	9	S	77133	        uncultured bacterium
-  1.63	3	0	P	1224	      Proteobacteria
-  1.09	2	0	C	1236	        Gammaproteobacteria
-  0.54	1	0	O	72274	          Pseudomonadales
-  0.54	1	0	F	468	            Moraxellaceae
-  0.54	1	0	G	469	              Acinetobacter
-  0.54	1	1	S	1196381	                Acinetobacter sp. IrC1
-  0.54	1	0	O	135623	          Vibrionales
-  0.54	1	0	F	641	            Vibrionaceae
-  0.54	1	0	G	662	              Vibrio
-  0.54	1	1	S	190893	                Vibrio coralliilyticus
-  0.54	1	0	C	28216	        Betaproteobacteria
-  0.54	1	0	O	206351	          Neisseriales
-  0.54	1	0	F	481	            Neisseriaceae
-  0.54	1	0	G	482	              Neisseria
-  0.54	1	1	S	487	                Neisseria meningitidis
-  0.54	1	0	-	1783272	      Terrabacteria group
-  0.54	1	0	P	1239	        Firmicutes
-  0.54	1	0	C	91061	          Bacilli
-  0.54	1	0	O	1385	            Bacillales
-  0.54	1	0	F	90964	              Staphylococcaceae
-  0.54	1	0	G	1279	                Staphylococcus
-  0.54	1	1	S	1095612	                  Staphylococcus sp. LCB44
-  7.61	14	0	D	2759	    Eukaryota
-  2.17	4	0	-	33154	      Opisthokonta
-  2.17	4	0	K	33208	        Metazoa
-  2.17	4	0	-	6072	          Eumetazoa
-  2.17	4	0	-	33213	            Bilateria
-  1.09	2	0	P	6157	              Platyhelminthes
-  1.09	2	0	C	6199	                Cestoda
-  1.09	2	0	-	6200	                  Eucestoda
-  0.54	1	0	O	6201	                    Cyclophyllidea
-  0.54	1	0	F	6208	                      Taeniidae
-  0.54	1	0	G	6202	                        Taenia
-  0.54	1	1	S	159981	                          Taenia martis
-  0.54	1	0	O	1365975	                    Bothriocephalidea
-  0.54	1	0	F	56201	                      Bothriocephalidae
-  0.54	1	0	G	1697566	                        Schyzocotyle
-  0.54	1	1	S	135513	                          Schyzocotyle acheilognathi
-  1.09	2	0	-	33511	              Deuterostomia
-  1.09	2	0	P	7711	                Chordata
-  1.09	2	0	-	89593	                  Craniata
-  1.09	2	0	-	7742	                    Vertebrata
-  1.09	2	0	-	7776	                      Gnathostomata
-  1.09	2	0	-	117570	                        Teleostomi
-  1.09	2	0	-	117571	                          Euteleostomi
-  1.09	2	0	-	7898	                            Actinopterygii
-  1.09	2	0	C	186623	                              Actinopteri
-  1.09	2	0	-	41665	                                Neopterygii
-  1.09	2	0	-	32443	                                  Teleostei
-  1.09	2	0	-	1489341	                                    Osteoglossocephalai
-  1.09	2	0	-	186625	                                      Clupeocephala
-  1.09	2	0	-	1489388	                                        Euteleosteomorpha
-  1.09	2	0	-	41705	                                          Protacanthopterygii
-  1.09	2	0	O	8006	                                            Salmoniformes
-  1.09	2	0	F	8015	                                              Salmonidae
-  1.09	2	0	-	504568	                                                Salmoninae
-  1.09	2	0	G	8028	                                                  Salmo
-  1.09	2	2	S	8030	                                                    Salmo salar
-  2.17	4	0	-	61964	      environmental samples
-  2.17	4	4	S	203449	        uncultured marine eukaryote
-  1.63	3	0	K	33090	      Viridiplantae
-  1.63	3	0	P	35493	        Streptophyta
-  1.63	3	0	-	131221	          Streptophytina
-  1.63	3	0	-	3193	            Embryophyta
-  1.63	3	0	-	58023	              Tracheophyta
-  1.63	3	0	-	78536	                Euphyllophyta
-  1.63	3	0	-	58024	                  Spermatophyta
-  1.63	3	0	-	3398	                    Magnoliophyta
-  1.63	3	0	-	1437183	                      Mesangiospermae
-  1.63	3	0	-	71240	                        eudicotyledons
-  1.63	3	0	-	91827	                          Gunneridae
-  1.63	3	0	-	1437201	                            Pentapetalae
-  1.09	2	0	O	3524	                              Caryophyllales
-  1.09	2	0	F	3568	                                Caryophyllaceae
-  1.09	2	0	-	1141493	                                  Caryophylleae
-  1.09	2	0	G	3569	                                    Dianthus
-  1.09	2	2	S	288950	                                      Dianthus superbus
-  0.54	1	0	-	71275	                              rosids
-  0.54	1	0	-	91835	                                fabids
-  0.54	1	0	O	3646	                                  Malpighiales
-  0.54	1	0	F	3688	                                    Salicaceae
-  0.54	1	0	-	238069	                                      Saliceae
-  0.54	1	0	G	3689	                                        Populus
-  0.54	1	1	S	75702	                                          Populus euphratica
-  1.09	2	0	-	33634	      Stramenopiles
-  1.09	2	0	P	2836	        Bacillariophyta
-  1.09	2	0	C	33836	          Coscinodiscophyceae
-  1.09	2	0	-	33846	            Thalassiosirophycidae
-  1.09	2	0	O	33847	              Thalassiosirales
-  0.54	1	0	F	29202	                Thalassiosiraceae
-  0.54	1	0	G	35127	                  Thalassiosira
-  0.54	1	1	S	35128	                    Thalassiosira pseudonana
-  0.54	1	0	F	1365474	                Stephanodiscaceae
-  0.54	1	0	G	29203	                  Cyclotella
-  0.54	1	1	S	29204	                    Cyclotella cryptica
-  0.54	1	0	-	543769	      Rhizaria
-  0.54	1	0	-	29178	        Foraminifera
-  0.54	1	0	O	29185	          Rotaliida
-  0.54	1	0	-	325268	            Discorbinellacea
-  0.54	1	0	F	325269	              Pseudoparrellidae
-  0.54	1	0	G	325270	                Epistominella
-  0.54	1	1	S	325272	                  Epistominella vitrea
-  1.09	2	0	-	12908	  unclassified sequences
-  1.09	2	0	-	408169	    metagenomes
-  1.09	2	2	S	256318	      metagenome
+ 97.62	164	164	U	0	unclassified
+  2.38	4	0	-	1	root
+  2.38	4	0	-	131567	  cellular organisms
+  1.79	3	2	D	2759	    Eukaryota
+  0.60	1	0	-	33154	      Opisthokonta
+  0.60	1	0	K	33208	        Metazoa
+  0.60	1	0	-	6072	          Eumetazoa
+  0.60	1	0	-	33213	            Bilateria
+  0.60	1	0	P	6157	              Platyhelminthes
+  0.60	1	0	C	6199	                Cestoda
+  0.60	1	0	-	6200	                  Eucestoda
+  0.60	1	0	O	6201	                    Cyclophyllidea
+  0.60	1	0	F	6208	                      Taeniidae
+  0.60	1	0	G	6202	                        Taenia
+  0.60	1	1	S	94035	                          Taenia serialis
+  0.60	1	0	D	2	    Bacteria
+  0.60	1	0	-	48479	      environmental samples
+  0.60	1	1	S	77133	        uncultured bacterium

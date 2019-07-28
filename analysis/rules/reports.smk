@@ -10,8 +10,6 @@ rule plot_post_filtering:
         mem_mb = lambda wildcards, attempt: attempt * config["plot"]["memory"]
     params:
         downsample = config["plot"]["downsample"]
-    singularity:
-        config["container"]
     shell:
         """
         pistis --fastq {input} --output {output} \
@@ -30,8 +28,6 @@ rule stats_post_filtering:
         config["stats"]["threads"]
     resources:
         mem_mb = lambda wildcards, attempt: attempt * config["stats"]["memory"]
-    singularity:
-        config["container"]
     shell:
         """
         NanoStat --fastq {input} --name {output} --threads {threads} 2> {log}

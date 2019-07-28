@@ -55,7 +55,7 @@ rule build_centrifuge_db:
         tax_tree = rules.download_centrifuge_taxonomy.output.tax_tree,
         name_table = rules.download_centrifuge_taxonomy.output.name_table
     output:
-        expand("data/centrifuge/archaea_bacteria.{db_idx}.cf", db_idx=range(1, 4))
+        expand("data/centrifuge_db/archaea_bacteria.{db_idx}.cf", db_idx=range(1, 4))
     threads:
         config["build_centrifuge_db"]["threads"]
     resources:
