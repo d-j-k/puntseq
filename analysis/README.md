@@ -17,8 +17,6 @@ There are multiple ways of installing this package. Three will be presented here
 ```sh
 # using pip
 pip3 install snakemake
-# using bioconda
-conda install -c bioconda -c conda-forge snakemake
 # using pipenv
 # if you dont have pipenv
 pip3 install --user pipenv
@@ -53,9 +51,8 @@ To run the pipeline you just need to run a simple script.
 cd /hps/nobackup2/research/stegle/users2/lurban/puntseq/public/analysis
 # activate virtual environment if needed
 pipenv shell
-# name the job and submit
-JOB_NAME=snakemake_master_process
-bash scripts/submit_lsf.sh "$JOB_NAME"
+# submit
+bash scripts/submit_lsf.sh 
 ```
 
 Simples 🤘
