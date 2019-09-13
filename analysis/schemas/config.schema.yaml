@@ -37,6 +37,19 @@ properties:
             min_len:
                 type:                 number
                 default:              1
+    filter_length:
+        type:                         object
+        properties:
+            memory:
+                type:                 number
+                default:              4000
+            min_len:
+                type:                 number
+                default:              1
+            max_len:
+                type:                 number
+                default:              1000000000
+
 
     stats:
         type:                         object

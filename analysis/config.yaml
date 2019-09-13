@@ -11,6 +11,11 @@ filtlong:
     memory    :                    8000
     min_len :                      1000
 
+filter_length:
+    memory    :                    2000
+    min_len :                      1400
+    max_len :                      1600
+
 
 stats:
     threads     :                  2
@@ -27,7 +32,7 @@ build_centrifuge_db:
 
 centrifuge:
     threads     :                  16
-    memory    :                    10000
+    memory    :                    16000
 
 
 centrifuge_16s:
