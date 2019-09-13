@@ -1,34 +1,46 @@
- 96.74	89	89	U	0	unclassified
-  3.26	3	0	-	1	root
-  3.26	3	0	-	131567	  cellular organisms
-  2.17	2	0	D	2759	    Eukaryota
-  2.17	2	0	-	33154	      Opisthokonta
-  2.17	2	0	K	33208	        Metazoa
-  2.17	2	0	-	6072	          Eumetazoa
-  2.17	2	0	-	33213	            Bilateria
-  1.09	1	0	P	6157	              Platyhelminthes
-  1.09	1	0	C	6199	                Cestoda
-  1.09	1	0	-	6200	                  Eucestoda
-  1.09	1	1	O	6201	                    Cyclophyllidea
-  1.09	1	0	-	33317	              Protostomia
-  1.09	1	0	-	1206794	                Ecdysozoa
-  1.09	1	0	-	88770	                  Panarthropoda
-  1.09	1	0	P	6656	                    Arthropoda
-  1.09	1	0	-	197563	                      Mandibulata
-  1.09	1	0	-	197562	                        Pancrustacea
-  1.09	1	0	-	6960	                          Hexapoda
-  1.09	1	0	C	50557	                            Insecta
-  1.09	1	0	-	85512	                              Dicondylia
-  1.09	1	0	-	7496	                                Pterygota
-  1.09	1	0	-	33340	                                  Neoptera
-  1.09	1	0	-	33342	                                    Paraneoptera
-  1.09	1	0	-	1930602	                                      Psocodea
-  1.09	1	0	O	85819	                                        Phthiraptera
-  1.09	1	0	-	85820	                                          Rhyncophthirina
-  1.09	1	0	F	85821	                                            Haematomyzidae
-  1.09	1	0	G	160132	                                              Haematomyzus
-  1.09	1	1	S	160133	                                                Haematomyzus elephantis
-  1.09	1	0	D	2	    Bacteria
-  1.09	1	0	P	1224	      Proteobacteria
-  1.09	1	0	C	1236	        Gammaproteobacteria
-  1.09	1	1	O	91347	          Enterobacterales
+ 19.05	4	4	U	0	unclassified
+ 80.95	17	1	-	1	root
+ 61.90	13	1	-	131567	  cellular organisms
+ 33.33	7	1	D	2	    Bacteria
+  9.52	2	0	P	1224	      Proteobacteria
+  4.76	1	0	C	1236	        Gammaproteobacteria
+  4.76	1	0	O	91347	          Enterobacterales
+  4.76	1	0	F	543	            Enterobacteriaceae
+  4.76	1	0	G	590	              Salmonella
+  4.76	1	0	S	28901	                Salmonella enterica
+  4.76	1	0	-	59201	                  Salmonella enterica subsp. enterica
+  4.76	1	0	-	58096	                    Salmonella enterica subsp. enterica serovar Bareilly
+  4.76	1	1	-	1173421	                      Salmonella enterica subsp. enterica serovar Bareilly str. CFSAN000226
+  4.76	1	0	C	28216	        Betaproteobacteria
+  4.76	1	0	O	80840	          Burkholderiales
+  4.76	1	0	F	80864	            Comamonadaceae
+  4.76	1	0	G	12916	              Acidovorax
+  4.76	1	0	-	158750	                environmental samples
+  4.76	1	1	S	158751	                  uncultured Acidovorax sp.
+  9.52	2	0	-	48479	      environmental samples
+  9.52	2	2	S	77133	        uncultured bacterium
+  4.76	1	0	-	1783270	      FCB group
+  4.76	1	0	-	68336	        Bacteroidetes/Chlorobi group
+  4.76	1	0	P	976	          Bacteroidetes
+  4.76	1	0	-	50742	            environmental samples
+  4.76	1	1	S	152509	              uncultured Bacteroidetes bacterium
+  4.76	1	0	-	1783272	      Terrabacteria group
+  4.76	1	0	P	1239	        Firmicutes
+  4.76	1	0	C	91061	          Bacilli
+  4.76	1	0	O	1385	            Bacillales
+  4.76	1	0	F	186817	              Bacillaceae
+  4.76	1	1	G	1386	                Bacillus
+ 23.81	5	0	D	2759	    Eukaryota
+ 19.05	4	0	-	33634	      Stramenopiles
+ 19.05	4	0	P	2836	        Bacillariophyta
+ 19.05	4	0	C	33836	          Coscinodiscophyceae
+ 19.05	4	0	-	33846	            Thalassiosirophycidae
+ 19.05	4	0	O	33847	              Thalassiosirales
+ 19.05	4	0	F	29202	                Thalassiosiraceae
+ 19.05	4	0	G	35127	                  Thalassiosira
+ 19.05	4	4	S	35128	                    Thalassiosira pseudonana
+  4.76	1	0	-	61964	      environmental samples
+  4.76	1	1	S	203449	        uncultured marine eukaryote
+ 14.29	3	0	-	12908	  unclassified sequences
+ 14.29	3	0	-	408169	    metagenomes
+ 14.29	3	3	S	256318	      metagenome

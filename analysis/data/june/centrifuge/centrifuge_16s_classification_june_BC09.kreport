@@ -1,15 +1,18 @@
- 98.33	118	118	U	0	unclassified
-  1.67	2	0	-	1	root
-  1.67	2	0	-	131567	  cellular organisms
-  1.67	2	1	D	2759	    Eukaryota
-  0.83	1	0	-	33154	      Opisthokonta
-  0.83	1	0	K	33208	        Metazoa
-  0.83	1	0	-	6072	          Eumetazoa
-  0.83	1	0	-	33213	            Bilateria
-  0.83	1	0	P	6157	              Platyhelminthes
-  0.83	1	0	C	6199	                Cestoda
-  0.83	1	0	-	6200	                  Eucestoda
-  0.83	1	0	O	6201	                    Cyclophyllidea
-  0.83	1	0	F	6208	                      Taeniidae
-  0.83	1	0	G	6202	                        Taenia
-  0.83	1	1	S	432621	                          Taenia madoquae
+ 20.00	4	4	U	0	unclassified
+ 80.00	16	2	-	1	root
+ 65.00	13	2	-	131567	  cellular organisms
+ 55.00	11	1	D	2	    Bacteria
+ 30.00	6	0	-	48479	      environmental samples
+ 30.00	6	6	S	77133	        uncultured bacterium
+ 20.00	4	0	P	1224	      Proteobacteria
+ 20.00	4	1	C	1236	        Gammaproteobacteria
+ 15.00	3	0	O	91347	          Enterobacterales
+ 10.00	2	1	F	543	            Enterobacteriaceae
+  5.00	1	0	G	413496	              Cronobacter
+  5.00	1	1	S	28141	                Cronobacter sakazakii
+  5.00	1	0	F	1903409	            Erwiniaceae
+  5.00	1	0	G	53335	              Pantoea
+  5.00	1	1	S	1680743	                Pantoea sp. AG43
+  5.00	1	0	-	12908	  unclassified sequences
+  5.00	1	0	-	408169	    metagenomes
+  5.00	1	1	S	256318	      metagenome

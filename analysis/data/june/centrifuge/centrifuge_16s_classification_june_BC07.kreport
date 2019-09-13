@@ -1,15 +1,35 @@
- 98.44	63	63	U	0	unclassified
-  1.56	1	0	-	1	root
-  1.56	1	0	-	131567	  cellular organisms
-  1.56	1	0	D	2759	    Eukaryota
-  1.56	1	0	-	33154	      Opisthokonta
-  1.56	1	0	K	33208	        Metazoa
-  1.56	1	0	-	6072	          Eumetazoa
-  1.56	1	0	-	33213	            Bilateria
-  1.56	1	0	P	6157	              Platyhelminthes
-  1.56	1	0	C	6199	                Cestoda
-  1.56	1	0	-	6200	                  Eucestoda
-  1.56	1	0	O	6201	                    Cyclophyllidea
-  1.56	1	0	F	6208	                      Taeniidae
-  1.56	1	0	G	6202	                        Taenia
-  1.56	1	1	S	159981	                          Taenia martis
+ 16.67	4	4	U	0	unclassified
+ 83.33	20	1	-	1	root
+ 62.50	15	1	-	131567	  cellular organisms
+ 33.33	8	0	D	2	    Bacteria
+ 29.17	7	0	-	48479	      environmental samples
+ 29.17	7	7	S	77133	        uncultured bacterium
+  4.17	1	0	-	1783270	      FCB group
+  4.17	1	0	-	68336	        Bacteroidetes/Chlorobi group
+  4.17	1	0	P	976	          Bacteroidetes
+  4.17	1	0	-	50742	            environmental samples
+  4.17	1	1	S	152509	              uncultured Bacteroidetes bacterium
+ 25.00	6	0	D	2759	    Eukaryota
+ 16.67	4	0	-	33634	      Stramenopiles
+ 16.67	4	0	P	2836	        Bacillariophyta
+ 12.50	3	0	C	33836	          Coscinodiscophyceae
+ 12.50	3	0	-	33846	            Thalassiosirophycidae
+ 12.50	3	0	O	33847	              Thalassiosirales
+  8.33	2	0	F	29202	                Thalassiosiraceae
+  8.33	2	0	G	35127	                  Thalassiosira
+  8.33	2	2	S	35128	                    Thalassiosira pseudonana
+  4.17	1	0	F	1365474	                Stephanodiscaceae
+  4.17	1	0	G	29203	                  Cyclotella
+  4.17	1	1	S	1549163	                    Cyclotella sp. L04_2
+  4.17	1	0	C	33849	          Bacillariophyceae
+  4.17	1	0	-	33850	            Bacillariophycidae
+  4.17	1	0	O	38748	              Naviculales
+  4.17	1	0	F	216735	                Pinnulariaceae
+  4.17	1	0	G	216736	                  Pinnularia
+  4.17	1	1	S	1776895	                    Pinnularia sp. U-strain
+  8.33	2	0	-	61964	      environmental samples
+  4.17	1	1	S	100272	        uncultured eukaryote
+  4.17	1	1	S	203449	        uncultured marine eukaryote
+ 16.67	4	0	-	12908	  unclassified sequences
+ 16.67	4	0	-	408169	    metagenomes
+ 16.67	4	4	S	256318	      metagenome

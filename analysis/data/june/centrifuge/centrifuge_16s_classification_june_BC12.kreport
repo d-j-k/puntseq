@@ -1,18 +1,37 @@
- 97.62	164	164	U	0	unclassified
-  2.38	4	0	-	1	root
-  2.38	4	0	-	131567	  cellular organisms
-  1.79	3	2	D	2759	    Eukaryota
-  0.60	1	0	-	33154	      Opisthokonta
-  0.60	1	0	K	33208	        Metazoa
-  0.60	1	0	-	6072	          Eumetazoa
-  0.60	1	0	-	33213	            Bilateria
-  0.60	1	0	P	6157	              Platyhelminthes
-  0.60	1	0	C	6199	                Cestoda
-  0.60	1	0	-	6200	                  Eucestoda
-  0.60	1	0	O	6201	                    Cyclophyllidea
-  0.60	1	0	F	6208	                      Taeniidae
-  0.60	1	0	G	6202	                        Taenia
-  0.60	1	1	S	94035	                          Taenia serialis
-  0.60	1	0	D	2	    Bacteria
-  0.60	1	0	-	48479	      environmental samples
-  0.60	1	1	S	77133	        uncultured bacterium
+ 29.17	7	7	U	0	unclassified
+ 70.83	17	2	-	1	root
+ 54.17	13	0	-	131567	  cellular organisms
+ 45.83	11	3	D	2	    Bacteria
+ 25.00	6	0	-	48479	      environmental samples
+ 25.00	6	6	S	77133	        uncultured bacterium
+  8.33	2	0	-	1783270	      FCB group
+  8.33	2	0	-	68336	        Bacteroidetes/Chlorobi group
+  8.33	2	0	P	976	          Bacteroidetes
+  8.33	2	0	-	50742	            environmental samples
+  8.33	2	2	S	152509	              uncultured Bacteroidetes bacterium
+  8.33	2	0	D	2759	    Eukaryota
+  4.17	1	0	-	33154	      Opisthokonta
+  4.17	1	0	K	33208	        Metazoa
+  4.17	1	0	-	6072	          Eumetazoa
+  4.17	1	0	-	33213	            Bilateria
+  4.17	1	0	P	6157	              Platyhelminthes
+  4.17	1	0	C	6199	                Cestoda
+  4.17	1	0	-	6200	                  Eucestoda
+  4.17	1	0	O	1365975	                    Bothriocephalidea
+  4.17	1	0	F	56201	                      Bothriocephalidae
+  4.17	1	0	G	1697566	                        Schyzocotyle
+  4.17	1	1	S	135513	                          Schyzocotyle acheilognathi
+  4.17	1	0	-	33634	      Stramenopiles
+  4.17	1	0	P	2836	        Bacillariophyta
+  4.17	1	0	C	33836	          Coscinodiscophyceae
+  4.17	1	0	-	33846	            Thalassiosirophycidae
+  4.17	1	0	O	33847	              Thalassiosirales
+  4.17	1	0	F	29202	                Thalassiosiraceae
+  4.17	1	0	G	35127	                  Thalassiosira
+  4.17	1	1	S	35128	                    Thalassiosira pseudonana
+  8.33	2	0	-	12908	  unclassified sequences
+  4.17	1	0	-	151659	    environmental samples
+  4.17	1	0	-	81490	      prokaryotic environmental samples
+  4.17	1	1	S	198431	        uncultured prokaryote
+  4.17	1	0	-	408169	    metagenomes
+  4.17	1	1	S	256318	      metagenome

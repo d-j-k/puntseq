@@ -14,6 +14,6 @@ bsub -R "select[mem>1500] rusage[mem=1500]" \
     --jobs 2000 \
     --restart-times 3 \
     --cluster "${CLUSTER_CMD[@]}" \
-    --keep-going
+    --keep-going "$@"
 
 exit 0

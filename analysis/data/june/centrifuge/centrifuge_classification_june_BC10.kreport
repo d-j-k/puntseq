@@ -1,131 +1,26 @@
- 33.93	19	19	U	0	unclassified
- 66.07	37	0	-	1	root
- 66.07	37	0	-	131567	  cellular organisms
- 66.07	37	0	D	2	    Bacteria
- 41.07	23	1	P	1224	      Proteobacteria
- 17.86	10	0	C	28216	        Betaproteobacteria
- 16.07	9	0	O	80840	          Burkholderiales
- 10.71	6	1	F	80864	            Comamonadaceae
-  7.14	4	0	G	665874	              Limnohabitans
-  7.14	4	4	S	1678128	                Limnohabitans sp. 63ED37-2
-  1.79	1	0	G	28065	              Rhodoferax
-  1.79	1	0	S	192843	                Rhodoferax ferrireducens
-  1.79	1	1	-	338969	                  Rhodoferax ferrireducens T118
-  5.36	3	0	F	119060	            Burkholderiaceae
-  3.57	2	1	G	32008	              Burkholderia
-  1.79	1	1	S	28095	                Burkholderia gladioli
-  1.79	1	0	G	1910924	              Hydromonas
-  1.79	1	1	S	2268024	                Hydromonas sp. F02
-  1.79	1	0	O	206389	          Rhodocyclales
-  1.79	1	0	F	2008795	            Azonexaceae
-  1.79	1	0	G	73029	              Dechloromonas
-  1.79	1	1	S	2231055	                Dechloromonas sp. HYN0024
- 10.71	6	1	C	28211	        Alphaproteobacteria
-  3.57	2	0	O	204457	          Sphingomonadales
-  3.57	2	0	F	41297	            Sphingomonadaceae
-  1.79	1	0	G	13687	              Sphingomonas
-  1.79	1	1	S	93064	                Sphingomonas koreensis
-  1.79	1	0	G	335405	              Sphingosinicella
-  1.79	1	1	S	1892855	                Sphingosinicella sp. BN140058
-  1.79	1	0	O	356	          Rhizobiales
-  1.79	1	0	F	41294	            Bradyrhizobiaceae
-  1.79	1	0	G	1073	              Rhodopseudomonas
-  1.79	1	0	S	1076	                Rhodopseudomonas palustris
-  1.79	1	1	-	316055	                  Rhodopseudomonas palustris BisA53
-  1.79	1	0	-	82117	          unclassified Alphaproteobacteria
-  1.79	1	0	-	33807	            unclassified Alphaproteobacteria (miscellaneous)
-  1.79	1	1	S	2341112	              Alphaproteobacteria bacterium WS11
-  1.79	1	0	O	204441	          Rhodospirillales
-  1.79	1	0	F	41295	            Rhodospirillaceae
-  1.79	1	0	G	191	              Azospirillum
-  1.79	1	1	S	192	                Azospirillum brasilense
-  8.93	5	0	C	1236	        Gammaproteobacteria
-  3.57	2	0	O	91347	          Enterobacterales
-  3.57	2	1	F	543	            Enterobacteriaceae
-  1.79	1	0	G	561	              Escherichia
-  1.79	1	1	S	562	                Escherichia coli
-  1.79	1	0	O	72274	          Pseudomonadales
-  1.79	1	0	F	468	            Moraxellaceae
-  1.79	1	1	G	469	              Acinetobacter
-  1.79	1	0	O	135614	          Xanthomonadales
-  1.79	1	0	F	32033	            Xanthomonadaceae
-  1.79	1	0	G	338	              Xanthomonas
-  1.79	1	1	S	56459	                Xanthomonas vasicola
-  1.79	1	0	O	135619	          Oceanospirillales
-  1.79	1	0	F	224379	            Hahellaceae
-  1.79	1	0	G	158481	              Hahella
-  1.79	1	1	S	1628392	                Hahella sp. KA22
-  1.79	1	0	-	68525	        delta/epsilon subdivisions
-  1.79	1	0	C	29547	          Epsilonproteobacteria
-  1.79	1	0	O	235899	            Nautiliales
-  1.79	1	0	F	224467	              Nautiliaceae
-  1.79	1	0	G	191291	                Nautilia
-  1.79	1	1	S	244787	                  Nautilia profundicola
- 16.07	9	0	-	1783272	      Terrabacteria group
-  7.14	4	0	P	201174	        Actinobacteria
-  7.14	4	0	C	1760	          Actinobacteria
-  1.79	1	0	O	2037	            Actinomycetales
-  1.79	1	0	F	2049	              Actinomycetaceae
-  1.79	1	0	G	1654	                Actinomyces
-  1.79	1	1	S	52774	                  Actinomyces slackii
-  1.79	1	0	O	85006	            Micrococcales
-  1.79	1	0	F	85016	              Cellulomonadaceae
-  1.79	1	0	G	1707	                Cellulomonas
-  1.79	1	0	S	1711	                  Cellulomonas flavigena
-  1.79	1	1	-	446466	                    Cellulomonas flavigena DSM 20109
-  1.79	1	0	O	85007	            Corynebacteriales
-  1.79	1	1	F	1762	              Mycobacteriaceae
-  1.79	1	0	O	85013	            Frankiales
-  1.79	1	0	F	74712	              Frankiaceae
-  1.79	1	0	G	1854	                Frankia
-  1.79	1	1	S	656024	                  Frankia symbiont of Datisca glomerata
-  5.36	3	0	-	1798711	        Cyanobacteria/Melainabacteria group
-  5.36	3	2	P	1117	          Cyanobacteria
-  1.79	1	0	O	1890424	            Synechococcales
-  1.79	1	0	F	1890426	              Synechococcaceae
-  1.79	1	0	G	1129	                Synechococcus
-  1.79	1	1	S	1173263	                  Synechococcus sp. PCC 7502
-  1.79	1	0	P	1239	        Firmicutes
-  1.79	1	0	C	91061	          Bacilli
-  1.79	1	0	O	1385	            Bacillales
-  1.79	1	0	-	539002	              Bacillales incertae sedis
-  1.79	1	0	-	539742	                Bacillales Family XII. Incertae Sedis
-  1.79	1	1	G	33986	                  Exiguobacterium
-  1.79	1	0	P	544448	        Tenericutes
-  1.79	1	0	C	31969	          Mollicutes
-  1.79	1	0	O	186329	            Acholeplasmatales
-  1.79	1	0	F	2146	              Acholeplasmataceae
-  1.79	1	0	G	2147	                Acholeplasma
-  1.79	1	1	S	29552	                  Acholeplasma axanthum
-  5.36	3	0	-	1783270	      FCB group
-  5.36	3	0	-	68336	        Bacteroidetes/Chlorobi group
-  5.36	3	0	P	976	          Bacteroidetes
-  3.57	2	0	C	117743	            Flavobacteriia
-  3.57	2	0	O	200644	              Flavobacteriales
-  1.79	1	0	F	49546	                Flavobacteriaceae
-  1.79	1	0	G	237	                  Flavobacterium
-  1.79	1	0	S	312277	                    Flavobacterium indicum
-  1.79	1	1	-	1094466	                      Flavobacterium indicum GPTSA100-9 = DSM 17447
-  1.79	1	0	F	1853230	                Crocinitomicaceae
-  1.79	1	0	G	332102	                  Fluviicola
-  1.79	1	0	S	191579	                    Fluviicola taffensis
-  1.79	1	1	-	755732	                      Fluviicola taffensis DSM 16823
-  1.79	1	0	C	117747	            Sphingobacteriia
-  1.79	1	0	O	200666	              Sphingobacteriales
-  1.79	1	0	F	84566	                Sphingobacteriaceae
-  1.79	1	0	G	84567	                  Pedobacter
-  1.79	1	1	S	1727164	                    Pedobacter sp. PACM 27299
-  1.79	1	0	P	203691	      Spirochaetes
-  1.79	1	0	C	203692	        Spirochaetia
-  1.79	1	0	O	136	          Spirochaetales
-  1.79	1	0	F	137	            Spirochaetaceae
-  1.79	1	0	G	157	              Treponema
-  1.79	1	0	S	167	                Treponema succinifaciens
-  1.79	1	1	-	869209	                  Treponema succinifaciens DSM 2489
-  1.79	1	0	-	1783257	      PVC group
-  1.79	1	0	P	203682	        Planctomycetes
-  1.79	1	0	C	203683	          Planctomycetia
-  1.79	1	0	O	112	            Planctomycetales
-  1.79	1	0	F	126	              Planctomycetaceae
-  1.79	1	0	G	118	                Planctomyces
-  1.79	1	1	S	1636152	                  Planctomyces sp. SH-PL62
+ 33.33	3	3	U	0	unclassified
+ 66.67	6	0	-	1	root
+ 66.67	6	0	-	131567	  cellular organisms
+ 66.67	6	0	D	2	    Bacteria
+ 33.33	3	0	P	1224	      Proteobacteria
+ 22.22	2	0	C	28216	        Betaproteobacteria
+ 11.11	1	0	O	80840	          Burkholderiales
+ 11.11	1	0	F	80864	            Comamonadaceae
+ 11.11	1	0	G	665874	              Limnohabitans
+ 11.11	1	1	S	1678128	                Limnohabitans sp. 63ED37-2
+ 11.11	1	0	O	206389	          Rhodocyclales
+ 11.11	1	0	F	2008795	            Azonexaceae
+ 11.11	1	0	G	73029	              Dechloromonas
+ 11.11	1	1	S	2231055	                Dechloromonas sp. HYN0024
+ 11.11	1	0	C	1236	        Gammaproteobacteria
+ 11.11	1	0	O	91347	          Enterobacterales
+ 11.11	1	0	F	543	            Enterobacteriaceae
+ 11.11	1	0	G	561	              Escherichia
+ 11.11	1	1	S	562	                Escherichia coli
+ 33.33	3	0	-	1783272	      Terrabacteria group
+ 33.33	3	0	-	1798711	        Cyanobacteria/Melainabacteria group
+ 33.33	3	2	P	1117	          Cyanobacteria
+ 11.11	1	0	O	1890424	            Synechococcales
+ 11.11	1	0	F	1890426	              Synechococcaceae
+ 11.11	1	0	G	1129	                Synechococcus
+ 11.11	1	1	S	1173263	                  Synechococcus sp. PCC 7502

@@ -1,40 +1,33 @@
- 96.43	108	108	U	0	unclassified
-  3.57	4	0	-	1	root
-  3.57	4	0	-	131567	  cellular organisms
-  2.68	3	1	D	2759	    Eukaryota
-  0.89	1	0	K	33090	      Viridiplantae
-  0.89	1	0	P	35493	        Streptophyta
-  0.89	1	0	-	131221	          Streptophytina
-  0.89	1	0	-	3193	            Embryophyta
-  0.89	1	0	-	58023	              Tracheophyta
-  0.89	1	0	-	78536	                Euphyllophyta
-  0.89	1	0	-	58024	                  Spermatophyta
-  0.89	1	0	-	3398	                    Magnoliophyta
-  0.89	1	0	-	1437183	                      Mesangiospermae
-  0.89	1	0	-	71240	                        eudicotyledons
-  0.89	1	0	-	91827	                          Gunneridae
-  0.89	1	0	-	1437201	                            Pentapetalae
-  0.89	1	0	-	71275	                              rosids
-  0.89	1	0	-	91835	                                fabids
-  0.89	1	0	O	3646	                                  Malpighiales
-  0.89	1	0	F	3977	                                    Euphorbiaceae
-  0.89	1	0	-	235631	                                      Crotonoideae
-  0.89	1	0	-	235882	                                        Micrandreae
-  0.89	1	0	G	3980	                                          Hevea
-  0.89	1	1	S	3981	                                            Hevea brasiliensis
-  0.89	1	0	-	33154	      Opisthokonta
-  0.89	1	0	K	33208	        Metazoa
-  0.89	1	0	-	6072	          Eumetazoa
-  0.89	1	0	-	33213	            Bilateria
-  0.89	1	0	P	6157	              Platyhelminthes
-  0.89	1	0	C	6199	                Cestoda
-  0.89	1	0	-	6200	                  Eucestoda
-  0.89	1	0	O	6201	                    Cyclophyllidea
-  0.89	1	0	F	6208	                      Taeniidae
-  0.89	1	0	G	6202	                        Taenia
-  0.89	1	1	S	432621	                          Taenia madoquae
-  0.89	1	0	D	2	    Bacteria
-  0.89	1	0	P	1224	      Proteobacteria
-  0.89	1	0	C	1236	        Gammaproteobacteria
-  0.89	1	0	-	50423	          environmental samples
-  0.89	1	1	S	86473	            uncultured gamma proteobacterium
+ 40.00	10	10	U	0	unclassified
+ 60.00	15	2	-	1	root
+ 40.00	10	0	-	131567	  cellular organisms
+ 32.00	8	4	D	2	    Bacteria
+  8.00	2	1	P	1224	      Proteobacteria
+  4.00	1	0	C	28211	        Alphaproteobacteria
+  4.00	1	0	O	766	          Rickettsiales
+  4.00	1	0	F	942	            Anaplasmataceae
+  4.00	1	0	-	952	              Wolbachieae
+  4.00	1	1	G	953	                Wolbachia
+  4.00	1	0	-	48479	      environmental samples
+  4.00	1	1	S	77133	        uncultured bacterium
+  4.00	1	0	-	1783270	      FCB group
+  4.00	1	0	-	68336	        Bacteroidetes/Chlorobi group
+  4.00	1	0	P	976	          Bacteroidetes
+  4.00	1	0	-	50742	            environmental samples
+  4.00	1	1	S	152509	              uncultured Bacteroidetes bacterium
+  8.00	2	0	D	2759	    Eukaryota
+  4.00	1	0	-	33634	      Stramenopiles
+  4.00	1	0	P	2836	        Bacillariophyta
+  4.00	1	0	C	33836	          Coscinodiscophyceae
+  4.00	1	0	-	33846	            Thalassiosirophycidae
+  4.00	1	0	O	33847	              Thalassiosirales
+  4.00	1	0	F	29202	                Thalassiosiraceae
+  4.00	1	0	G	35127	                  Thalassiosira
+  4.00	1	1	S	35128	                    Thalassiosira pseudonana
+  4.00	1	0	-	61964	      environmental samples
+  4.00	1	1	S	203449	        uncultured marine eukaryote
+ 12.00	3	0	-	12908	  unclassified sequences
+  8.00	2	0	-	408169	    metagenomes
+  8.00	2	2	S	256318	      metagenome
+  4.00	1	0	-	151659	    environmental samples
+  4.00	1	1	S	155900	      uncultured organism

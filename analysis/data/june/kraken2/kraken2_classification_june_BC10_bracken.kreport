@@ -1,103 +1,36 @@
-39.29	22	22	U	0	unclassified
-60.71	34	0	R	1	root
-60.71	34	0	R1	131567	  cellular organisms
-60.71	34	0	D	2	    Bacteria
-39.29	22	0	P	1224	      Proteobacteria
-17.86	10	0	C	1236	        Gammaproteobacteria
-5.36	3	0	O	91347	          Enterobacterales
-5.36	3	0	F	543	            Enterobacteriaceae
-1.79	1	0	G	590	              Salmonella
-1.79	1	1	S	28901	                Salmonella enterica
-1.79	1	0	G	570	              Klebsiella
-1.79	1	1	S	548	                Klebsiella aerogenes
-1.79	1	0	G	561	              Escherichia
-1.79	1	1	S	562	                Escherichia coli
-3.57	2	0	O	135614	          Xanthomonadales
-3.57	2	0	F	32033	            Xanthomonadaceae
-3.57	2	0	G	338	              Xanthomonas
-1.79	1	1	S	56459	                Xanthomonas vasicola
-1.79	1	1	S	29447	                Xanthomonas albilineans
-3.57	2	0	O	72274	          Pseudomonadales
-1.79	1	0	F	135621	            Pseudomonadaceae
-1.79	1	0	G	286	              Pseudomonas
-1.79	1	0	G1	136846	                Pseudomonas stutzeri group
-1.79	1	1	S	271420	                  Pseudomonas xanthomarina
-1.79	1	0	F	468	            Moraxellaceae
-1.79	1	0	G	469	              Acinetobacter
-1.79	1	0	G1	909768	                Acinetobacter calcoaceticus/baumannii complex
-1.79	1	1	S	470	                  Acinetobacter baumannii
-1.79	1	0	O	135623	          Vibrionales
-1.79	1	0	F	641	            Vibrionaceae
-1.79	1	0	G	662	              Vibrio
-1.79	1	1	S	666	                Vibrio cholerae
-1.79	1	0	O	1706369	          Cellvibrionales
-1.79	1	0	F	1706371	            Cellvibrionaceae
-1.79	1	0	G	10	              Cellvibrio
-1.79	1	1	S	155077	                Cellvibrio japonicus
-1.79	1	1	O	135622	          Alteromonadales
-14.29	8	0	C	28216	        Betaproteobacteria
-12.50	7	0	O	80840	          Burkholderiales
-12.50	7	0	F	80864	            Comamonadaceae
-8.93	5	0	G	665874	              Limnohabitans
-7.14	4	4	S	1678128	                Limnohabitans sp. 63ED37-2
-1.79	1	1	S	1678129	                Limnohabitans sp. 103DPR2
-1.79	1	0	G	174951	              Ramlibacter
-1.79	1	1	S	94132	                Ramlibacter tataouinensis
-1.79	1	0	G	12916	              Acidovorax
-1.79	1	1	S	1842533	                Acidovorax sp. RAC01
-1.79	1	0	O	206389	          Rhodocyclales
-1.79	1	0	F	2008795	            Azonexaceae
-1.79	1	0	G	73029	              Dechloromonas
-1.79	1	1	S	2231055	                Dechloromonas sp. HYN0024
-7.14	4	0	C	28211	        Alphaproteobacteria
-3.57	2	0	O	204457	          Sphingomonadales
-1.79	1	0	F	335929	            Erythrobacteraceae
-1.79	1	0	G	1295327	              Croceicoccus
-1.79	1	1	S	1348774	                Croceicoccus naphthovorans
-1.79	1	1	F	41297	            Sphingomonadaceae
-1.79	1	0	O	204455	          Rhodobacterales
-1.79	1	0	F	31989	            Rhodobacteraceae
-1.79	1	0	G	227873	              Pannonibacter
-1.79	1	1	S	121719	                Pannonibacter phragmitetus
-1.79	1	0	O	356	          Rhizobiales
-1.79	1	0	F	41294	            Bradyrhizobiaceae
-1.79	1	0	G	1073	              Rhodopseudomonas
-1.79	1	1	S	1076	                Rhodopseudomonas palustris
-12.50	7	0	D1	1783272	      Terrabacteria group
-5.36	3	0	P	201174	        Actinobacteria
-5.36	3	0	C	1760	          Actinobacteria
-1.79	1	0	O	85013	            Frankiales
-1.79	1	0	F	74712	              Frankiaceae
-1.79	1	0	G	1854	                Frankia
-1.79	1	1	S	710111	                  Frankia sp. QA3
-1.79	1	0	O	85011	            Streptomycetales
-1.79	1	0	F	2062	              Streptomycetaceae
-1.79	1	0	G	1883	                Streptomyces
-1.79	1	1	S	1855352	                  Streptomyces sp. TLI_053
-1.79	1	0	O	85007	            Corynebacteriales
-1.79	1	0	F	1762	              Mycobacteriaceae
-1.79	1	0	G	1866885	                Mycolicibacterium
-1.79	1	1	S	758802	                  Mycolicibacterium litorale
-3.57	2	0	P	1239	        Firmicutes
-3.57	2	0	C	91061	          Bacilli
-3.57	2	0	O	1385	            Bacillales
-3.57	2	0	F	90964	              Staphylococcaceae
-3.57	2	0	G	1279	                Staphylococcus
-1.79	1	1	S	1280	                  Staphylococcus aureus
-1.79	1	0	D2	1798711	        Cyanobacteria/Melainabacteria group
-1.79	1	0	P	1117	          Cyanobacteria
-1.79	1	0	O	1890424	            Synechococcales
-1.79	1	0	F	1890426	              Synechococcaceae
-1.79	1	0	G	1129	                Synechococcus
-1.79	1	1	S	1173263	                  Synechococcus sp. PCC 7502
-7.14	4	0	D1	1783270	      FCB group
-7.14	4	0	D2	68336	        Bacteroidetes/Chlorobi group
-7.14	4	0	P	976	          Bacteroidetes
-5.36	3	0	C	117743	            Flavobacteriia
-5.36	3	0	O	200644	              Flavobacteriales
-5.36	3	0	F	49546	                Flavobacteriaceae
-3.57	2	0	G	237	                  Flavobacterium
-1.79	1	1	S	1355330	                    Flavobacterium faecale
-1.79	1	1	S	312277	                    Flavobacterium indicum
-1.79	1	0	G	379070	                  Gilvibacter
-1.79	1	1	S	754429	                    Gilvibacter sp. SZ-19
+33.33	3	3	U	0	unclassified
+66.67	6	0	R	1	root
+66.67	6	0	R1	131567	  cellular organisms
+66.67	6	0	D	2	    Bacteria
+44.44	4	0	P	1224	      Proteobacteria
+22.22	2	0	C	28216	        Betaproteobacteria
+11.11	1	0	O	206389	          Rhodocyclales
+11.11	1	0	F	2008795	            Azonexaceae
+11.11	1	0	G	73029	              Dechloromonas
+11.11	1	1	S	2231055	                Dechloromonas sp. HYN0024
+11.11	1	0	O	80840	          Burkholderiales
+11.11	1	0	F	80864	            Comamonadaceae
+11.11	1	0	G	665874	              Limnohabitans
+11.11	1	1	S	1678128	                Limnohabitans sp. 63ED37-2
+22.22	2	0	C	1236	        Gammaproteobacteria
+11.11	1	0	O	135623	          Vibrionales
+11.11	1	0	F	641	            Vibrionaceae
+11.11	1	0	G	662	              Vibrio
+11.11	1	1	S	666	                Vibrio cholerae
+11.11	1	0	O	91347	          Enterobacterales
+11.11	1	0	F	543	            Enterobacteriaceae
+11.11	1	0	G	561	              Escherichia
+11.11	1	1	S	562	                Escherichia coli
+22.22	2	0	D1	1783272	      Terrabacteria group
+11.11	1	0	D2	1798711	        Cyanobacteria/Melainabacteria group
+11.11	1	0	P	1117	          Cyanobacteria
+11.11	1	0	O	1890424	            Synechococcales
+11.11	1	0	F	1890426	              Synechococcaceae
+11.11	1	0	G	1129	                Synechococcus
+11.11	1	1	S	1173263	                  Synechococcus sp. PCC 7502
+11.11	1	0	P	1239	        Firmicutes
+11.11	1	0	C	91061	          Bacilli
+11.11	1	0	O	1385	            Bacillales
+11.11	1	0	F	90964	              Staphylococcaceae
+11.11	1	0	G	1279	                Staphylococcus
+11.11	1	1	S	1280	                  Staphylococcus aureus
