@@ -1,31 +1,34 @@
- 16.67	4	4	U	0	unclassified
- 83.33	20	0	R	1	root
- 83.33	20	0	D	3	  Bacteria
+100.00	24	0	R	1	root
+100.00	24	1	D	3	  Bacteria
  41.67	10	0	P	1500	    Cyanobacteria
  41.67	10	0	C	25227	      Oxyphotobacteria
  41.67	10	10	O	25228	        Chloroplast
  33.33	8	0	P	2375	    Proteobacteria
  20.83	5	0	C	3303	      Gammaproteobacteria
  12.50	3	0	O	26341	        Betaproteobacteriales
- 12.50	3	0	F	26352	          Burkholderiaceae
-  8.33	2	2	G	26446	            Rhodoferax
-  4.17	1	1	G	26353	            AAP99
+ 12.50	3	2	F	26352	          Burkholderiaceae
+  4.17	1	1	G	26446	            Rhodoferax
   8.33	2	0	O	3468	        Enterobacteriales
   8.33	2	0	F	3469	          Enterobacteriaceae
   8.33	2	2	G	3504	            Escherichia-Shigella
  12.50	3	0	C	2379	      Alphaproteobacteria
  12.50	3	0	O	2557	        Rhodobacterales
  12.50	3	0	F	2558	          Rhodobacteraceae
-  4.17	1	1	G	2654	            Tabrizicola
-  4.17	1	1	G	2620	            Pseudorhodobacter
-  4.17	1	1	G	2624	            Rhodobacter
-  4.17	1	0	P	905	    Bacteroidetes
-  4.17	1	0	C	912	      Bacteroidia
+  4.17	1	1	G	11455	            Planktomarina
+  4.17	1	1	G	2626	            Rhodovulum
+  4.17	1	1	G	2653	            Sulfitobacter
+ 12.50	3	0	P	1672	    Firmicutes
+  8.33	2	0	C	1859	      Clostridia
+  8.33	2	0	O	1863	        Clostridiales
+  4.17	1	1	F	1987	          Lachnospiraceae
+  4.17	1	0	F	2050	          Ruminococcaceae
+  4.17	1	1	G	11350	            Candidatus Soleaferrea
+  4.17	1	1	C	1673	      Bacilli
+  8.33	2	0	P	905	    Bacteroidetes
+  8.33	2	0	C	912	      Bacteroidia
+  4.17	1	0	O	913	        Bacteroidales
+  4.17	1	0	F	960	          Prevotellaceae
+  4.17	1	1	G	11186	            Prevotellaceae UCG-001
   4.17	1	0	O	24714	        Cytophagales
   4.17	1	0	F	24794	          Spirosomaceae
   4.17	1	1	G	24809	            Pseudarcicella
-  4.17	1	0	P	1672	    Firmicutes
-  4.17	1	0	C	1673	      Bacilli
-  4.17	1	0	O	1800	        Lactobacillales
-  4.17	1	0	F	1836	          Lactobacillaceae
-  4.17	1	1	G	1837	            Lactobacillus

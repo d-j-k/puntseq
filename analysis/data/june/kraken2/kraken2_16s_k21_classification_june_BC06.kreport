@@ -1,37 +1,44 @@
- 40.00	10	10	U	0	unclassified
- 60.00	15	0	R	1	root
- 60.00	15	0	D	3	  Bacteria
- 40.00	10	0	P	2375	    Proteobacteria
- 32.00	8	0	C	3303	      Gammaproteobacteria
- 28.00	7	0	O	26341	        Betaproteobacteriales
- 28.00	7	0	F	26352	          Burkholderiaceae
-  4.00	1	1	G	26437	            Polynucleobacter
-  4.00	1	1	G	26399	            Hydrogenophaga
-  4.00	1	1	G	26433	            Pelomonas
-  4.00	1	1	G	26361	            Aquabacterium
-  4.00	1	1	G	26446	            Rhodoferax
+100.00	25	0	R	1	root
+100.00	25	0	D	3	  Bacteria
+ 60.00	15	0	P	2375	    Proteobacteria
+ 48.00	12	1	C	3303	      Gammaproteobacteria
+ 32.00	8	0	O	26341	        Betaproteobacteriales
+ 32.00	8	1	F	26352	          Burkholderiaceae
+  8.00	2	2	G	26384	            Comamonas
+  4.00	1	1	G	26386	            Cupriavidus
+  4.00	1	1	G	26453	            Sphaerotilus
   4.00	1	1	G	26410	            Limnohabitans
-  4.00	1	1	G	26384	            Comamonas
+  4.00	1	1	G	26380	            Candidatus Zinderia
+  4.00	1	1	G	26378	            Candidatus Tremblaya
   4.00	1	0	O	3468	        Enterobacteriales
   4.00	1	0	F	3469	          Enterobacteriaceae
   4.00	1	1	G	3504	            Escherichia-Shigella
-  8.00	2	0	C	2379	      Alphaproteobacteria
+  4.00	1	0	O	3709	        Pseudomonadales
+  4.00	1	0	F	3718	          Pseudomonadaceae
+  4.00	1	1	G	3723	            Pseudomonas
+  4.00	1	0	O	3552	        Legionellales
+  4.00	1	0	F	3559	          Legionellaceae
+  4.00	1	1	G	3560	            Legionella
+ 12.00	3	0	C	2379	      Alphaproteobacteria
+  8.00	2	0	O	2761	        Rickettsiales
+  8.00	2	2	F	2805	          Mitochondria
   4.00	1	0	O	2557	        Rhodobacterales
-  4.00	1	0	F	2558	          Rhodobacteraceae
-  4.00	1	1	G	2654	            Tabrizicola
-  4.00	1	0	O	2823	        Sphingomonadales
-  4.00	1	0	F	2844	          Sphingomonadaceae
-  4.00	1	1	G	2852	            Sphingomonas
-  8.00	2	0	P	905	    Bacteroidetes
-  8.00	2	0	C	912	      Bacteroidia
+  4.00	1	1	F	2558	          Rhodobacteraceae
+ 16.00	4	0	P	905	    Bacteroidetes
+ 16.00	4	0	C	912	      Bacteroidia
+  8.00	2	1	O	913	        Bacteroidales
+  4.00	1	0	F	917	          Bacteroidaceae
+  4.00	1	1	G	918	            Bacteroides
   8.00	2	0	O	24714	        Cytophagales
   8.00	2	0	F	24794	          Spirosomaceae
   8.00	2	2	G	24809	            Pseudarcicella
+ 16.00	4	0	P	1672	    Firmicutes
+ 12.00	3	0	C	1673	      Bacilli
+ 12.00	3	0	O	1674	        Bacillales
+ 12.00	3	0	F	1680	          Bacillaceae
+ 12.00	3	3	G	1688	            Bacillus
+  4.00	1	0	C	1859	      Clostridia
+  4.00	1	1	O	1863	        Clostridiales
   8.00	2	0	P	1500	    Cyanobacteria
   8.00	2	0	C	25227	      Oxyphotobacteria
   8.00	2	2	O	25228	        Chloroplast
-  4.00	1	0	P	3982	    Verrucomicrobia
-  4.00	1	0	C	4029	      Verrucomicrobiae
-  4.00	1	0	O	26972	        Opitutales
-  4.00	1	0	F	26973	          Opitutaceae
-  4.00	1	1	G	26979	            Opitutus

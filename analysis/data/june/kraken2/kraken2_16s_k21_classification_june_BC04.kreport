@@ -1,18 +1,19 @@
- 19.05	4	4	U	0	unclassified
- 80.95	17	0	R	1	root
- 80.95	17	0	D	3	  Bacteria
- 38.10	8	0	P	2375	    Proteobacteria
- 38.10	8	0	C	3303	      Gammaproteobacteria
+100.00	21	0	R	1	root
+100.00	21	2	D	3	  Bacteria
+ 47.62	10	0	P	2375	    Proteobacteria
+ 42.86	9	1	C	3303	      Gammaproteobacteria
  23.81	5	0	O	26341	        Betaproteobacteriales
- 23.81	5	0	F	26352	          Burkholderiaceae
-  4.76	1	1	G	26471	            uncultured
-  4.76	1	1	G	26410	            Limnohabitans
-  4.76	1	1	G	26388	            Delftia
+ 23.81	5	2	F	26352	          Burkholderiaceae
+  4.76	1	1	G	26354	            Achromobacter
   4.76	1	1	G	26384	            Comamonas
-  4.76	1	1	G	26368	            Burkholderia-Caballeronia-Paraburkholderia
+  4.76	1	1	G	26410	            Limnohabitans
  14.29	3	0	O	3468	        Enterobacteriales
  14.29	3	0	F	3469	          Enterobacteriaceae
  14.29	3	3	G	3504	            Escherichia-Shigella
+  4.76	1	0	C	3087	      Deltaproteobacteria
+  4.76	1	0	O	3109	        Desulfobacterales
+  4.76	1	0	F	3110	          Desulfobacteraceae
+  4.76	1	1	G	3138	            uncultured
  28.57	6	0	P	1500	    Cyanobacteria
  28.57	6	0	C	25227	      Oxyphotobacteria
  28.57	6	6	O	25228	        Chloroplast
