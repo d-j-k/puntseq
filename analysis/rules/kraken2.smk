@@ -114,7 +114,6 @@ rule build_kraken2_16s_db_k21:
         kraken2-build --db {params.db} --special {params.kraken2_16s_type} \
           --threads {threads} --kmer-len {params.kmer_len} \
           --minimizer-len {params.minimizer_len} \
-          --no-masking \
           --minimizer-spaces {params.minimizer_spaces} 2> {log}
         """
 

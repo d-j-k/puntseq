@@ -77,15 +77,11 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     # INSTALL kraken2
     # ================================
     apt install -y rsync
-    VERSION="2.0.7-beta"
-    URL=https://github.com/DerrickWood/kraken2/archive/v"$VERSION".tar.gz
-    wget -O - "$URL" | tar xzf -
-    cd kraken2* || exit 1
-    echo "export PATH=$(pwd):$PATH" >> "$SINGULARITY_ENVIRONMENT"
-    ./install_kraken2.sh "$(pwd)"
-    cp kraken2 /usr/local/bin
-    cp kraken2-build /usr/local/bin
-    cp kraken2-inspect /usr/local/bin
+    URL=https://github.com/mbhall88/kraken2.git
+    cd /usr/local || exit 1
+    git clone "$URL"
+    cd kraken2 || exit 1
+    bash install_kraken2.sh ../bin/
     cd "$HOME" || exit 1
 
     # ================================
@@ -117,7 +113,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     # INSTALL nanostat
     # ================================
     VERSION=1.1.2
-    apt install -y python3-pip
+    apt install -y python3-pip libbz2-dev liblzma-dev
     pip3 install NanoStat=="$VERSION"
 
     # ================================
@@ -125,3 +121,4 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     # ================================
     VERSION=0.3.3
     pip3 install pistis=="$VERSION"
+
