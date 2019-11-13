@@ -21,6 +21,9 @@ stats:
     threads     :                  2
     memory    :                    8000
 
+map:
+    threads     :                  1
+    memory    :                    50000
 
 plot:
     memory    :                    32000

@@ -54,6 +54,7 @@ for index, row in samples.iterrows():
             "data/{run}/centrifuge/centrifuge_16s_classification_{run}_{sample}.kreport".format(
                 sample=sample_id, run=run_id
             ),
+            "data/{run}/map/{sample}.filtered.bam".format(sample=sample_id, run=run_id)
         ]
     )
 
@@ -70,3 +71,4 @@ include: str(RULES_DIR.joinpath("reports.smk"))
 include: str(RULES_DIR.joinpath("kraken2.smk"))
 include: str(RULES_DIR.joinpath("centrifuge.smk"))
 include: str(RULES_DIR.joinpath("bracken.smk"))
+include: str(RULES_DIR.joinpath("map.smk"))
