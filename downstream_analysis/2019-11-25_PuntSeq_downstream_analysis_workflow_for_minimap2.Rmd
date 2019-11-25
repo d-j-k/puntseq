@@ -1276,89 +1276,99 @@ dev.off()
 ### *(Please check: AttributeError: 'DataFrame' object has no attribute 'taxRank', adjust directory of output files) Pull single downsampling datasets (and three replicates) for downstream analysis
 This section is only nessesary if a new subsampling should be performed.
 ```{python, eval=FALSE}
-<!-- import datetime -->
-<!-- import pandas as pd  -->
-<!-- import io -->
-<!-- import os -->
-<!-- import requests -->
-<!-- import numpy as np -->
+import datetime
+import pandas as pd
+import io
+import os
+import requests
+import numpy as np
 
-<!-- DATE = datetime.datetime.now().strftime('%Y-%m-%d') -->
-<!-- outfolder = DATE + '_PuntSeq_Downstream-metagenomics-analysis/' -->
-<!-- bcaller = 'Guppy' -->
-<!-- classifyr = 'minimap' -->
+# load all rarefied datasets of April, June and August (choose family or genus level)
 
-<!-- # build and save exemplar rarefaction dataframes  -->
-<!-- data = pd.read_csv(outfolder+'Downsampling/genus/%s' % os.listdir(outfolder+'Downsampling/genus/')[0], sep='\t', index_col=0, header=0) -->
-<!-- data = data[~data.index.duplicated(keep='first')] -->
-<!-- data = data[data.taxRank == 'G'] -->
-<!-- del data['taxRank'] -->
-<!-- datacolumns = [os.listdir(outfolder+'Downsampling/genus/')[0]] -->
-<!-- for filename in os.listdir(outfolder+'Downsampling/genus/')[1:]: -->
-<!--     if filename.endswith(".tsv"): -->
-<!--         data0 = pd.read_csv(outfolder+'Downsampling/genus/%s' %filename, sep='\t', index_col=0, header=0) -->
-<!--         data0 = data0[~data0.index.duplicated(keep='first')] -->
-<!--         data0 = data0[data0.taxRank == 'G'] -->
-<!--         del data0['taxRank'] -->
-<!--         data = pd.concat([data,data0], axis=1) -->
-<!--         datacolumns.append(filename) -->
+## if genus:
+#url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_genus_april.txt'
+## if family:
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_family_april.txt'
+s = requests.get(url).content
+full1 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
 
-<!-- # choose samples with more than 37k reads in the full dataset to keep for downstream analyses   -->
-<!-- url = "https://raw.githubusercontent.com/d-j-k/puntseq/master/analysis/data/Analysis_bioRxiv/"+bcaller+"/April_"+classifyr+".tsv" -->
-<!-- s = requests.get(url).content -->
-<!-- full1 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0) -->
-<!-- full1 = full1[~full1.index.duplicated(keep='first')] -->
-<!-- full1 = full1[full1.taxRank=='G'] -->
-<!-- full1.iloc[:,3:15].sum()  -->
+## if genus:
+#url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_genus_june.txt'
+## if family:
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_family_june.txt'
+s = requests.get(url).content
+full2 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
 
-<!-- url = "https://raw.githubusercontent.com/d-j-k/puntseq/master/analysis/data/Analysis_bioRxiv/"+bcaller+"/June_"+classifyr+".tsv" -->
-<!-- s = requests.get(url).content -->
-<!-- full2 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0) -->
-<!-- full2 = full2[~full2.index.duplicated(keep='first')] -->
-<!-- full2 = full2[full2.taxRank=='G'] -->
-<!-- full2.iloc[:,3:15].sum()  -->
+## if genus:
+#url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_genus_august.txt'
+## if family:
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/minimap2_k12_family_august.txt'
+s = requests.get(url).content
+full3 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
 
-<!-- url = "https://raw.githubusercontent.com/d-j-k/puntseq/master/analysis/data/Analysis_bioRxiv/"+bcaller+"/August_"+classifyr+".tsv" -->
-<!-- s = requests.get(url).content -->
-<!-- full3 = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0) -->
-<!-- full3 = full3[~full3.index.duplicated(keep='first')] -->
-<!-- full3 = full3[full3.taxRank=='G']     -->
-<!-- full3.iloc[:,3:15].sum()  -->
+## discover samples to exclude (<37k reads)
+full1.sum()[full1.sum()<37000]
+full2.sum()[full2.sum()<37000]
+full3.sum()[full3.sum()<37000]
 
-<!-- # choose samples >37k -->
-<!-- datacolumns_filt = ['1-April_genus.tsv', -->
-<!--  '1-August_genus.tsv', -->
-<!--  '1-June_genus.tsv', -->
-<!--  '2-April_genus.tsv', -->
-<!--  '2-August_genus.tsv', -->
-<!--  '3-April_genus.tsv', -->
-<!--  '4-April_genus.tsv', -->
-<!--  '4-August_genus.tsv', -->
-<!--  '5-April_genus.tsv', -->
-<!--  '5-August_genus.tsv', -->
-<!--  '6-August_genus.tsv', -->
-<!--  '6-June_genus.tsv', -->
-<!--  '7-April_genus.tsv', -->
-<!--  '8-April_genus.tsv', -->
-<!--  '9.1-August_genus.tsv', -->
-<!--  '9.2-August_genus.tsv', -->
-<!--  'Mock-April_genus.tsv', -->
-<!--  'Mock-August_genus.tsv', -->
-<!--  'Mock-June_genus.tsv', -->
-<!--  'N-August_genus.tsv'] -->
+## list all samples to include (>=37k reads)
+## if genus:
+#datacolumns_filt = ['1-April_genus.tsv',
+# '1-August_genus.tsv',
+# '1-June_genus.tsv',
+# '2-April_genus.tsv',
+# '2-August_genus.tsv',
+# '3-April_genus.tsv',
+# '4-April_genus.tsv',
+# '4-August_genus.tsv',
+# '5-April_genus.tsv',
+# '5-August_genus.tsv',
+# '6-August_genus.tsv',
+# '6-June_genus.tsv',
+# '7-April_genus.tsv',
+# '8-April_genus.tsv',
+# '9.1-August_genus.tsv',
+# 'Mock-April_genus.tsv',
+# 'Mock-August_genus.tsv',
+# 'Mock-June_genus.tsv']
 
-<!-- posfilt = [np.where(np.array(datacolumns) == x)[0][0] for x in datacolumns_filt] -->
+## if family:
+datacolumns_filt = ['1-April_family.tsv',
+ '1-August_family.tsv',
+ '1-June_family.tsv',
+ '2-April_family.tsv',
+ '2-August_family.tsv',
+ '3-April_family.tsv',
+ '4-April_family.tsv',
+ '4-August_family.tsv',
+ '5-April_family.tsv',
+ '5-August_family.tsv',
+ '6-August_family.tsv',
+ '6-June_family.tsv',
+ '7-April_family.tsv',
+ '8-April_family.tsv',
+ '9.1-August_family.tsv',
+ '9.2-August_family.tsv',
+ 'Mock-April_family.tsv',
+ 'Mock-August_family.tsv',
+ 'Mock-June_family.tsv',
+ 'N-August_family.tsv']
+ 
+posfilt = [np.where(np.array(datacolumns) == x)[0][0] for x in datacolumns_filt]
 
-<!-- # create four exemplar rarefaction dataframes for later comparison; we will mostly work with "final_1.tsv" -->
-<!-- for nr in ['1','2','3','4']: -->
-<!--     dataa = data.copy() -->
-<!--     dataa = dataa[nr] -->
-<!--     dataa = dataa.dropna(how='all') -->
-<!--     dataa = dataa.fillna(0) -->
-<!--     dataa = dataa.iloc[:,posfilt] -->
-<!--     dataa.columns = datacolumns_filt -->
-<!--     dataa.to_csv(outfolder+'Downsampling/genus/final_%s.tsv' %nr, sep='\t') -->
-```
+## save four rarefied datasets for downstream analyses
+
+i = 0
+for nr in ['V2','V3','V4','V5']:
+    i = i + 1
+    dataa = data.copy()
+    dataa = dataa[nr]
+    dataa = dataa.dropna(how='all')
+    dataa = dataa.fillna(0)
+    dataa = dataa.iloc[:,posfilt]
+    dataa.columns = datacolumns_filt
+    dataa.to_csv('/Users/lurban/Desktop/PuntSeq/publication_data/downsampled/final_family_%i.tsv' %i, sep='\t')
+
 
 ### *Mantel test
 ```{python}
