@@ -3422,6 +3422,109 @@ ggsave(str_c("./Plots/",date,"Enterobacteriaceae-normalized_withoutpositive",cla
 
 ```
 
+### outlier analysis
+```{python, eval=False}
+import pandas as pd
+import os
+import requests
+import numpy as np
+import skbio
+import matplotlib as plt
+
+## choose one file (family or genus level, and rarefaction version)
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/final_family_1.tsv'
+s = requests.get(url).content
+data = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
+
+x = data.transpose()
+
+# Drop positive and negative samples
+realData = x.drop('N-August_family.tsv')
+realData = realData.drop('Mock-August_family.tsv')
+realData = realData.drop('Mock-June_family.tsv')
+realData = realData.drop('Mock-April_family.tsv')
+
+# Get the proportions of the total amount of bacteria sampled
+totalBact = realData.sum()
+numBact = sum(totalBact)
+bactProportion = totalBact / numBact
+
+# define functions to find outlier bacteria across samples
+def getBacteriaPercentagePerLocation(data, bacteria):
+    data1 = data.iloc[[0, 1, 2], :]
+    data2 = data.iloc[[3, 4], :]
+    data3 = data.iloc[[5], :]
+    data4 = data.iloc[[6, 7], :]
+    data5 = data.iloc[[8, 9], :]
+    data6 = data.iloc[[10, 11], :]
+    data7 = data.iloc[[12], :]
+    data8 = data.iloc[[13], :]
+    data9 = data.iloc[[14, 15], :]
+
+    BacteriaPropPerLocation = \
+    np.array([data1.loc[:, bacteria].mean(),\
+    data2.loc[:, bacteria].mean(),\
+    data3.loc[:, bacteria].mean(),\
+    data4.loc[:, bacteria].mean(),\
+    data5.loc[:, bacteria].mean(),\
+    data6.loc[:, bacteria].mean(),\
+    data7.loc[:, bacteria].mean(),\
+    data8.loc[:, bacteria].mean(),\
+    data9.loc[:, bacteria].mean()])
+
+    return BacteriaPropPerLocation
+
+def plotBacteriaPercentagePerLocation(data, bacteria):
+    BacteriaPropPerLocation = getBacteriaPercentagePerLocation(data, bacteria)
+    plt.bar(range(1, 10), BacteriaPropPerLocation)
+    plt.xlabel('Location'); plt.ylabel('reads {}'.format(bacteria))
+
+def plotBacteriaPercentagePerMonth(data, bacteria):
+    dataApril = realData.iloc[[0, 3, 5, 6, 8, 12, 13], :]
+    dataJune = realData.iloc[[2, 11], :]
+    dataAugust = realData.iloc[[1, 4, 7, 9, 10, 14, 15], :]
+
+    BacteriaPropPerMonth = \
+    np.array([dataApril.loc[:, bacteria].mean(),\
+    dataJune.loc[:, bacteria].mean(),\
+    dataAugust.loc[:, bacteria].mean()])
+
+    plt.bar(range(1, 4), BacteriaPropPerMonth)
+    plt.xlabel('Month'); plt.ylabel('% of {}'.format(bacteria))
+
+def detectBacteriaOutliers(data, bacteria):
+    BacteriaPropPerLocation = getBacteriaPercentagePerLocation(data, bacteria)
+    if max(BacteriaPropPerLocation) > 5 * BacteriaPropPerLocation.mean():
+        return 1
+    else:
+        return 0
+
+# examples
+totalBact.nlargest(50)
+plotBacteriaPercentagePerLocation(realData, 'Deferribacteraceae')
+plotBacteriaPercentagePerMonth(realData, 'Burkholderiaceae')
+
+detectBacteriaOutliers(realData, 'Spirosomaceae')
+
+outliers = []
+for i in range(0, len(realData.keys())):
+    tf = detectBacteriaOutliers(realData, realData.keys()[i])
+    if tf:
+        outliers += [realData.keys()[i]]
+
+## detect all outlier bacteria that occur in one sample 5x more than the mean across all samples and that have at least 500 reads 
+for i in outliers:
+    if sum(x.loc[:, i]) > 500:
+        print(i)
+        plt.figure()
+        plotBacteriaPercentagePerLocation(realData, i)
+        
+## choose bacteria of interest and make nice plot 
+fig, ax = plt.subplots(figsize=(8, 8), facecolor='white')
+plotBacteriaPercentagePerLocation(realData, 'Bacteriovoracaceae')
+ax.spines['top'].set_visible(False);ax.spines['right'].set_visible(False);ax.get_xaxis().tick_bottom();ax.get_yaxis().tick_left()
+```
+
 
 ## Trash
 ```{r eval=FALSE}
