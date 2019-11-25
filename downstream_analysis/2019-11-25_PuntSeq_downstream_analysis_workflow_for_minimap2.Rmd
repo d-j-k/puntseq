@@ -1273,8 +1273,8 @@ legend('topright', c(paste('Pearson correlation: ', pearson.cor),
 dev.off()
 ```
 
-### *(Please check: AttributeError: 'DataFrame' object has no attribute 'taxRank', adjust directory of output files) Pull single downsampling datasets (and three replicates) for downstream analysis
-This section is only nessesary if a new subsampling should be performed.
+### Pull single downsampling datasets (and three replicates) for downstream analysis
+# This section is only nessesary if a new subsampling is performed.
 ```{python, eval=FALSE}
 import datetime
 import pandas as pd
@@ -1367,11 +1367,47 @@ for nr in ['V2','V3','V4','V5']:
     dataa = dataa.fillna(0)
     dataa = dataa.iloc[:,posfilt]
     dataa.columns = datacolumns_filt
-    dataa.to_csv('/Users/lurban/Desktop/PuntSeq/publication_data/downsampled/final_family_%i.tsv' %i, sep='\t')
+    ## if genus
+    # dataa.to_csv('final_genus_%i.tsv' %i, sep='\t')
+    ## if family
+    dataa.to_csv('final_family_%i.tsv' %i, sep='\t')
+    
+## final files are available here: https://github.com/d-j-k/puntseq/tree/master/minimap2/downsampled
 
 
 ### *Mantel test
-```{python}
+```{python, eval=False}
+
+## choose one file (family or genus level, and rarefaction version)
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/final_family_1.tsv'
+s = requests.get(url).content
+data = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
+
+data = data.transpose()
+data['month'] = [x.split('-')[1].split('_')[0] for x in data.index]
+data['targetnice'] = [x.split('-')[0] for x in data.index]
+data['targetnice'][data['targetnice'] == 'Mock'] = 'P'
+data.index = pd.MultiIndex.from_arrays(data[['month', 'targetnice']].values.T, names=['month', 'location'])
+del data['month']; del data['targetnice']
+
+data = data.drop('N', level='location')
+data = data.drop('P', level='location')
+
+# fullall = pd.read_csv('/Users/lurban/Desktop/PuntSeq/publication_data/minimap2/All_minimap2.tsv', sep='\t', index_col=[0,1], header=0)
+fullall = pd.read_csv('/Users/lurban/Desktop/PuntSeq/publication_data/minimap2/All_genus_minimap2.tsv', sep='\t', index_col=[0,1], header=0)
+fullall = fullall.iloc[:, np.where(fullall.columns.isin(data.columns))[0]]
+fullall = fullall.loc[data.index.values]
+data = data[fullall.columns]
+
+data = pd.DataFrame(StandardScaler().fit_transform(data), index = data.index, columns = data.columns)
+fullall = pd.DataFrame(StandardScaler().fit_transform(fullall), index = fullall.index, columns = fullall.columns)
+
+datae = scipy.spatial.distance.cdist(data, data, metric='euclidean')
+fullalle = scipy.spatial.distance.cdist(fullall, fullall, metric='euclidean')
+
+import skbio
+skbio.stats.distance.mantel(datae, fullalle, method='pearson', permutations=99999, alternative='two-sided', strict=True, lookup=None)
+
 
 ```
 
