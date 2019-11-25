@@ -1276,7 +1276,6 @@ dev.off()
 ### Pull single downsampling datasets (and three replicates) for downstream analysis
 # This section is only nessesary if a new subsampling is performed.
 ```{python, eval=FALSE}
-import datetime
 import pandas as pd
 import io
 import os
@@ -1371,12 +1370,42 @@ for nr in ['V2','V3','V4','V5']:
     # dataa.to_csv('final_genus_%i.tsv' %i, sep='\t')
     ## if family
     dataa.to_csv('final_family_%i.tsv' %i, sep='\t')
-    
+
+
 ## final files are available here: https://github.com/d-j-k/puntseq/tree/master/minimap2/downsampled
+
+
+## also save combined downsampled data from all months together for downstream Mantel test
+full1 = full1.transpose()
+full2 = full2.transpose()
+full3 = full3.transpose()
+
+fullall = full1.append([full2, full3])
+fullall = fullall.dropna(how='all')
+fullall = fullall.fillna(0)
+
+fullall['month'] = np.repeat(np.array(['April','June','August']),[12,12,12],axis=0)
+fullall['targetnice'] = fullall.index
+
+fullall.index = pd.MultiIndex.from_arrays(fullall[['month', 'targetnice']].values.T, names=['month', 'location'])
+del fullall['month']; del fullall['targetnice']
+
+## if genus
+#fullall.to_csv('All_genus_minimap2.tsv' , sep='\t')
+## if family
+fullall.to_csv('All_family_minimap2.tsv' , sep='\t')
+
+## the final file is available here: https://github.com/d-j-k/puntseq/tree/master/minimap2/downsampled
+
 
 
 ### *Mantel test
 ```{python, eval=False}
+import pandas as pd
+import os
+import requests
+import numpy as np
+import skbio
 
 ## choose one file (family or genus level, and rarefaction version)
 url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/final_family_1.tsv'
@@ -1393,8 +1422,12 @@ del data['month']; del data['targetnice']
 data = data.drop('N', level='location')
 data = data.drop('P', level='location')
 
-# fullall = pd.read_csv('/Users/lurban/Desktop/PuntSeq/publication_data/minimap2/All_minimap2.tsv', sep='\t', index_col=[0,1], header=0)
-fullall = pd.read_csv('/Users/lurban/Desktop/PuntSeq/publication_data/minimap2/All_genus_minimap2.tsv', sep='\t', index_col=[0,1], header=0)
+## load combined downsampled dataset
+## if genus
+# url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/All_genus_minimap2.tsv'
+## if family
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/All_family_minimap2.tsv'
+s = requests.get(url).content
 fullall = fullall.iloc[:, np.where(fullall.columns.isin(data.columns))[0]]
 fullall = fullall.loc[data.index.values]
 data = data[fullall.columns]
@@ -1405,11 +1438,9 @@ fullall = pd.DataFrame(StandardScaler().fit_transform(fullall), index = fullall.
 datae = scipy.spatial.distance.cdist(data, data, metric='euclidean')
 fullalle = scipy.spatial.distance.cdist(fullall, fullall, metric='euclidean')
 
-import skbio
 skbio.stats.distance.mantel(datae, fullalle, method='pearson', permutations=99999, alternative='two-sided', strict=True, lookup=None)
-
-
 ```
+
 
 ##  Download/load downsampled classifier output data
 ```{r eval=FALSE}
@@ -2345,7 +2376,6 @@ for (set in 1:4){
 }
 ```
 ### Clustering & visualisation as heatmap 
-you just apply log10 at the moment, right? I would (afterwards) standardize the features by removing the mean and scaling to unit variance to give each bacteria the same "chance" of showing outliers - does that make sense?) 
 ```{r eval=FALSE}
 
 # create output directory
@@ -2601,16 +2631,11 @@ use_condaenv("PuntSeq-analysis-env")
 import os
 import pandas as pd 
 import numpy as np
-import datetime
 import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 import matplotlib.transforms as transforms
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-
-DATE = datetime.datetime.now().strftime('%Y-%m-%d')
-outfolder = DATE + '_PuntSeq_Metagenomics-analysis/'
-os.mkdir(outfolder+'PCA/')
 
 def confidence_ellipse(x, y, ax, n_std=2.0, facecolor='none', alpha=0.5, **kwargs):
     """
@@ -2695,19 +2720,24 @@ def autolabel2_feat(rects, R_df, ax):
         
         
 
-### load one downsampled dataset and prepare PCA
+## load one downsampled dataset and prepare PCA
+## choose one downsampled dataset
 nr = 1 
-data = pd.read_csv(outfolder+'Downsampling/genus/final_%s.tsv' %nr, sep='\t', index_col=0, header=0)
 
-# plot PCA of all remaining samples (>30k reads)
+## example for family-level (just exchange "family" for "genus" to run the same analyses on genus level) 
+url = 'https://raw.githubusercontent.com/d-j-k/puntseq/master/minimap2/downsampled/final_family_%i.tsv' %nr
+s = requests.get(url).content
+data = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0)
+
+# plot PCA of all remaining samples (>37k reads)
 x = data.copy()
 
-# save positive controls in different dataframes to plot them on top of the PCA later
-x2 = x[['Mock-April_genus.tsv','Mock-June_genus.tsv','Mock-August_genus.tsv']]
+# save positive controls in different dataframes to project them on the PCA later
+x2 = x[['Mock-April_family.tsv','Mock-June_family.tsv','Mock-August_family.tsv']]
 
 # delte positive and negative controls
-del x['N-August_genus.tsv']
-del x['Mock-April_genus.tsv']; del x['Mock-August_genus.tsv']; del x['Mock-June_genus.tsv']
+del x['N-August_family.tsv']
+del x['Mock-April_family.tsv']; del x['Mock-August_family.tsv']; del x['Mock-June_family.tsv']
 
 datacolumns = x.columns
 
@@ -2743,14 +2773,14 @@ principalDf.iloc[1] = c
 principalDf.iloc[2] = temp
 
 principalComponents2 = pd.DataFrame(data = principalComponents2, columns = ['PC 1', 'PC 2', 'PC 3', 'PC 4', 'PC 5', 'PC 6', 'PC 7', 'PC 8', 'PC 9', 'PC 10'])
-principalComponents2['target'] = ['Mock-April_genus.tsv','Mock-June_genus.tsv','Mock-August_genus.tsv']
+principalComponents2['target'] = ['Mock-April_family.tsv','Mock-June_family.tsv','Mock-August_family.tsv']
 principalComponents2['month'] = ['April','June','August']
 principalComponents2['targetnice'] = ['P','P','P']
 principalComponents2.index = ['April','June','August']
 principalDf = pd.concat([principalDf, principalComponents2])
 
 
-### plot PCA 
+## plot PCA 
 
 plt.style.use('classic')
 
@@ -2796,7 +2826,7 @@ ax.yaxis.set_ticks_position('left')
 ax.xaxis.set_ticks_position('bottom')
 
 
-fig.savefig(outfolder+'PCA/PCA_%i_%i.pdf' %(pc1,pc2), bbox_inches='tight')
+fig.savefig('PCA_%i_%i.pdf' %(pc1,pc2), bbox_inches='tight')
 
 
 ### examine the contributions of bacteria to the PCs
@@ -2823,8 +2853,6 @@ dataplot = dataps[pc_c].head(n=n_bacteria)
 
 negative_data = []
 positive_data = []
-negative_data_std = []
-positive_data_std = []
 for feature in dataplot.index:
     if dataplot.loc[feature] >= 0:
         positive_data.append(dataplot.loc[feature])
@@ -2851,7 +2879,7 @@ autolabel_feat(rects1, dataplot[:n], ax)
 autolabel2_feat(rects2, dataplot[:n], ax)
     
 ax.set_xlabel('contribution to %s' %pc_c)
-fig.savefig(outfolder+'PCA/PCA_contributions_%s.pdf' %pc_c, bbox_inches='tight')
+fig.savefig('PCA_contributions_%s.pdf' %pc_c, bbox_inches='tight')
 
 
 
@@ -2932,7 +2960,7 @@ ax.spines['top'].set_visible(False)
 ax.yaxis.set_ticks_position('left')
 ax.xaxis.set_ticks_position('bottom')
 
-fig.savefig(outfolder+'PCA/PCA_ionics_%i_%i.pdf' %(pc1,pc2), bbox_inches='tight')
+fig.savefig('PCA_ionics_%i_%i.pdf' %(pc1,pc2), bbox_inches='tight')
 
 
 
@@ -2958,8 +2986,6 @@ dataion = dataps[pc_c].head(n=n)
 # transform features and plot barplot of contributions
 negative_data = []
 positive_data = []
-negative_data_std = []
-positive_data_std = []
 for feature in dataion.index:
     if dataion.loc[feature] >= 0:
         positive_data.append(dataion.loc[feature])
@@ -2986,7 +3012,7 @@ autolabel_feat(rects1, dataion[:n], ax)
 autolabel2_feat(rects2, dataion[:n], ax)
     
 ax.set_xlabel('contribution to %s' %pc_c)
-fig.savefig(outfolder+'PCA/PCA_ionics_contributions_%s.pdf' %pc_c, bbox_inches='tight')
+fig.savefig('PCA_ionics_contributions_%s.pdf' %pc_c, bbox_inches='tight')
 
 ```
 
@@ -3228,172 +3254,6 @@ ggplot(data = selection, mapping = aes(x = ID, y = Percentage))+
 #   # geom_smooth(se = TRUE, method = "lm", formula = y ~ x, color = "black")+
 #   # 
 #   # 
-
-```
-
-### (Please check warnings) Correlation analysis classifier (genus level; 'Loman' equals the shotgun mock community as described in the manuscript)
-```{python, eval=FALSE}
-<!-- import os -->
-<!-- import pandas as pd  -->
-<!-- import numpy as np -->
-<!-- import datetime -->
-<!-- import matplotlib.pyplot as plt -->
-<!-- from sklearn.linear_model import LinearRegression -->
-<!-- import requests -->
-<!-- import io -->
-<!-- import scipy -->
-<!-- import pylab -->
-
-<!-- DATE = datetime.datetime.now().strftime('%Y-%m-%d') -->
-<!-- outfolder = DATE + '_PuntSeq_Metagenomics-analysis/' -->
-<!-- os.mkdir(outfolder+'positive_control/') -->
-
-<!-- for basecaller in ['Albacore','Guppy']: -->
-<!--     for classi in ['kraken16S','centrifuge', 'centrifuge16S', 'kraken', 'bracken', 'kraken16S', 'bracken16S']: -->
-<!--         for month in ['April','June', 'August', 'Loman']: -->
-<!--             if classi == 'kraken16S': -->
-<!--                 classi2 = 'Kraken2 SILVA' -->
-<!--             if classi == 'kraken': -->
-<!--                 classi2 = 'Kraken2 NCBI' -->
-<!--             if classi == 'bracken16S': -->
-<!--                 classi2 = 'Bracken SILVA' -->
-<!--             if classi == 'bracken': -->
-<!--                 classi2 = 'Bracken NCBI' -->
-<!--             if classi == 'centrifuge16S': -->
-<!--                 classi2 = 'Cenrifuge SILVA' -->
-<!--             if classi == 'centrifuge': -->
-<!--                 classi2 = 'Cenrifuge NCBI' -->
-
-<!--             taxrank = 'G' # 'U', '-', 'D', 'P', 'C', 'O', 'F', 'G', 'S' -->
-<!--             taxrank2 = 'genus' -->
-
-<!--             url = "https://raw.githubusercontent.com/d-j-k/puntseq/master/analysis/data/Analysis_bioRxiv/"+basecaller+"/"+month+"_"+classi+".tsv" -->
-<!--             s = requests.get(url).content -->
-<!--             april = pd.read_csv(io.StringIO(s.decode('utf-8')), sep='\t', index_col=0, header=0) -->
-
-<!--             if month == 'Loman': -->
-<!--                 new = april.columns.values -->
-<!--                 new[3] = 'BC08_abs' -->
-<!--                 april.columns = new -->
-<!--             else:  -->
-<!--                 april.columns = [x.split('.')[0] for x in april.columns] -->
-<!--                 april.columns = [x.split('_')[-1] for x in april.columns] -->
-<!--                 april.columns.values[3:15] = [x + '_abs' for x in april.columns[3:15]] -->
-
-<!--             # get one taxonomic level:  -->
-<!--             aprilg = april[april.taxRank==taxrank] -->
-
-<!--             ### choose positive control -->
-<!--             aprilg8 = aprilg['BC08_abs'] -->
-
-<!--             genera = np.array(['Pseudomonas', 'Escherichia', 'Salmonella', 'Lactobacillus', 'Enterococcus', 'Staphylococcus', 'Listeria', 'Bacillus']) -->
-<!--             if classi[-3:] == '16S': -->
-<!--                 genera = np.array(['Pseudomonas', 'Escherichia-Shigella', 'Salmonella', 'Lactobacillus', 'Enterococcus', 'Staphylococcus', 'Listeria', 'Bacillus']) -->
-<!--             ## if family or order: -->
-<!--             #genera = np.array(['Pseudomonadaceae', 'Enterobacteriaceae', 'Lactobacillaceae', 'Enterococcaceae', 'Staphylococcaceae', 'Listeriaceae', 'Bacillaceae']) -->
-<!--             #genera = np.array(['Pseudomonadales', 'Enterobacterales', 'Lactobacillales', 'Bacillales']) -->
-<!--             #if classi[-3:] == '16S': -->
-<!--                 #genera = np.array(['Pseudomonadales', 'Enterobacteriales', 'Lactobacillales', 'Bacillales']) -->
-
-<!--             # allocate expected 16S ratio (from Zymobiomics protocol) -->
-<!--             generaexp = np.array([4.2, 10.1, 10.4, 18.4, 9.9, 15.5, 14.1, 17.4]) -->
-<!--             ## if family or order: -->
-<!--             #generaexp = np.array([4.2, 10.1+10.4, 18.4, 9.9, 15.5, 14.1, 17.4]) -->
-<!--             #generaexp = np.array([4.2, 10.1+10.4, 18.4+9.9, 15.5+14.1+17.4]) -->
-
-<!--             # allocate expected shotgun ratio (from Zymobiomics protocol) -->
-<!--             if month == 'Loman': -->
-<!--                 generaexp = np.array([6.1, 8.5, 8.7, 21.6, 14.6, 15.2, 13.9, 10.3]) -->
-<!--                 ## if family or order: -->
-<!--                 #generaexp = np.array([6.1, 8.5+8.7, 21.6, 14.6, 15.2, 13.9, 10.3]) -->
-<!--                 #generaexp = np.array([6.1, 8.5+8.7, 21.6+14.6, 15.2+13.9+10.3]) -->
-
-
-<!--             generaabs = aprilg8.loc[genera].values/aprilg8.sum() -->
-<!--             generaabs[np.isnan(generaabs)] = 0 -->
-
-<!--             # values without Ecoli (to calculate correlations) [nr might chance on different taxonomic level] -->
-<!--             generae = np.delete(genera, 1) -->
-<!--             generaexpe = np.delete(generaexp, 1) -->
-<!--             generaabse = np.delete(generaabs, 1) -->
-
-<!--             # assign values per month -->
-<!--             if month == 'April': -->
-<!--                 gaA = generaabs.copy() -->
-<!--                 geA = generaexp.copy() -->
-<!--                 gaAe = generaabse.copy() -->
-<!--                 geAe = generaexpe.copy() -->
-<!--             if month == 'June': -->
-<!--                 gaJ = generaabs.copy() -->
-<!--                 geJ = generaexp.copy() -->
-<!--                 gaJe = generaabse.copy() -->
-<!--                 geJe = generaexpe.copy() -->
-<!--             if month == 'August': -->
-<!--                 gaAU = generaabs.copy() -->
-<!--                 geAU = generaexp.copy() -->
-<!--                 gaAUe = generaabse.copy() -->
-<!--                 geAUe = generaexpe.copy() -->
-<!--             if month == 'Loman': -->
-<!--                 gaL = generaabs.copy() -->
-<!--                 geL = generaexp.copy() -->
-<!--                 gaLe = generaabse.copy() -->
-<!--                 geLe = generaexpe.copy() -->
-
-
-
-<!--         # plot -->
-<!--         plt.style.use('classic') -->
-
-
-<!--         fig, ax = plt.subplots(figsize=(8, 8), facecolor='white') -->
-
-<!--         maxaxis = 70 -->
-<!--         plt.xlim(-1, maxaxis) -->
-<!--         plt.ylim(-1, maxaxis) -->
-
-
-<!--         # linear regression without E.coli -->
-<!--         modele = LinearRegression(fit_intercept=True) -->
-<!--         modele.fit(geAe.reshape(-1, 1), (gaAe * 100).reshape(-1, 1)) -->
-<!--         xfiteA = np.linspace(0, maxaxis, 100) -->
-<!--         yfiteA = modele.predict(xfiteA.reshape(-1, 1)) -->
-<!--         plt.plot(xfiteA, yfiteA, 'g', label = 'April R = %.3f'%(scipy.stats.pearsonr(geAe, gaAe * 100)[0]),  -->
-<!--                  linestyle='dashed', color='0') -->
-<!--         ax.scatter(geA, gaA * 100, color='0', label='', edgecolor='none', s=200) -->
-
-<!--         modele = LinearRegression(fit_intercept=True) -->
-<!--         modele.fit(geJe.reshape(-1, 1), (gaJe * 100).reshape(-1, 1)) -->
-<!--         xfiteJ = np.linspace(0, maxaxis, 100) -->
-<!--         yfiteJ = modele.predict(xfiteJ.reshape(-1, 1)) -->
-<!--         plt.plot(xfiteJ, yfiteJ, 'g', label = 'June R = %.3f'%(scipy.stats.pearsonr(geJe, gaJe * 100)[0]),  -->
-<!--                  linestyle='dashed', color='0.3') -->
-<!--         ax.scatter(geJ, gaJ * 100, color='0.3', label='', edgecolor='none', s=200) -->
-
-<!--         modele = LinearRegression(fit_intercept=True) -->
-<!--         modele.fit(geAUe.reshape(-1, 1), (gaAUe * 100).reshape(-1, 1)) -->
-<!--         xfiteAU = np.linspace(0, maxaxis, 100) -->
-<!--         yfiteAU = modele.predict(xfiteAU.reshape(-1, 1)) -->
-<!--         plt.plot(xfiteAU, yfiteAU, 'g', label = 'August R = %.3f'%(scipy.stats.pearsonr(geAUe, gaAUe * 100)[0]),  -->
-<!--                  linestyle='dashed', color='0.6') -->
-<!--         ax.scatter(geAU, gaAU * 100, color='0.6', label='', edgecolor='none', s=200) -->
-
-<!--         modele = LinearRegression(fit_intercept=True) -->
-<!--         modele.fit(geLe.reshape(-1, 1), (gaLe * 100).reshape(-1, 1)) -->
-<!--         xfiteL = np.linspace(0, maxaxis, 100) -->
-<!--         yfiteL = modele.predict(xfiteL.reshape(-1, 1)) -->
-<!--         plt.plot(xfiteL, yfiteL, 'g', label = 'Shotgun R = %.3f'%(scipy.stats.pearsonr(geLe, gaLe * 100)[0]),  -->
-<!--                  linestyle='dashed', color='0.8') -->
-<!--         ax.scatter(geL, gaL * 100, color='0.8', label='', edgecolor='none', s=200) -->
-
-<!--         ax.get_xaxis().tick_bottom();ax.get_yaxis().tick_left() -->
-<!--         ax.tick_params(labelsize=20) -->
-<!--         pylab.xlabel('expected ratio of taxa [%]', fontsize=20); pylab.ylabel('observed ratio of taxa [%]', fontsize=20) -->
-<!--         plt.title('%s %s' % (basecaller,classi2),fontsize=20) -->
-
-<!--         plt.legend(prop = {'size':20},frameon=False,loc=1, fontsize=20) -->
-<!--         plt.show() -->
-
-<!--         fig.savefig(outfolder+'positive_control/Plot_%s_%s.pdf' %(basecaller,classi), bbox_inches='tight') -->
 
 ```
 
