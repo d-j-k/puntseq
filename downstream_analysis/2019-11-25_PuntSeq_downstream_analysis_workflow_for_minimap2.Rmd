@@ -160,6 +160,109 @@ knitr::knit_engines$set(python = reticulate::eng_python)
 py_config()
 ```
 
+
+## Processing of classifier output
+# filter the *.sam* output files from minimap2 on the command line
+`for file in *.sam; do echo "==> ${file} <=="; grep -v '^@' "${file}" > "${file}.output"; done`
+`rename filtered.sam.output sam *filtered.sam.output`
+# pre-process the sam files to tsv files with unique read-taxa assignments
+```{python, eval=FALSE}
+import pandas as pd
+import io
+import os
+import requests
+import numpy as np
+
+# load all files from the SILVA database
+minit = pd.read_csv('seqid2taxid.map', sep='\t', index_col=0, header=None)
+sild = pd.read_csv('tax_slv_ssu_132.txt.1', sep='\t', header=None)
+sild.columns = ['tree','taxid','level','3','4']
+sild['ranks'] = [x.split(';')[-2] for x in sild.tree.values]
+sild['tree'] = [x[0:-1] for x in sild.tree]
+sild.index = sild.taxid
+namesdmp = pd.read_csv('names.dmp', sep='\t', index_col=0, header=None)
+
+# choose rank and month
+month = 'april'
+ranks = 'family'
+
+# choose dir of sam files
+dirc = '/path/to/sam/files/%s' %month
+
+# create 
+nr = 0
+for filename in os.listdir(dirc):
+    print(filename)
+    
+    try:
+        silva_10k = pd.read_csv('/hps/nobackup2/research/stegle/users2/lurban/puntseq/public/analysis/data/%s/convert/sam/%s' % (month,filename), 
+                         sep='\t', header=None, usecols = [0,2,4,13])
+    except: 
+        continue
+    
+    silva_10k.columns = ['Read_ID', 'id','MS', 'ASs']
+    silva_10k['ASs'] = silva_10k['ASs'].astype('str')
+    silva_10k['AS'] = [x.split(':i:')[-1] for x in silva_10k['ASs'].values]
+    silva_10k.dropna(axis=0, subset=['AS'], inplace=True)
+    silva_10k['AS'] = silva_10k['AS'].astype('float')
+    mini = silva_10k[silva_10k['AS'] == silva_10k.groupby('Read_ID')['AS'].transform('max')]
+    mini = mini[['Read_ID', 'MS', 'AS','id']]              
+
+    mini.columns = ['read','score','as','id']
+    mini = mini[~mini.id.isnull()]
+    mini['taxid'] = minit.loc[mini.id.values].values
+    mini['tree'] = sild.loc[mini.taxid.values]['tree'].values
+    mini['level'] = sild.loc[mini.taxid.values]['level'].values
+
+    mini['phylum'] = [x.split(';')[0] for x in mini.tree]
+    print(mini.phylum.unique())
+
+    # if genus
+    if ranks == 'genus':
+        mini = mini[mini.level=='genus'] 
+        mini['ranks'] = namesdmp.loc[mini.taxid][2].values 
+        mini.index = mini.read  
+        for i in mini.index[mini.duplicated(subset='read', keep=False)].unique():
+            minil = list(mini.loc[i].taxid.values)
+            if minil.count(minil[0]) != len(minil):
+                mini.drop(i)
+        mini.drop_duplicates(subset='read', keep='first', inplace=True)
+
+    # if family
+    if ranks == 'family':
+        mini = mini[(mini.level=='genus')|(mini.level=='family')] # 9349
+        mini['ranks'] = namesdmp.loc[mini.taxid][2].values   
+        mini.index = mini.read
+        for i in mini.index[mini.duplicated(subset='read', keep=False)].unique():
+            minil = list(mini.loc[i].taxid.values)
+            if minil.count(minil[0]) != len(minil):
+                minil2 = [x.split(';')[-2] for x in mini.loc[i].tree.values]
+                if minil2.count(minil2[0]) == len(minil2):
+                    mini['ranks'].loc[i] = minil2[0]
+                else: 
+                    mini.drop(i)
+        mini.drop_duplicates(subset='read', keep='first', inplace=True)           
+        mini['genuss'] = [sild.loc[x].tree.split(';')[-2] for x in mini.taxid]
+        mini['ranks'][mini.level=='genus'] = mini['genuss'][mini.level=='genus']
+
+    mini2 = pd.DataFrame(mini.ranks.value_counts())
+    if nr==0:
+        minif = mini2.copy()
+        minif.columns.values[nr] = filename.split('.')[0]
+    else:
+        minif = minif.merge(mini2, left_index=True, right_index=True, how='outer')
+        minif.columns.values[nr] = filename.split('.')[0]
+    nr = nr+1
+    
+# describe all missing bacteria as absent
+minif = minif.fillna(0)  
+  
+# save the final txt files  
+minif.to_csv(minimap2_k12_%s_%s.txt' %(ranks,month), sep='\t')
+
+```
+
+
 # Part 1: Downsampling & Quality Control
 ## Continuous rarefactions of 16S classifications
 ### Load data
