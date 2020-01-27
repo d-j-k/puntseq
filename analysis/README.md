@@ -1,9 +1,12 @@
 # Analysis
 
+Here, we provide a Snakemake framework that integrates all pre-processing steps that are necessary to transform the direct output from nanopore sequencing (raw fast5 files) to filtered and classified reads. We have implemented the classification tools Centrifuge and kraken2 as examples, but our manuscript [link to follow] compares the performance of more than ten classification tools when applied to long-read nanopore data.
+We also show how to install the singularity provided on this Github to directly access  all computational tools that we have used in our analyses.
+
 ![Pipeline DAG](./docs/dag.png)
 
 # Internal usage of analysis
-These instructions are for if you have access to the `ebi-cli` cluster.  
+These instructions are for if you have access to the `ebi-cli` cluster, but can be easily adapted to be used on any cluster or local system.     
 
 ## Installation
 
