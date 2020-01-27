@@ -13,4 +13,7 @@ See [here](https://github.com/d-j-k/puntseq/tree/master/analysis) for the detail
 
 See [here](https://www.puntseq.co.uk/) for more updates about the PuntSeq project!
 
+
+Overview of the experimental design:
+
 ![alt text](https://github.com/d-j-k/puntseq/blob/master/figure2.png)
