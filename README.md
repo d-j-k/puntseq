@@ -15,9 +15,9 @@ Download the raw data from our [ENA repository](https://www.ebi.ac.uk/ena/data/v
 
 See [here](https://github.com/d-j-k/puntseq/tree/master/analysis) for the detailed description of our raw nanopore data pre-processing steps.
 
-See [here](https://www.puntseq.co.uk/) and follow us on [Twitter](https://twitter.com/puntseq) for more updates about the PuntSeq project!
+Check out the [project website](https://www.puntseq.co.uk/) and follow us on [Twitter](https://twitter.com/puntseq) for more updates!
 
 
-Overview of the experimental design:
+Overview of this study's experimental design:
 
 ![alt text](https://github.com/d-j-k/puntseq/blob/master/figure2.png)
