@@ -9,7 +9,7 @@ Clean freshwater lies at the heart of human society. While most traditional wate
 
 Here, we provide additional environmental data, the final classifications (using [Minimap2](https://github.com/lh3/minimap2), -k = 15) of all nanopore sequencing reads from three sampling dates (April, June, and August 2018) across nine sampling locations. This includes rarefied datasets, scripts for the downstream analyses (written in R and python, integrated in a markdown file) and an appropriate conda environment.
 
-Using this platform, the user will be able to replicate all results presented in the corresponding study [preprint](https://www.biorxiv.org/content/10.1101/2020.02.06.936302v1).
+Using this platform, the user will be able to replicate all results presented in the corresponding study [preprint](https://www.biorxiv.org/content/10.1101/2020.02.06.936302v2).
 
 Download the raw data from our [ENA repository](https://www.ebi.ac.uk/ena/data/view/PRJEB34900).
 
