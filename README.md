@@ -1,4 +1,4 @@
-![Scripting](https://img.shields.io/badge/Language-Python,_R_&_Bash-yellow.svg) [![Copyright](https://img.shields.io/badge/Copyright-(c)_2020_PuntSeq-green.svg)](License) [![DOI](https://img.shields.io/badge/DOI-10.1101/2020.02.06.936302-blue.svg)](https://doi.org/10.1101/2020.02.06.936302)
+![Scripting](https://img.shields.io/badge/Language-Python,_R\_&_Bash-yellow.svg) [![Copyright](https://img.shields.io/badge/Copyright-(c)_2020_PuntSeq-green.svg)](License) [![DOI](https://img.shields.io/badge/DOI-10.1101/2020.02.06.936302-blue.svg)](https://doi.org/10.1101/2020.02.06.936302)
 
 ![alt text](https://github.com/d-j-k/puntseq/blob/master/figure1.png)
 
@@ -29,7 +29,7 @@ Check out the [project website](https://www.puntseq.co.uk/) and follow us on [Tw
 
 If you use any part or modified version of the here provided code in your work, you should:
 
-1. state explicitly that you've used the PuntSeq code (or a modified version of it, if this is the case).
-2. read and cite the following paper:
+1. State explicitly that you've used the PuntSeq code (or a modified version of it, if this is the case).
+2. Read and cite the following paper:
 
 - Urban L, Holzer A, Baronas JJ, Hall M, Braeuninger-Weimer P, Scherm MJ, Kunz DJ, Perera SN, Martin-Herranz DE, Tipper ET, Salter SJ and Stammnitz MR (2020), **Freshwater monitoring by nanopore sequencing**, bioRxiv 2020.02.06.936302; doi: [https://doi.org/10.1101/2020.02.06.936302](https://doi.org/10.1101/2020.02.06.936302)
