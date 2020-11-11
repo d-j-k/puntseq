@@ -29,7 +29,7 @@ Check out the [project website](https://www.puntseq.co.uk/) and follow us on [Tw
 
 If you use any part or modified version of the here provided code in your work, you should:
 
-1. State explicitly that you've used the PuntSeq code (or a modified version of it, if this is the case) and follow all code license conditions.
+1. State explicitly that you've used the PuntSeq code (or a modified version of it, if this is the case) and follow all our code license conditions.
 2. Read and cite the following paper:
 
 - Urban L, Holzer A, Baronas JJ, Hall M, Braeuninger-Weimer P, Scherm MJ, Kunz DJ, Perera SN, Martin-Herranz DE, Tipper ET, Salter SJ and Stammnitz MR (2020), **Freshwater monitoring by nanopore sequencing**, bioRxiv 2020.02.06.936302; doi: [https://doi.org/10.1101/2020.02.06.936302](https://doi.org/10.1101/2020.02.06.936302)
