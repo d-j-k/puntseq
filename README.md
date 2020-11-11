@@ -8,9 +8,8 @@
 
 Clean freshwater lies at the heart of human society. While most traditional water monitoring approaches test for specific chemicals or pathogens, the direct tracing of aquatic DNA poses a more holistic alternative which has hitherto been underappreciated due to challenges in logistics and investment. Here we present a simple, fast, inexpensive and reliable freshwater diagnostics workflow centred around portable nanopore DNA sequencing. Using bacterial mock communities and spatiotemporal microbiata from an example river in Cambridge (UK), our study shows how nanopore sequencing can be readily integrated for the assessment of aquatic bacterial diversity and pollution. We provide a computational benchmark that features more than ten taxonomic classification tools to derive guidelines for bacterial DNA analyses with nanopore data. Through complementary physicochemical measurements, we find that nanopore metagenomics can depict fine temporal gradients along the main hydrological axis of an urban-rural interface, in addition to yielding high-resolution pathogen maps that address concerns of public health.
 
-Overview of this study's experimental design:
-
 ![alt text](https://github.com/d-j-k/puntseq/blob/master/figure2.png)
+*Figure: Overview of the experimental design of this study*
 
 ## Description
 
